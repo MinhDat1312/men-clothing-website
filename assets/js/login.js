@@ -44,12 +44,15 @@ function Login(e){
     var data=JSON.parse(user);
 
     if(user==null){
-        alert("Đăng nhập email và password");
+        alert("Tài khoản chưa đăng ký");
     }
     else if(mail==data.email && password==data.password){
         window.location.href="./assets/html/home.html";
     }
-    else{
-        alert("Tài khoản không tồn tại");
+    else if(mail=="" && password==""){
+        alert("Vui lòng nhập thông tin");
+    }
+    else {
+        alert("Tài khoản chưa đăng ký");
     }
 }
