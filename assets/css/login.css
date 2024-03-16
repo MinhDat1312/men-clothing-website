@@ -1,0 +1,47 @@
+/* Header */
+.header__login {
+    height: 84px;
+    background-image: var(--white-color);
+}
+
+.header__nav-login {
+    display: flex;
+    height: 84px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logo-img-login {
+    width: 134px;
+}
+
+.header__link-login {
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.header__link-login:hover {
+    color: var(--primary-color);
+}
+
+/* Container */
+.login__container {
+    background-color: var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.login__container-logo-img {
+    margin: 160px 0;
+    width: 450px;
+}
+/* Login html */
+.modal-inner {
+   margin: 55px 0;
+   padding: 0 2.5px;
+}
+
+.auth-form-login.auth-form-login-main {
+    display: block;
+}
