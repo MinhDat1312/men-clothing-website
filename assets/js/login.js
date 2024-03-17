@@ -20,15 +20,26 @@ function Register(e){
     var pass=document.getElementById('passR').value;
     var repass=document.getElementById('repassR').value;
 
-    var user={
-        email: mail,
-        password: pass,
-        re_password: repass
-    };
+    if(mail!="" && pass!="" && repass!=""){
+        if(pass==repass){
+            var user={
+                email: mail,
+                password: pass,
+                re_password: repass
+            };
+        
+            var json=JSON.stringify(user);
+            localStorage.setItem("username",json);
+            alert("Đăng ký thành công");
+        }
+        else{
+            alert("Mật khẩu không giống");
+        }
+    }
+    else{
+        alert("Vui lòng nhập thông tin");
+    }
 
-    var json=JSON.stringify(user);
-    localStorage.setItem("username",json);
-    alert("Đăng ký thành công");
 
     document.getElementById('emailR').value="";
     document.getElementById('passR').value="";
@@ -40,19 +51,21 @@ function Login(e){
     var mail=document.getElementById('email').value;
     var password=document.getElementById('password').value;
 
-    var user=localStorage.getItem("username");
-    var data=JSON.parse(user);
-
-    if(user==null){
-        alert("Tài khoản chưa đăng ký");
-    }
-    else if(mail==data.email && password==data.password){
-        window.location.href="./assets/html/home.html";
-    }
-    else if(mail=="" && password==""){
+    if(mail=="" && password==""){
         alert("Vui lòng nhập thông tin");
     }
-    else {
-        alert("Tài khoản chưa đăng ký");
-    }
+    else{
+        var user=localStorage.getItem("username");
+        var data=JSON.parse(user);
+
+        if(user==null){
+            alert("Tài khoản chưa đăng ký");
+        }
+        else if(mail==data.email && password==data.password){
+            window.location.href="./assets/html/home.html";
+        }
+        else {
+            alert("Tài khoản chưa đăng ký");
+        }
+    }    
 }
