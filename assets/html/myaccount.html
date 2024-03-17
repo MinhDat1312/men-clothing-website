@@ -256,7 +256,7 @@
                         </div>
                     </div>
                     
-                    <!-- Display menu on mobile -->
+                    <!-- Display menu on mobile and tablet -->
                     <div class="header__menu-mobile">
                         <label for="header__menu-mobile-check">
                             <i class="fa-solid fa-bars header__menu-mobile-icon"></i>
@@ -271,7 +271,13 @@
                             </label>
                             <ul class="header__menu-mobile-list">
                                 <li class="header__menu-mobile-item">
-                                    <a href="#modal" class="header__menu-mobile-link" onclick="displayRegister();">Đăng ký</a>
+                                    <a href="../html/myaccount.html" class="header__menu-mobile-link">Tài khoản của tôi</a>
+                                </li>
+                                <li class="header__menu-mobile-item">
+                                    <a href="" class="header__menu-mobile-link">Địa chỉ của tôi</a>
+                                </li>
+                                <li class="header__menu-mobile-item">
+                                    <a href="" class="header__menu-mobile-link">Đơn mua</a>
                                 </li>
                                 <li class="header__menu-mobile-item">
                                     <a href="../../index.html" class="header__menu-mobile-link">Đăng xuất</a>
@@ -308,7 +314,7 @@
                     </div>
                 </div>
                 <div class="row content__account-form">
-                    <div class="col-10 form">
+                    <div class="col-lg-10 col-12 form">
                             <div class="row form__group">
                                 <div class="col-3 form__label">
                                     <label for="signin" class="form__label-text">Tên đăng nhập</label>
@@ -368,8 +374,11 @@
                                     <input type="date" id="date" class="form__text">
                                 </div>
                             </div>
+                            <div class="row d-lg-none d-flex justify-content-end d-sm-flex justify-content-sm-end">
+                                <button class="col form__btn m-0" onclick="saveData();">Lưu</button>
+                            </div>
                     </div>
-                    <div class="col-2">
+                    <div class="col-lg-2 d-lg-block d-none">
                         <div class="form__img" style="background-image: url(../img/img_qr.png);"></div>
                         <button class="form__btn" onclick="saveData();">Lưu</button>
                     </div>
@@ -569,6 +578,8 @@
             var nameSign=document.querySelector(".header__item-user-name");
 
             nameSign.innerHTML=nameUser.value;
+
+            alert("Lưu thông tin thành công");
         }
     </script>
 </html>

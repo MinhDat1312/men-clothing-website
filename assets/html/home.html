@@ -254,7 +254,7 @@
                         </div>
                     </div>
                     
-                    <!-- Display menu on mobile -->
+                    <!-- Display menu on mobile and tablet -->
                     <div class="header__menu-mobile">
                         <label for="header__menu-mobile-check">
                             <i class="fa-solid fa-bars header__menu-mobile-icon"></i>
@@ -268,8 +268,17 @@
                                 <i class="fa-solid fa-xmark header__menu-close-icon"></i>
                             </label>
                             <ul class="header__menu-mobile-list">
-                                <li class="header__menu-mobile-item">
+                                <!-- <li class="header__menu-mobile-item">
                                     <a href="#modal" class="header__menu-mobile-link" onclick="displayRegister();">Đăng ký</a>
+                                </li> -->
+                                <li class="header__menu-mobile-item">
+                                    <a href="../html/myaccount.html" class="header__menu-mobile-link">Tài khoản của tôi</a>
+                                </li>
+                                <li class="header__menu-mobile-item">
+                                    <a href="" class="header__menu-mobile-link">Địa chỉ của tôi</a>
+                                </li>
+                                <li class="header__menu-mobile-item">
+                                    <a href="" class="header__menu-mobile-link">Đơn mua</a>
                                 </li>
                                 <li class="header__menu-mobile-item">
                                     <a href="../../index.html" class="header__menu-mobile-link">Đăng xuất</a>
@@ -1399,13 +1408,13 @@
 
                     <div class="auth-form__form">
                         <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="Nhập email">
+                            <input type="text" class="auth-form__input" id="emailR" placeholder="Nhập email">
                         </div>
                         <div class="auth-form__group">
-                            <input type="password" class="auth-form__input" placeholder="Nhập mật khẩu">
+                            <input type="password" class="auth-form__input" id="passR" placeholder="Nhập mật khẩu">
                         </div>
                         <div class="auth-form__group">
-                            <input type="password" class="auth-form__input" placeholder="Nhập lại mật khẩu">
+                            <input type="password" class="auth-form__input" id="repassR" placeholder="Nhập lại mật khẩu">
                         </div>
                     </div>
 
@@ -1419,7 +1428,7 @@
 
                     <div class="auth-form__control">
                         <button class="btn auth-form__control-back" onclick="displayNone();">TRỞ LẠI</button>
-                        <button class="btn btn--primary">ĐĂNG KÝ</button>
+                        <button class="btn btn--primary" onclick="Register();">ĐĂNG KÝ</button>
                     </div>
                 </div>
 

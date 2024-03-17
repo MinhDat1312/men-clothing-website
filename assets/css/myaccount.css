@@ -58,10 +58,6 @@ input:focus {
     outline: 1px solid var(--primary-color);
 }
 
-/* input[type='date'] {
-    outline: var(--primary-color);
-} */
-
 .gender__wrapper,
 .radio__gender {
     display: flex;
