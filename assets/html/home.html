@@ -14,6 +14,7 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/login.js"></script>
+    <script src="../js/product.js"></script>
 </head>
 <body>
     <div class="main">
@@ -426,8 +427,92 @@
                         <div class="home-product">
                             <div class="row">
                                 <div class="col-lg-3 col-sm-6 col-6">
-                                    <a href="" class="home-product-link">
-                                        <div class="home-product-item">
+                                    <a href="../html/detailProduct.html" class="home-product-link">
+                                        <div class="home-product-item" id="1" onclick="addItemToCart(id);">
+                                            <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__old">12.300.000đ</span>
+                                                <span class="home-product-item__new">2.300.000đ</span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <!-- Nếu thêm class home-product-item__heart--liked thì tim sẽ chuyển màu -->
+                                                <span class="home-product-item__heart home-product-item__heart--liked">
+                                                    <i class="fa-regular fa-heart home-product-item__heart-icon"></i>
+                                                    <i class="fa-solid fa-heart home-product-item__hearted-icon"></i>
+                                                </span>
+                                                <div class="home-product-item__star">
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon"></i>
+                                                </div>
+                                                <div class="home-product-item__sold">88 đã bán</div>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whooo</span>
+                                                <span class="home-product-item__country">Hàn Quốc</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>Yêu thích</span>
+                                            </div>
+                                            <div class="home-product-item__discount">
+                                                <span class="home-product-item__percent">43%</span>
+                                                <span class="home-product-item__label">GIẢM</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-lg-3 col-sm-6 col-6">
+                                    <a href="../html/detailProduct.html" class="home-product-link">
+                                        <div class="home-product-item" id="2" onclick="addItemToCart(id);">
+                                            <div class="home-product-item__img" style="background-image: url(../img/img2.png);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Quần tây nam Akuba cao cấp vải co giãn dày dặn, quần âu nam công sở 
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__old">10.300.000đ</span>
+                                                <span class="home-product-item__new">2.000.000đ</span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <!-- Nếu thêm class home-product-item__heart--liked thì tim sẽ chuyển màu -->
+                                                <span class="home-product-item__heart home-product-item__heart--liked">
+                                                    <i class="fa-regular fa-heart home-product-item__heart-icon"></i>
+                                                    <i class="fa-solid fa-heart home-product-item__hearted-icon"></i>
+                                                </span>
+                                                <div class="home-product-item__star">
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon"></i>
+                                                </div>
+                                                <div class="home-product-item__sold">88 đã bán</div>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Akuba</span>
+                                                <span class="home-product-item__country">Việt Nam</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>Yêu thích</span>
+                                            </div>
+                                            <div class="home-product-item__discount">
+                                                <span class="home-product-item__percent">43%</span>
+                                                <span class="home-product-item__label">GIẢM</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-lg-3 col-sm-6 col-6">
+                                    <a href="../html/detailProduct.html" class="home-product-link">
+                                        <div class="home-product-item" id="3" onclick="addItemToCart(id);">
                                             <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
                                             <h4 class="home-product-item__name">
                                                 Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
@@ -468,262 +553,8 @@
                                 </div>
 
                                 <div class="col-lg-3 col-sm-6 col-6">
-                                    <a href="" class="home-product-link">
-                                        <div class="home-product-item">
-                                            <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
-                                            <h4 class="home-product-item__name">
-                                                Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
-                                            </h4>
-                                            <div class="home-product-item__price">
-                                                <span class="home-product-item__old">12.300.000đ</span>
-                                                <span class="home-product-item__new">2.300.000đ</span>
-                                            </div>
-                                            <div class="home-product-item__action">
-                                                <!-- Nếu thêm class home-product-item__heart--liked thì tim sẽ chuyển màu -->
-                                                <span class="home-product-item__heart home-product-item__heart--liked">
-                                                    <i class="fa-regular fa-heart home-product-item__heart-icon"></i>
-                                                    <i class="fa-solid fa-heart home-product-item__hearted-icon"></i>
-                                                </span>
-                                                <div class="home-product-item__star">
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon"></i>
-                                                </div>
-                                                <div class="home-product-item__sold">88 đã bán</div>
-                                            </div>
-                                            <div class="home-product-item__origin">
-                                                <span class="home-product-item__brand">Whooo</span>
-                                                <span class="home-product-item__country">Korea</span>
-                                            </div>
-                                            <div class="home-product-item__favourite">
-                                                <i class="fa-solid fa-check"></i>
-                                                <span>Yêu thích</span>
-                                            </div>
-                                            <div class="home-product-item__discount">
-                                                <span class="home-product-item__percent">43%</span>
-                                                <span class="home-product-item__label">GIẢM</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-lg-3 col-sm-6 col-6">
-                                    <a href="" class="home-product-link">
-                                        <div class="home-product-item">
-                                            <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
-                                            <h4 class="home-product-item__name">
-                                                Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
-                                            </h4>
-                                            <div class="home-product-item__price">
-                                                <span class="home-product-item__old">12.300.000đ</span>
-                                                <span class="home-product-item__new">2.300.000đ</span>
-                                            </div>
-                                            <div class="home-product-item__action">
-                                                <!-- Nếu thêm class home-product-item__heart--liked thì tim sẽ chuyển màu -->
-                                                <span class="home-product-item__heart home-product-item__heart--liked">
-                                                    <i class="fa-regular fa-heart home-product-item__heart-icon"></i>
-                                                    <i class="fa-solid fa-heart home-product-item__hearted-icon"></i>
-                                                </span>
-                                                <div class="home-product-item__star">
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon"></i>
-                                                </div>
-                                                <div class="home-product-item__sold">88 đã bán</div>
-                                            </div>
-                                            <div class="home-product-item__origin">
-                                                <span class="home-product-item__brand">Whooo</span>
-                                                <span class="home-product-item__country">Korea</span>
-                                            </div>
-                                            <div class="home-product-item__favourite">
-                                                <i class="fa-solid fa-check"></i>
-                                                <span>Yêu thích</span>
-                                            </div>
-                                            <div class="home-product-item__discount">
-                                                <span class="home-product-item__percent">43%</span>
-                                                <span class="home-product-item__label">GIẢM</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-lg-3 col-sm-6 col-6">
-                                    <a href="" class="home-product-link">
-                                        <div class="home-product-item">
-                                            <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
-                                            <h4 class="home-product-item__name">
-                                                Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
-                                            </h4>
-                                            <div class="home-product-item__price">
-                                                <span class="home-product-item__old">12.300.000đ</span>
-                                                <span class="home-product-item__new">2.300.000đ</span>
-                                            </div>
-                                            <div class="home-product-item__action">
-                                                <!-- Nếu thêm class home-product-item__heart--liked thì tim sẽ chuyển màu -->
-                                                <span class="home-product-item__heart home-product-item__heart--liked">
-                                                    <i class="fa-regular fa-heart home-product-item__heart-icon"></i>
-                                                    <i class="fa-solid fa-heart home-product-item__hearted-icon"></i>
-                                                </span>
-                                                <div class="home-product-item__star">
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon"></i>
-                                                </div>
-                                                <div class="home-product-item__sold">88 đã bán</div>
-                                            </div>
-                                            <div class="home-product-item__origin">
-                                                <span class="home-product-item__brand">Whooo</span>
-                                                <span class="home-product-item__country">Korea</span>
-                                            </div>
-                                            <div class="home-product-item__favourite">
-                                                <i class="fa-solid fa-check"></i>
-                                                <span>Yêu thích</span>
-                                            </div>
-                                            <div class="home-product-item__discount">
-                                                <span class="home-product-item__percent">43%</span>
-                                                <span class="home-product-item__label">GIẢM</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-lg-3 col-sm-6 col-6">
-                                    <a href="" class="home-product-link">
-                                        <div class="home-product-item">
-                                            <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
-                                            <h4 class="home-product-item__name">
-                                                Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
-                                            </h4>
-                                            <div class="home-product-item__price">
-                                                <span class="home-product-item__old">12.300.000đ</span>
-                                                <span class="home-product-item__new">2.300.000đ</span>
-                                            </div>
-                                            <div class="home-product-item__action">
-                                                <!-- Nếu thêm class home-product-item__heart--liked thì tim sẽ chuyển màu -->
-                                                <span class="home-product-item__heart home-product-item__heart--liked">
-                                                    <i class="fa-regular fa-heart home-product-item__heart-icon"></i>
-                                                    <i class="fa-solid fa-heart home-product-item__hearted-icon"></i>
-                                                </span>
-                                                <div class="home-product-item__star">
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon"></i>
-                                                </div>
-                                                <div class="home-product-item__sold">88 đã bán</div>
-                                            </div>
-                                            <div class="home-product-item__origin">
-                                                <span class="home-product-item__brand">Whooo</span>
-                                                <span class="home-product-item__country">Korea</span>
-                                            </div>
-                                            <div class="home-product-item__favourite">
-                                                <i class="fa-solid fa-check"></i>
-                                                <span>Yêu thích</span>
-                                            </div>
-                                            <div class="home-product-item__discount">
-                                                <span class="home-product-item__percent">43%</span>
-                                                <span class="home-product-item__label">GIẢM</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-lg-3 col-sm-6 col-6">
-                                    <a href="" class="home-product-link">
-                                        <div class="home-product-item">
-                                            <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
-                                            <h4 class="home-product-item__name">
-                                                Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
-                                            </h4>
-                                            <div class="home-product-item__price">
-                                                <span class="home-product-item__old">12.300.000đ</span>
-                                                <span class="home-product-item__new">2.300.000đ</span>
-                                            </div>
-                                            <div class="home-product-item__action">
-                                                <!-- Nếu thêm class home-product-item__heart--liked thì tim sẽ chuyển màu -->
-                                                <span class="home-product-item__heart home-product-item__heart--liked">
-                                                    <i class="fa-regular fa-heart home-product-item__heart-icon"></i>
-                                                    <i class="fa-solid fa-heart home-product-item__hearted-icon"></i>
-                                                </span>
-                                                <div class="home-product-item__star">
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon"></i>
-                                                </div>
-                                                <div class="home-product-item__sold">88 đã bán</div>
-                                            </div>
-                                            <div class="home-product-item__origin">
-                                                <span class="home-product-item__brand">Whooo</span>
-                                                <span class="home-product-item__country">Korea</span>
-                                            </div>
-                                            <div class="home-product-item__favourite">
-                                                <i class="fa-solid fa-check"></i>
-                                                <span>Yêu thích</span>
-                                            </div>
-                                            <div class="home-product-item__discount">
-                                                <span class="home-product-item__percent">43%</span>
-                                                <span class="home-product-item__label">GIẢM</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-lg-3 col-sm-6 col-6">
-                                    <a href="" class="home-product-link">
-                                        <div class="home-product-item">
-                                            <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
-                                            <h4 class="home-product-item__name">
-                                                Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
-                                            </h4>
-                                            <div class="home-product-item__price">
-                                                <span class="home-product-item__old">12.300.000đ</span>
-                                                <span class="home-product-item__new">2.300.000đ</span>
-                                            </div>
-                                            <div class="home-product-item__action">
-                                                <!-- Nếu thêm class home-product-item__heart--liked thì tim sẽ chuyển màu -->
-                                                <span class="home-product-item__heart home-product-item__heart--liked">
-                                                    <i class="fa-regular fa-heart home-product-item__heart-icon"></i>
-                                                    <i class="fa-solid fa-heart home-product-item__hearted-icon"></i>
-                                                </span>
-                                                <div class="home-product-item__star">
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon"></i>
-                                                </div>
-                                                <div class="home-product-item__sold">88 đã bán</div>
-                                            </div>
-                                            <div class="home-product-item__origin">
-                                                <span class="home-product-item__brand">Whooo</span>
-                                                <span class="home-product-item__country">Korea</span>
-                                            </div>
-                                            <div class="home-product-item__favourite">
-                                                <i class="fa-solid fa-check"></i>
-                                                <span>Yêu thích</span>
-                                            </div>
-                                            <div class="home-product-item__discount">
-                                                <span class="home-product-item__percent">43%</span>
-                                                <span class="home-product-item__label">GIẢM</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-lg-3 col-sm-6 col-6">
-                                    <a href="" class="home-product-link">
-                                        <div class="home-product-item">
+                                    <a href="../html/detailProduct.html" class="home-product-link">
+                                        <div class="home-product-item" id="4" onclick="addItemToCart(id);">
                                             <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
                                             <h4 class="home-product-item__name">
                                                 Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
@@ -766,8 +597,8 @@
 
                             <div class="row">
                                 <div class="col-lg-3 col-sm-6 col-6">
-                                    <a href="" class="home-product-link">
-                                        <div class="home-product-item">
+                                    <a href="../html/detailProduct.html" class="home-product-link">
+                                        <div class="home-product-item" id="5" onclick="addItemToCart(id);">
                                             <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
                                             <h4 class="home-product-item__name">
                                                 Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
@@ -808,8 +639,8 @@
                                 </div>
 
                                 <div class="col-lg-3 col-sm-6 col-6">
-                                    <a href="" class="home-product-link">
-                                        <div class="home-product-item">
+                                    <a href="../html/detailProduct.html" class="home-product-link">
+                                        <div class="home-product-item" id="6" onclick="addItemToCart(id);">
                                             <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
                                             <h4 class="home-product-item__name">
                                                 Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
@@ -850,8 +681,8 @@
                                 </div>
 
                                 <div class="col-lg-3 col-sm-6 col-6">
-                                    <a href="" class="home-product-link">
-                                        <div class="home-product-item">
+                                    <a href="../html/detailProduct.html" class="home-product-link">
+                                        <div class="home-product-item" id="7" onclick="addItemToCart(id);">
                                             <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
                                             <h4 class="home-product-item__name">
                                                 Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
@@ -892,178 +723,8 @@
                                 </div>
 
                                 <div class="col-lg-3 col-sm-6 col-6">
-                                    <a href="" class="home-product-link">
-                                        <div class="home-product-item">
-                                            <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
-                                            <h4 class="home-product-item__name">
-                                                Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
-                                            </h4>
-                                            <div class="home-product-item__price">
-                                                <span class="home-product-item__old">12.300.000đ</span>
-                                                <span class="home-product-item__new">2.300.000đ</span>
-                                            </div>
-                                            <div class="home-product-item__action">
-                                                <!-- Nếu thêm class home-product-item__heart--liked thì tim sẽ chuyển màu -->
-                                                <span class="home-product-item__heart home-product-item__heart--liked">
-                                                    <i class="fa-regular fa-heart home-product-item__heart-icon"></i>
-                                                    <i class="fa-solid fa-heart home-product-item__hearted-icon"></i>
-                                                </span>
-                                                <div class="home-product-item__star">
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon"></i>
-                                                </div>
-                                                <div class="home-product-item__sold">88 đã bán</div>
-                                            </div>
-                                            <div class="home-product-item__origin">
-                                                <span class="home-product-item__brand">Whooo</span>
-                                                <span class="home-product-item__country">Korea</span>
-                                            </div>
-                                            <div class="home-product-item__favourite">
-                                                <i class="fa-solid fa-check"></i>
-                                                <span>Yêu thích</span>
-                                            </div>
-                                            <div class="home-product-item__discount">
-                                                <span class="home-product-item__percent">43%</span>
-                                                <span class="home-product-item__label">GIẢM</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-lg-3 col-sm-6 col-6">
-                                    <a href="" class="home-product-link">
-                                        <div class="home-product-item">
-                                            <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
-                                            <h4 class="home-product-item__name">
-                                                Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
-                                            </h4>
-                                            <div class="home-product-item__price">
-                                                <span class="home-product-item__old">12.300.000đ</span>
-                                                <span class="home-product-item__new">2.300.000đ</span>
-                                            </div>
-                                            <div class="home-product-item__action">
-                                                <!-- Nếu thêm class home-product-item__heart--liked thì tim sẽ chuyển màu -->
-                                                <span class="home-product-item__heart home-product-item__heart--liked">
-                                                    <i class="fa-regular fa-heart home-product-item__heart-icon"></i>
-                                                    <i class="fa-solid fa-heart home-product-item__hearted-icon"></i>
-                                                </span>
-                                                <div class="home-product-item__star">
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon"></i>
-                                                </div>
-                                                <div class="home-product-item__sold">88 đã bán</div>
-                                            </div>
-                                            <div class="home-product-item__origin">
-                                                <span class="home-product-item__brand">Whooo</span>
-                                                <span class="home-product-item__country">Korea</span>
-                                            </div>
-                                            <div class="home-product-item__favourite">
-                                                <i class="fa-solid fa-check"></i>
-                                                <span>Yêu thích</span>
-                                            </div>
-                                            <div class="home-product-item__discount">
-                                                <span class="home-product-item__percent">43%</span>
-                                                <span class="home-product-item__label">GIẢM</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-lg-3 col-sm-6 col-6">
-                                    <a href="" class="home-product-link">
-                                        <div class="home-product-item">
-                                            <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
-                                            <h4 class="home-product-item__name">
-                                                Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
-                                            </h4>
-                                            <div class="home-product-item__price">
-                                                <span class="home-product-item__old">12.300.000đ</span>
-                                                <span class="home-product-item__new">2.300.000đ</span>
-                                            </div>
-                                            <div class="home-product-item__action">
-                                                <!-- Nếu thêm class home-product-item__heart--liked thì tim sẽ chuyển màu -->
-                                                <span class="home-product-item__heart home-product-item__heart--liked">
-                                                    <i class="fa-regular fa-heart home-product-item__heart-icon"></i>
-                                                    <i class="fa-solid fa-heart home-product-item__hearted-icon"></i>
-                                                </span>
-                                                <div class="home-product-item__star">
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon"></i>
-                                                </div>
-                                                <div class="home-product-item__sold">88 đã bán</div>
-                                            </div>
-                                            <div class="home-product-item__origin">
-                                                <span class="home-product-item__brand">Whooo</span>
-                                                <span class="home-product-item__country">Korea</span>
-                                            </div>
-                                            <div class="home-product-item__favourite">
-                                                <i class="fa-solid fa-check"></i>
-                                                <span>Yêu thích</span>
-                                            </div>
-                                            <div class="home-product-item__discount">
-                                                <span class="home-product-item__percent">43%</span>
-                                                <span class="home-product-item__label">GIẢM</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-lg-3 col-sm-6 col-6">
-                                    <a href="" class="home-product-link">
-                                        <div class="home-product-item">
-                                            <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
-                                            <h4 class="home-product-item__name">
-                                                Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
-                                            </h4>
-                                            <div class="home-product-item__price">
-                                                <span class="home-product-item__old">12.300.000đ</span>
-                                                <span class="home-product-item__new">2.300.000đ</span>
-                                            </div>
-                                            <div class="home-product-item__action">
-                                                <!-- Nếu thêm class home-product-item__heart--liked thì tim sẽ chuyển màu -->
-                                                <span class="home-product-item__heart home-product-item__heart--liked">
-                                                    <i class="fa-regular fa-heart home-product-item__heart-icon"></i>
-                                                    <i class="fa-solid fa-heart home-product-item__hearted-icon"></i>
-                                                </span>
-                                                <div class="home-product-item__star">
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                                    <i class="fa-solid fa-star home-product-item__star-icon"></i>
-                                                </div>
-                                                <div class="home-product-item__sold">88 đã bán</div>
-                                            </div>
-                                            <div class="home-product-item__origin">
-                                                <span class="home-product-item__brand">Whooo</span>
-                                                <span class="home-product-item__country">Korea</span>
-                                            </div>
-                                            <div class="home-product-item__favourite">
-                                                <i class="fa-solid fa-check"></i>
-                                                <span>Yêu thích</span>
-                                            </div>
-                                            <div class="home-product-item__discount">
-                                                <span class="home-product-item__percent">43%</span>
-                                                <span class="home-product-item__label">GIẢM</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-lg-3 col-sm-6 col-6">
-                                    <a href="" class="home-product-link">
-                                        <div class="home-product-item">
+                                    <a href="../html/detailProduct.html" class="home-product-link">
+                                        <div class="home-product-item" id="8" onclick="addItemToCart(id);">
                                             <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
                                             <h4 class="home-product-item__name">
                                                 Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
@@ -1106,8 +767,8 @@
 
                             <div class="row">
                                 <div class="col-lg-3 col-sm-6 col-6">
-                                    <a href="" class="home-product-link">
-                                        <div class="home-product-item">
+                                    <a href="../html/detailProduct.html" class="home-product-link">
+                                        <div class="home-product-item" id="9" onclick="addItemToCart(id);">
                                             <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
                                             <h4 class="home-product-item__name">
                                                 Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
@@ -1148,8 +809,8 @@
                                 </div>
 
                                 <div class="col-lg-3 col-sm-6 col-6">
-                                    <a href="" class="home-product-link">
-                                        <div class="home-product-item">
+                                    <a href="../html/detailProduct.html" class="home-product-link">
+                                        <div class="home-product-item" id="10" onclick="addItemToCart(id);">
                                             <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
                                             <h4 class="home-product-item__name">
                                                 Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
@@ -1190,8 +851,8 @@
                                 </div>
 
                                 <div class="col-lg-3 col-sm-6 col-6">
-                                    <a href="" class="home-product-link">
-                                        <div class="home-product-item">
+                                    <a href="../html/detailProduct.html" class="home-product-link">
+                                        <div class="home-product-item" id="11" onclick="addItemToCart(id);">
                                             <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
                                             <h4 class="home-product-item__name">
                                                 Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
@@ -1232,8 +893,348 @@
                                 </div>
 
                                 <div class="col-lg-3 col-sm-6 col-6">
-                                    <a href="" class="home-product-link">
-                                        <div class="home-product-item">
+                                    <a href="../html/detailProduct.html" class="home-product-link">
+                                        <div class="home-product-item" id="12" onclick="addItemToCart(id);">
+                                            <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__old">12.300.000đ</span>
+                                                <span class="home-product-item__new">2.300.000đ</span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <!-- Nếu thêm class home-product-item__heart--liked thì tim sẽ chuyển màu -->
+                                                <span class="home-product-item__heart home-product-item__heart--liked">
+                                                    <i class="fa-regular fa-heart home-product-item__heart-icon"></i>
+                                                    <i class="fa-solid fa-heart home-product-item__hearted-icon"></i>
+                                                </span>
+                                                <div class="home-product-item__star">
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon"></i>
+                                                </div>
+                                                <div class="home-product-item__sold">88 đã bán</div>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whooo</span>
+                                                <span class="home-product-item__country">Korea</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>Yêu thích</span>
+                                            </div>
+                                            <div class="home-product-item__discount">
+                                                <span class="home-product-item__percent">43%</span>
+                                                <span class="home-product-item__label">GIẢM</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-sm-6 col-6">
+                                    <a href="../html/detailProduct.html" class="home-product-link">
+                                        <div class="home-product-item" id="13" onclick="addItemToCart(id);">
+                                            <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__old">12.300.000đ</span>
+                                                <span class="home-product-item__new">2.300.000đ</span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <!-- Nếu thêm class home-product-item__heart--liked thì tim sẽ chuyển màu -->
+                                                <span class="home-product-item__heart home-product-item__heart--liked">
+                                                    <i class="fa-regular fa-heart home-product-item__heart-icon"></i>
+                                                    <i class="fa-solid fa-heart home-product-item__hearted-icon"></i>
+                                                </span>
+                                                <div class="home-product-item__star">
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon"></i>
+                                                </div>
+                                                <div class="home-product-item__sold">88 đã bán</div>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whooo</span>
+                                                <span class="home-product-item__country">Korea</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>Yêu thích</span>
+                                            </div>
+                                            <div class="home-product-item__discount">
+                                                <span class="home-product-item__percent">43%</span>
+                                                <span class="home-product-item__label">GIẢM</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-lg-3 col-sm-6 col-6">
+                                    <a href="../html/detailProduct.html" class="home-product-link">
+                                        <div class="home-product-item" id="14" onclick="addItemToCart(id);">
+                                            <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__old">12.300.000đ</span>
+                                                <span class="home-product-item__new">2.300.000đ</span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <!-- Nếu thêm class home-product-item__heart--liked thì tim sẽ chuyển màu -->
+                                                <span class="home-product-item__heart home-product-item__heart--liked">
+                                                    <i class="fa-regular fa-heart home-product-item__heart-icon"></i>
+                                                    <i class="fa-solid fa-heart home-product-item__hearted-icon"></i>
+                                                </span>
+                                                <div class="home-product-item__star">
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon"></i>
+                                                </div>
+                                                <div class="home-product-item__sold">88 đã bán</div>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whooo</span>
+                                                <span class="home-product-item__country">Korea</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>Yêu thích</span>
+                                            </div>
+                                            <div class="home-product-item__discount">
+                                                <span class="home-product-item__percent">43%</span>
+                                                <span class="home-product-item__label">GIẢM</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-lg-3 col-sm-6 col-6">
+                                    <a href="../html/detailProduct.html" class="home-product-link">
+                                        <div class="home-product-item" id="15" onclick="addItemToCart(id);">
+                                            <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__old">12.300.000đ</span>
+                                                <span class="home-product-item__new">2.300.000đ</span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <!-- Nếu thêm class home-product-item__heart--liked thì tim sẽ chuyển màu -->
+                                                <span class="home-product-item__heart home-product-item__heart--liked">
+                                                    <i class="fa-regular fa-heart home-product-item__heart-icon"></i>
+                                                    <i class="fa-solid fa-heart home-product-item__hearted-icon"></i>
+                                                </span>
+                                                <div class="home-product-item__star">
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon"></i>
+                                                </div>
+                                                <div class="home-product-item__sold">88 đã bán</div>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whooo</span>
+                                                <span class="home-product-item__country">Korea</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>Yêu thích</span>
+                                            </div>
+                                            <div class="home-product-item__discount">
+                                                <span class="home-product-item__percent">43%</span>
+                                                <span class="home-product-item__label">GIẢM</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-lg-3 col-sm-6 col-6">
+                                    <a href="../html/detailProduct.html" class="home-product-link">
+                                        <div class="home-product-item" id="16" onclick="addItemToCart(id);">
+                                            <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__old">12.300.000đ</span>
+                                                <span class="home-product-item__new">2.300.000đ</span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <!-- Nếu thêm class home-product-item__heart--liked thì tim sẽ chuyển màu -->
+                                                <span class="home-product-item__heart home-product-item__heart--liked">
+                                                    <i class="fa-regular fa-heart home-product-item__heart-icon"></i>
+                                                    <i class="fa-solid fa-heart home-product-item__hearted-icon"></i>
+                                                </span>
+                                                <div class="home-product-item__star">
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon"></i>
+                                                </div>
+                                                <div class="home-product-item__sold">88 đã bán</div>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whooo</span>
+                                                <span class="home-product-item__country">Korea</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>Yêu thích</span>
+                                            </div>
+                                            <div class="home-product-item__discount">
+                                                <span class="home-product-item__percent">43%</span>
+                                                <span class="home-product-item__label">GIẢM</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-sm-6 col-6">
+                                    <a href="../html/detailProduct.html" class="home-product-link">
+                                        <div class="home-product-item" id="17" onclick="addItemToCart(id);">
+                                            <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__old">12.300.000đ</span>
+                                                <span class="home-product-item__new">2.300.000đ</span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <!-- Nếu thêm class home-product-item__heart--liked thì tim sẽ chuyển màu -->
+                                                <span class="home-product-item__heart home-product-item__heart--liked">
+                                                    <i class="fa-regular fa-heart home-product-item__heart-icon"></i>
+                                                    <i class="fa-solid fa-heart home-product-item__hearted-icon"></i>
+                                                </span>
+                                                <div class="home-product-item__star">
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon"></i>
+                                                </div>
+                                                <div class="home-product-item__sold">88 đã bán</div>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whooo</span>
+                                                <span class="home-product-item__country">Korea</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>Yêu thích</span>
+                                            </div>
+                                            <div class="home-product-item__discount">
+                                                <span class="home-product-item__percent">43%</span>
+                                                <span class="home-product-item__label">GIẢM</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-lg-3 col-sm-6 col-6">
+                                    <a href="../html/detailProduct.html" class="home-product-link">
+                                        <div class="home-product-item" id="18" onclick="addItemToCart(id);">
+                                            <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__old">12.300.000đ</span>
+                                                <span class="home-product-item__new">2.300.000đ</span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <!-- Nếu thêm class home-product-item__heart--liked thì tim sẽ chuyển màu -->
+                                                <span class="home-product-item__heart home-product-item__heart--liked">
+                                                    <i class="fa-regular fa-heart home-product-item__heart-icon"></i>
+                                                    <i class="fa-solid fa-heart home-product-item__hearted-icon"></i>
+                                                </span>
+                                                <div class="home-product-item__star">
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon"></i>
+                                                </div>
+                                                <div class="home-product-item__sold">88 đã bán</div>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whooo</span>
+                                                <span class="home-product-item__country">Korea</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>Yêu thích</span>
+                                            </div>
+                                            <div class="home-product-item__discount">
+                                                <span class="home-product-item__percent">43%</span>
+                                                <span class="home-product-item__label">GIẢM</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-lg-3 col-sm-6 col-6">
+                                    <a href="../html/detailProduct.html" class="home-product-link">
+                                        <div class="home-product-item" id="19" onclick="addItemToCart(id);">
+                                            <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
+                                            <h4 class="home-product-item__name">
+                                                Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
+                                            </h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__old">12.300.000đ</span>
+                                                <span class="home-product-item__new">2.300.000đ</span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <!-- Nếu thêm class home-product-item__heart--liked thì tim sẽ chuyển màu -->
+                                                <span class="home-product-item__heart home-product-item__heart--liked">
+                                                    <i class="fa-regular fa-heart home-product-item__heart-icon"></i>
+                                                    <i class="fa-solid fa-heart home-product-item__hearted-icon"></i>
+                                                </span>
+                                                <div class="home-product-item__star">
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
+                                                    <i class="fa-solid fa-star home-product-item__star-icon"></i>
+                                                </div>
+                                                <div class="home-product-item__sold">88 đã bán</div>
+                                            </div>
+                                            <div class="home-product-item__origin">
+                                                <span class="home-product-item__brand">Whooo</span>
+                                                <span class="home-product-item__country">Korea</span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>Yêu thích</span>
+                                            </div>
+                                            <div class="home-product-item__discount">
+                                                <span class="home-product-item__percent">43%</span>
+                                                <span class="home-product-item__label">GIẢM</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-lg-3 col-sm-6 col-6">
+                                    <a href="../html/detailProduct.html" class="home-product-link">
+                                        <div class="home-product-item" id="20" onclick="addItemToCart(id);">
                                             <div class="home-product-item__img" style="background-image: url(../img/img1.png);"></div>
                                             <h4 class="home-product-item__name">
                                                 Áo Kaki đẹp cho nam xuất sứ tại Hàn Quốc
@@ -1493,4 +1494,30 @@
     </div>
 
 </body>
+
+    <script>
+        var products=document.getElementsByClassName("home-product-item");
+        var listProduct=new Array();
+
+        for(var i=0;i<products.length;i++){
+            var index=i+1;
+            var res=document.getElementById(index.toString());
+    
+            var idProduct=index;
+            var img=res.children[0].style.backgroundImage;
+            var name=res.children[1].innerText;
+            var oldPrice=res.children[2].children[0].innerText;
+            var currentPrice=res.children[2].children[1].innerText
+            var brand=res.children[4].children[0].innerText;
+            var origin=res.children[4].children[1].innerText
+    
+            var product=createProduct(idProduct, img, name, oldPrice, currentPrice, brand, origin);
+
+            listProduct.push(product);
+        }
+
+        var json=JSON.stringify(listProduct);
+        localStorage.setItem("listProduct",json);
+    </script>    
+
 </html>
