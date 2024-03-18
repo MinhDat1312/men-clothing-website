@@ -17,13 +17,15 @@ function displayLogininRegister(){
 function Register(e){
     event.preventDefault();
     var mail=document.getElementById('emailR').value;
+    var userName=document.getElementById('nameR').value;
     var pass=document.getElementById('passR').value;
     var repass=document.getElementById('repassR').value;
 
-    if(mail!="" && pass!="" && repass!=""){
+    if(mail!="" && pass!="" && repass!="" && userName!=""){
         if(pass==repass){
             var user={
                 email: mail,
+                name: userName,
                 password: pass,
                 re_password: repass
             };
@@ -42,16 +44,17 @@ function Register(e){
 
 
     document.getElementById('emailR').value="";
+    document.getElementById('nameR').value="";
     document.getElementById('passR').value="";
     document.getElementById('repassR').value="";
 }
 
 function Login(e){
     event.preventDefault();
-    var mail=document.getElementById('email').value;
+    var userName=document.getElementById('name').value;
     var password=document.getElementById('password').value;
 
-    if(mail=="" && password==""){
+    if(userName=="" && password==""){
         alert("Vui lòng nhập thông tin");
     }
     else{
@@ -61,7 +64,7 @@ function Login(e){
         if(user==null){
             alert("Tài khoản chưa đăng ký");
         }
-        else if(mail==data.email && password==data.password){
+        else if(userName==data.name && password==data.password){
             window.location.href="./assets/html/home.html";
         }
         else {

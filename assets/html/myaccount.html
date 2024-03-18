@@ -565,13 +565,15 @@
         var nameSign=document.querySelector(".header__item-user-name");
         var signin=document.getElementById('signin');
         var nameUser=document.getElementById('name');
+        var mail=document.getElementById('email__account');
 
         var user=localStorage.getItem("username");
         var data=JSON.parse(user);
 
-        nameSign.innerHTML=data.email;
-        signin.value=data.email;
-        nameUser.value=data.email;
+        nameSign.innerHTML=data.name;
+        signin.value=data.name;
+        nameUser.value=data.name;
+        mail.value=data.email;
 
         function saveData(){
             var nameUser=document.getElementById('signin');
