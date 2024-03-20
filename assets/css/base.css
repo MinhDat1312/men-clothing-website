@@ -1,5 +1,7 @@
 :root {
-    --primary-color: #EE4D2D;
+    /* --primary-color: #EE4D2D; */
+    --primary-color:  #00A86B;
+
     --primary-color-rgba: rgb(238, 77, 45,0.09);
     --white-color: #fff;
     --black-color: #000;
