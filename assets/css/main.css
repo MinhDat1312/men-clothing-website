@@ -511,6 +511,7 @@
     border: 2px solid #50C878;
     background-color: var(--white-color);
     color: var(--primary-color);
+    display: none;
 }
 
 .header__cart-list {
@@ -628,6 +629,7 @@
 .header__cart-view {
     float: right;
     margin: 0 12px 12px 0px;
+    line-height: 3.5rem;
 }
 
 .header__cart-view:hover {
