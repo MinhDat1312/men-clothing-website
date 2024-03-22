@@ -1495,13 +1495,6 @@
             var json=JSON.stringify(listProductFromCart);
             localStorage.setItem("listProductCart",json);
         }
-        else{
-            if(localStorage.getItem("listProductCart").length==0){
-                var listProductFromCart=new Array();
-                var json=JSON.stringify(listProductFromCart);
-                localStorage.setItem("listProductCart",json);
-            }
-        }
     </script>    
     <!-- Hiển thị số lượng và thông tin sản phẩm khi thêm -->
     <script src="../js/cart.js"></script>

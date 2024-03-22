@@ -7,7 +7,7 @@ function createProductCart(idProduct, imgProduct, nameProduct, currentPrice, qty
     product.currentPrice=currentPrice;
     product.qty=qty;
     product.type=type;
-
+   
     return product;
 }
 
@@ -21,25 +21,8 @@ if(cart__notice.innerText==""){
     document.querySelector('.header__cart-view').style.display="none"
 }
 
-
 // Số lượng sản phẩm khi thêm
 function addProductToCart(){
-    var cart__notice=document.querySelector(".header__cart-notice");
-    if(localStorage.getItem("QtyCart")!=null){
-        var json=localStorage.getItem("QtyCart");
-        var qty=JSON.parse(json);
-        cart__notice.innerText=++qty;
-        var setJson=JSON.stringify(qty);
-        localStorage.setItem("QtyCart",setJson);
-        cart__notice.style.display="block"; 
-    }
-    else{
-        cart__notice.innerText=1;
-        var json=JSON.stringify(cart__notice.innerText);
-        localStorage.setItem("QtyCart",json);
-        cart__notice.style.display="block";
-    }
-
     document.querySelector(".header__cart-list").classList.remove('header__cart-list--no-cart');
     document.querySelector('.header__cart-title').style.display="block"
     document.querySelector('.header__cart-list-buy').style.display="block"
@@ -47,6 +30,7 @@ function addProductToCart(){
 
     var json=localStorage.getItem("currentProduct");
     var product=JSON.parse(json);
+    var idProduct=product.idProduct;
     var imgProduct=product.imgProduct;
     var imgReplace=imgProduct.replace(/url/gi,"");
     var imgSplitfirst=imgReplace.split("(")[1];
@@ -57,7 +41,7 @@ function addProductToCart(){
     var typeProduct=product.nameProduct.split(' ')[0];
 
     // Thêm sản phẩm vào danh sách rồi lưu vào local storage
-    var addProduct= createProductCart(product.idProduct,imgProduct,nameProduct,
+    var addProduct= createProductCart(idProduct,imgProduct,nameProduct,
         price, qty, typeProduct);
 
     var json=localStorage.getItem("listProductCart");
@@ -68,6 +52,7 @@ function addProductToCart(){
         var res=list[i];
         if(res.idProduct==addProduct.idProduct){
             check=1;
+            res.qty=parseInt(res.qty) + parseInt(addProduct.qty);
         }
     }
     if(check==0){
@@ -77,28 +62,78 @@ function addProductToCart(){
     localStorage.setItem("listProductCart",data);
 
     // Hiển thị danh sách sản phẩm trong giỏ hàng
-    var listProduct=document.querySelector('.header__cart-list-buy').innerHTML;
-    listProduct+=
-            `
-            <li class="header__cart-list-item">
-            <img src=${imgResult} alt="" class="header__cart-img">
-            <div class="header__cart-infor">
-                <div class="header__cart-infor-one">
-                    <h5 class="header__cart-infor-name">${nameProduct}</h5>
-                    <div class="header__cart-infor-price-wrap">
-                       <span class="header__cart-infor-price">${price}</span>
-                        <span class="header__cart-infor-mutiply">x</span>
-                        <span class="header__cart-infor-qty">${qty}</span>
+    if(check==0){
+        var listProduct=document.querySelector('.header__cart-list-buy').innerHTML;
+        listProduct+=
+                `
+                <li class="header__cart-list-item">
+                <img src=${imgResult} alt="" class="header__cart-img">
+                <div class="header__cart-infor">
+                    <div class="header__cart-infor-one">
+                        <h5 class="header__cart-infor-name">${nameProduct}</h5>
+                        <div class="header__cart-infor-price-wrap">
+                           <span class="header__cart-infor-price">${price}</span>
+                            <span class="header__cart-infor-mutiply">x</span>
+                            <span class="header__cart-infor-qty">${qty}</span>
+                        </div>
                     </div>
-                </div>
-                    <div class="header__cart-infor-two">
-                        <span class="header__cart-infor-des">Phân loại hàng: ${typeProduct}</span>
-                        <span class="header__cart-infor-remove">Xóa</span>
+                        <div class="header__cart-infor-two">
+                            <span class="header__cart-infor-des">Phân loại hàng: ${typeProduct}</span>
+                            <span class="header__cart-infor-remove">Xóa</span>
+                        </div>
                     </div>
-                </div>
-            </li>
-            `;
-    document.querySelector('.header__cart-list-buy').innerHTML = listProduct;
+                </li>
+                `;
+        document.querySelector('.header__cart-list-buy').innerHTML = listProduct;
+    }
+    else{
+        var jsonHome=localStorage.getItem("listProductCart");
+        var listHome=JSON.parse(jsonHome);
+        document.querySelector('.header__cart-list-buy').innerHTML="";
+        var listProduct=document.querySelector('.header__cart-list-buy').innerHTML;
+    
+        for(var i=0;i<listHome.length;i++){
+            var imgProduct=listHome[i].imgProduct;
+            var imgReplace=imgProduct.replace(/url/gi,"");
+            var imgSplitfirst=imgReplace.split("(")[1];
+            var imgResult=imgSplitfirst.split(")")[0];
+            listProduct+=
+                    `
+                    <li class="header__cart-list-item">
+                    <img src=${imgResult} alt="" class="header__cart-img">
+                    <div class="header__cart-infor">
+                        <div class="header__cart-infor-one">
+                            <h5 class="header__cart-infor-name">${listHome[i].nameProduct}</h5>
+                            <div class="header__cart-infor-price-wrap">
+                            <span class="header__cart-infor-price">${listHome[i].currentPrice}</span>
+                                <span class="header__cart-infor-mutiply">x</span>
+                                <span class="header__cart-infor-qty">${listHome[i].qty}</span>
+                            </div>
+                        </div>
+                            <div class="header__cart-infor-two">
+                                <span class="header__cart-infor-des">Phân loại hàng: ${listHome[i].type}</span>
+                                <span class="header__cart-infor-remove">Xóa</span>
+                            </div>
+                        </div>
+                    </li>
+                    `;
+        }
+        document.querySelector('.header__cart-list-buy').innerHTML = listProduct;
+    }
+
+    // Hiển thị số lượng sản phẩm
+    var cart__notice=document.querySelector(".header__cart-notice");
+    var json=localStorage.getItem("listProductCart");
+    var data=JSON.parse(json);
+
+    localStorage.setItem("QtyCart",data.length);
+
+    if(localStorage.getItem("QtyCart")!=null){
+        var json=localStorage.getItem("QtyCart");
+        var qty=JSON.parse(json);
+        cart__notice.innerText=qty;
+        cart__notice.style.display="block"; 
+    }
 }
 
 if(localStorage.getItem("listProductCart")!=null){
@@ -133,5 +168,17 @@ if(localStorage.getItem("listProductCart")!=null){
                 `;
     }
     document.querySelector('.header__cart-list-buy').innerHTML = listProduct;
+}
+
+// Hiển thị thông báo khi thêm thành công
+function notifySuccess(){
+    var start=setTimeout(function (){
+        document.querySelector(".modal-notify").style.display="flex";
+    },200);
+   
+    var stop=setTimeout(function (){
+        clearTimeout(start);
+        document.querySelector(".modal-notify").style.display="none";
+    },2000);
 }
 
