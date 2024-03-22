@@ -539,8 +539,16 @@
          if(localStorage.getItem("QtyCart")!=null){
             var json=localStorage.getItem("QtyCart");
             var qty=JSON.parse(json);
-            document.querySelector(".header__cart-notice").innerText=qty;
-            document.querySelector(".header__cart-notice").style.display="block"; 
+            if(qty!=0){
+                document.querySelector(".header__cart-notice").innerText=qty;
+                document.querySelector(".header__cart-notice").style.display="block"; 
+            }
+            else{
+                document.querySelector(".header__cart-list").classList.add("header__cart-list--no-cart");
+                document.querySelector('.header__cart-title').style.display="none"
+                document.querySelector('.header__cart-list-buy').style.display="none"
+                document.querySelector('.header__cart-view').style.display="none"
+            } 
         }
         if(document.querySelector(".header__cart-notice").innerText==""){  
             document.querySelector(".header__cart-list").classList.add("header__cart-list--no-cart");
