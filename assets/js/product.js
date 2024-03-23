@@ -18,7 +18,7 @@ function addItemToCart(idProduct){
    
    for(var i=1; i<=data.length;i++){
         if(data[i-1].idProduct==idProduct){
-            var currentProduct=data[i-1];
+            var currentProduct=data[i-1].idProduct;
             var json=JSON.stringify(currentProduct);
 
             localStorage.setItem("currentProduct",json);

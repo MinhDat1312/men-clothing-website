@@ -555,6 +555,10 @@
     cursor: pointer;
 }
 
+.header__cart-list-link {
+    text-decoration: none;
+}
+
 .header__cart-img {
     width: 44px;
     height: 44px;

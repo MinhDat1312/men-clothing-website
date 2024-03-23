@@ -29,7 +29,18 @@ function addProductToCart(){
     document.querySelector('.header__cart-view').style.display="block"
 
     var json=localStorage.getItem("currentProduct");
-    var product=JSON.parse(json);
+    var currentID=JSON.parse(json);
+
+    // Tìm sản phẩm hiện tại trong danh sách sản phẩm
+    var json=localStorage.getItem("listProduct");
+    var list=JSON.parse(json);
+    var product=null;
+    for(var i=0;i<list.length;i++){
+        if(list[i].idProduct==currentID){
+            product=list[i];
+        }
+    }
+
     var idProduct=product.idProduct;
     var imgProduct=product.imgProduct;
     var imgReplace=imgProduct.replace(/url/gi,"");
@@ -67,16 +78,20 @@ function addProductToCart(){
         listProduct+=
                 `
                 <li class="header__cart-list-item">
-                <img src=${imgResult} alt="" class="header__cart-img">
-                <div class="header__cart-infor">
-                    <div class="header__cart-infor-one">
-                        <h5 class="header__cart-infor-name">${nameProduct}</h5>
-                        <div class="header__cart-infor-price-wrap">
-                           <span class="header__cart-infor-price">${price}</span>
-                            <span class="header__cart-infor-mutiply">x</span>
-                            <span class="header__cart-infor-qty">${qty}</span>
-                        </div>
-                    </div>
+                    <a href="../html/detailProduct.html" class="header__cart-list-link" onclick="setCurrentProduct(${idProduct});">
+                        <img src=${imgResult} alt="" class="header__cart-img" href="../html/detailProduct.html">
+                    </a>
+                    <div class="header__cart-infor">
+                        <a href="../html/detailProduct.html" class="header__cart-list-link" onclick="setCurrentProduct(${idProduct});">
+                            <div class="header__cart-infor-one">
+                                <h5 class="header__cart-infor-name">${nameProduct}</h5>
+                                <div class="header__cart-infor-price-wrap">
+                                    <span class="header__cart-infor-price">${price}</span>
+                                    <span class="header__cart-infor-mutiply">x</span>
+                                    <span class="header__cart-infor-qty">${qty}</span>
+                                </div>
+                            </div>
+                        </a>
                         <div class="header__cart-infor-two">
                             <span class="header__cart-infor-des">Phân loại hàng: ${typeProduct}</span>
                             <span class="header__cart-infor-remove" onclick="deleteProductCart(this,${idProduct});">Xóa</span>
@@ -122,22 +137,27 @@ function showProductCart(){
         listProduct+=
                 `
                 <li class="header__cart-list-item">
-                    <img src=${imgResult} alt="" class="header__cart-img">
+                    <a href="../html/detailProduct.html" class="header__cart-list-link" onclick="setCurrentProduct(${listHome[i].idProduct});">
+                        <img src=${imgResult} alt="" class="header__cart-img" href="../html/detailProduct.html">
+                    </a>
                     <div class="header__cart-infor">
-                        <div class="header__cart-infor-one">
-                            <h5 class="header__cart-infor-name">${listHome[i].nameProduct}</h5>
-                            <div class="header__cart-infor-price-wrap">
-                                <span class="header__cart-infor-price">${listHome[i].currentPrice}</span>
-                                <span class="header__cart-infor-mutiply">x</span>
-                                <span class="header__cart-infor-qty">${listHome[i].qty}</span>
+                        <a href="../html/detailProduct.html" class="header__cart-list-link" onclick="setCurrentProduct(${listHome[i].idProduct});">
+                            <div class="header__cart-infor-one">
+                                <h5 class="header__cart-infor-name">${listHome[i].nameProduct}</h5>
+                                <div class="header__cart-infor-price-wrap">
+                                    <span class="header__cart-infor-price">${listHome[i].currentPrice}</span>
+                                    <span class="header__cart-infor-mutiply">x</span>
+                                    <span class="header__cart-infor-qty">${listHome[i].qty}</span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                         <div class="header__cart-infor-two">
                             <span class="header__cart-infor-des">Phân loại hàng: ${listHome[i].type}</span>
                             <span class="header__cart-infor-remove" onclick="deleteProductCart(this,${listHome[i].idProduct});">Xóa</span>
                         </div>
                     </div>
                 </li>
+                
                 `;
     }
     document.querySelector('.header__cart-list-buy').innerHTML = listProduct;
@@ -157,6 +177,12 @@ function notifySuccess(){
         clearTimeout(start);
         document.querySelector(".modal-notify").style.display="none";
     },2000);
+}
+
+// Thiết lập currentProduct khi nhấp vào sản phẩm trong Cart để xem thông tin sản phẩm
+function setCurrentProduct(idProduct){
+    var json=JSON.stringify(idProduct);
+    localStorage.setItem("currentProduct",json);
 }
 
 //Xóa sản phẩm trong Cart

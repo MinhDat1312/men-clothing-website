@@ -412,13 +412,23 @@
         // Hiển thị chi tiết sản phẩm lên trang
         var product=localStorage.getItem("currentProduct");
         var data=JSON.parse(product);
-        
-        document.getElementsByClassName("detail-product__img")[0].style.backgroundImage=data.imgProduct;
-        document.getElementsByClassName("detail-product__name")[0].innerText=data.nameProduct;
-        document.getElementsByClassName("detail-product-item__old")[0].innerText=data.oldPrice;
-        document.getElementsByClassName("detail-product-item__new")[0].innerText=data.currentPrice;
-        document.getElementsByClassName("detail-product-item__brand")[0].innerText=data.brand;
-        document.getElementsByClassName("detail-product-item__country")[0].innerText=data.origin;
+
+        // Tìm sản phẩm hiện tại trong danh sách sản phẩm
+        var json=localStorage.getItem("listProduct");
+        var list=JSON.parse(json);
+        var res=null;
+        for(var i=0;i<list.length;i++){
+            if(list[i].idProduct==product){
+                res=list[i];
+            }
+        }
+
+        document.getElementsByClassName("detail-product__img")[0].style.backgroundImage=res.imgProduct;
+        document.getElementsByClassName("detail-product__name")[0].innerText=res.nameProduct;
+        document.getElementsByClassName("detail-product-item__old")[0].innerText=res.oldPrice;
+        document.getElementsByClassName("detail-product-item__new")[0].innerText=res.currentPrice;
+        document.getElementsByClassName("detail-product-item__brand")[0].innerText=res.brand;
+        document.getElementsByClassName("detail-product-item__country")[0].innerText=res.origin;
         
         // Tăng giảm số lượng sản phẩm
         var plus=document.querySelector(".detail-product-item__qty-plus");
