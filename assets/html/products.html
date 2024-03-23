@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../font/fontawesome-free-6.5.1-web/css/all.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/detail.css">
+    <link rel="stylesheet" href="../css/products.css">
     <link rel="stylesheet" href="../css/responsive.css">
 
     <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/login.js"></script>
 </head>
 <body>
-    <div class="detail__main">
+    <div class="main__products">
         <header class="header">
             <div class="grid">
-    
+
                 <!-- navigation -->
                 <nav class="header__navbar hide-on-mobile-tablet">
-    
+
                     <!-- nav top-left -->
                     <ul class="header__list">
                         <li class="header__item header__item--separate header__item--qr">
@@ -50,7 +50,7 @@
                                 <i class="fa-solid fa-bell header__icon-link"></i>
                                 Thông báo
                             </a>
-    
+
                             <!-- display notify -->
                             <div class="header__notify">
                                 <header class="header__notify-title">
@@ -96,7 +96,7 @@
                                 Trợ giúp
                             </a>
                         </li>
-    
+
                         <!-- display register and login -->
                         <!-- <li class="header__item header__item--register">
                             <a href="#modal" class="header__link header__link--bold header__link--separate"
@@ -110,12 +110,12 @@
                                 Đăng nhập
                             </a>
                         </li> -->
-    
+
                         <!-- display user -->
                         <li class="header__item header__item-user">
                             <img src="../img/img_qr.png" alt="" class="header__item-user-img">
                             <span class="header__item-user-name">Minh Đạt</span>
-    
+
                             <ul class="header__item-user-menu">
                                 <li class="header__item-user-item">
                                     <a href="../html/home.html">Trang chủ</a>
@@ -136,15 +136,15 @@
                         </li>
                     </ul>
                 </nav>
-    
+
                 <!-- Search -->
                 <div class="header__with-search">
                     <label for="mobileSearch" class="header__mobile-search">
                         <i class="header__mobile-search-icon fa-solid fa-magnifying-glass"></i>
                     </label>
-    
+
                     <input type="checkbox" hidden id="mobileSearch">
-    
+
                     <div class="header__logo hide-on-tablet">
                         <!-- <svg viewBox="0 0 192 65" class="header__logo-img">
                             <g fill-rule="evenodd">
@@ -152,10 +152,10 @@
                                 </path>
                             </g>
                         </svg> -->
-    
+
                         <img src="../img/Logo1_white.png" alt="" class="header__logo-img">
                     </div>
-    
+
                     <div class="header__search">
                         <div class="header__search-input-wrap">
                             <input type="text" class="header__search-input" placeholder="Tìm kiếm sản phẩm">
@@ -189,43 +189,21 @@
                             <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
                         </button>
                     </div>
-    
-                    <div class="header__cart">
-                        <div class="header__cart-wrap">
-                            <i class="header__cart-icon fa-solid fa-cart-shopping"></i>
-                            <span class="header__cart-notice"></span>
-                            <!-- header__cart-list--no-cart 
-                                thêm class trên thì sẽ hiển thị giỏ hàng trống
-                            -->
-                            <div class="header__cart-list">
-                                <img src="../img/no_cart.png" alt="" class="header__no-cart-img">
-                                <p class="header__no-cart-msg">Chưa có sản phẩm</p>
-    
-                                <h4 class="header__cart-title">Sản phẩm đã thêm</h4>
-                                <ul class="header__cart-list-buy">
-                                </ul>
-                                <a href="../html/products.html" class="header__cart-view btn btn--primary">Xem giỏ hàng</a>
-                            </div>
-                        </div>
-                    </div>
-                    
+
                     <!-- Display menu on mobile and tablet -->
                     <div class="header__menu-mobile">
                         <label for="header__menu-mobile-check">
                             <i class="fa-solid fa-bars header__menu-mobile-icon"></i>
                         </label>
                         <input type="checkbox" hidden id="header__menu-mobile-check">
-    
+
                         <label for="header__menu-mobile-check" class="header__menu-mobile-over"></label>
-    
+
                         <div class="header__menu-mobile-list-wrapper">
                             <label for="header__menu-mobile-check">
                                 <i class="fa-solid fa-xmark header__menu-close-icon"></i>
                             </label>
                             <ul class="header__menu-mobile-list">
-                                <!-- <li class="header__menu-mobile-item">
-                                    <a href="#modal" class="header__menu-mobile-link" onclick="displayRegister();">Đăng ký</a>
-                                </li> -->
                                 <li class="header__menu-mobile-item">
                                     <a href="../html/home.html" class="header__menu-mobile-link">Trang chủ</a>
                                 </li>
@@ -246,7 +224,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <!-- Display sort bar mobile and tablet -->
             <ul class="header__sort-bar">
                 <li class="header__sort-item">
@@ -263,54 +241,52 @@
                 </li>
             </ul>
         </header>
-    
-        <div class="detail-product__container">
-            <div class="grid detail-product__grid">
-                <div class="row detail-product__content">
-                    <div class="col">
-                        <div class="detail-product__img"></div>
+
+        <div class="container__products">
+            <div class="grid content__products">
+                <div class="row content__product__row">
+                    <div class="col content__product__col content__product__col-check">
+                        <input type="checkbox" class="content__product__input">
+                        <span class="content__product__title">Sản Phẩm</span>
                     </div>
-                    <div class="col detail-product__content-infor">
-                        <h4 class="detail-product__name"></h4>
-                        <div class="home-product-item__action">
-                            <div class="home-product-item__star detail-product-item__star">
-                                <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>
-                                <i class="fa-solid fa-star home-product-item__star-icon"></i>
+                    <div class="col content__product__col content__product__col-desc d-lg-flex d-sm-flex d-none">
+                        <span class="content__product__text">Đơn Giá</span>
+                        <span class="content__product__text">Số Lượng</span>
+                        <span class="content__product__text">Số Tiền</span>
+                        <span class="content__product__text">Thao Tác</span>
+                    </div>
+                </div>
+
+                <div class="row content__product__item">
+                    <div class="col content__product__col content__product__col-check">
+                        <input type="checkbox" class="content__product__input">
+                        <a href="" class="content__product__link">
+                            <img src="../img/img2.png" alt="" class="content__product__img">
+                            <div class="content__product__name-product">
+                                Quần tây nam Akuba cao cấp vải co giãn dày dặn, quần âu nam công sở 
                             </div>
-                            <div class="home-product-item__sold detail-product-item__sold">88 đã bán</div>
+                        </a>
+                    </div>
+                    <div class="col content__product__col content__product__col-desc content__product__col-desc--active  justify-content-lg-between justify-content-sm-between justify-content-end">
+                        <span class="content__product__price">1.000.000</span>
+                        <div class="detail-product-item__qty-btn content-product-item__qty-btn">
+                            <button class="detail-product-item__qty-minus content-product-item__qty-minus">-</button>
+                            <span class="detail-product-item__qty-num content-product-item__qty-num">1</span>
+                            <button class="detail-product-item__qty-plus content-product-item__qty-plus">+</button>
                         </div>
-                        <div class="home-product-item__price detail-product-item__price">
-                            <span class="home-product-item__old detail-product-item__old"></span>
-                            <span class="home-product-item__new detail-product-item__new"></span>
-                            <div class="detail-product-item__discount">
-                                <span class="detail-product-item__percent">43%</span>
-                                <span class="detail-product-item__label">GIẢM</span>
-                            </div>
-                        </div>
-                        <div class="home-product-item__origin detail-product-item__origin">
-                            <span class="home-product-item__brand  detail-product-item__brand"></span>
-                            <span class="home-product-item__country  detail-product-item__country"></span>
-                        </div>
-                        <div class="detail-product-item__qty">
-                            <h3 class="detail-product-item__qty-text">Số lượng</h3>
-                            <div class="detail-product-item__qty-btn">
-                                <button class="detail-product-item__qty-minus">-</button>
-                                <span class="detail-product-item__qty-num">1</span>
-                                <button class="detail-product-item__qty-plus">+</button>
-                            </div>
-                        </div>
-                        <button class="detail-product__btn" onclick="addProductToCart(); notifySuccess();">
-                            <i class="fa-solid fa-cart-plus"></i>
-                            Thêm vào giỏ hàng
-                        </button>
+                        <span class="content__product__total">5.000.000</span>
+                        <span class="content__product__active">Xóa</span>
+                    </div>
+                </div>
+
+                <div class="row content__product__btn">
+                    <div class="col content__product__col content__product__col-btn">
+                        <button class="btn btn--primary">Thanh Toán</button>
                     </div>
                 </div>
             </div>
         </div>
-    
+
         <footer class="footer">
             <div class="grid">
                 <div class="row footer__top">
@@ -388,53 +364,10 @@
             </div>
         </footer>
     </div>
-
-    <div class="modal-notify">
-        <i class="fa-solid fa-circle-check" class="modal-notify__text"></i>
-        <span class="modal-notify__text">Thêm sản phẩm thành công</span>
-    </div>
 </body>
-
-    <script>
-        // Hiển thị số lượng trong giỏ hàng
-        if(localStorage.getItem("QtyCart")!=null){
-            var json=localStorage.getItem("QtyCart");
-            var qty=JSON.parse(json);
-            if(qty!=0){
-                document.querySelector(".header__cart-notice").innerText=qty;
-                document.querySelector(".header__cart-notice").style.display="block"; 
-            }
-            else{
-                document.querySelector(".header__cart-list").classList.add("header__cart-list--no-cart");
-                document.querySelector('.header__cart-title').style.display="none"
-                document.querySelector('.header__cart-list-buy').style.display="none"
-                document.querySelector('.header__cart-view').style.display="none"
-            }
-        }
-        
-        // Hiển thị chi tiết sản phẩm lên trang
-        var product=localStorage.getItem("currentProduct");
-        var data=JSON.parse(product);
-
-        // Tìm sản phẩm hiện tại trong danh sách sản phẩm
-        var json=localStorage.getItem("listProduct");
-        var list=JSON.parse(json);
-        var res=null;
-        for(var i=0;i<list.length;i++){
-            if(list[i].idProduct==product){
-                res=list[i];
-            }
-        }
-
-        document.getElementsByClassName("detail-product__img")[0].style.backgroundImage=res.imgProduct;
-        document.getElementsByClassName("detail-product__name")[0].innerText=res.nameProduct;
-        document.getElementsByClassName("detail-product-item__old")[0].innerText=res.oldPrice;
-        document.getElementsByClassName("detail-product-item__new")[0].innerText=res.currentPrice;
-        document.getElementsByClassName("detail-product-item__brand")[0].innerText=res.brand;
-        document.getElementsByClassName("detail-product-item__country")[0].innerText=res.origin;
-        
+<script>
         // Tăng giảm số lượng sản phẩm
-        var plus=document.querySelector(".detail-product-item__qty-plus");
+         var plus=document.querySelector(".detail-product-item__qty-plus");
         var minus=document.querySelector(".detail-product-item__qty-minus");
         var num=document.querySelector(".detail-product-item__qty-num");
 
@@ -453,7 +386,5 @@
                 num.innerText=a;
             }
         });
-    </script>
-    <!-- Hiển thị số lượng và thông tin sản phẩm khi thêm -->
-    <script src="../js/cart.js"></script>
+</script>
 </html>
