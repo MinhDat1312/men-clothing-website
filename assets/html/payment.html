@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../font/fontawesome-free-6.5.1-web/css/all.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/products.css">
+    <link rel="stylesheet" href="../css/payment.css" />
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/imask.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="payment__main">
+      <header class="header">
+        <div class="grid">
+
+            <!-- navigation -->
+            <nav class="header__navbar hide-on-mobile-tablet">
+
+                <!-- nav top-left -->
+                <ul class="header__list">
+                    <li class="header__item header__item--separate header__item--qr">
+                        Vào cửa hàng trên ứng dụng
+                        <div class="header__qr">
+                            <img src="../img/img_qr.png" alt="QR" class="header__qr-img">
+                        </div>
+                    </li>
+                    <li class="header__item">
+                        <span class="header__item--nopacity">Kết nối</span>
+                        <a href="https://www.facebook.com/" class="header__navbar-icon">
+                            <i class="fa-brands fa-facebook header__icon-link"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" class="header__navbar-icon">
+                            <i class="fa-brands fa-instagram header__icon-link"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- nav top-right -->
+                <ul class="header__list">
+                    <li class="header__item header__item--notify">
+                        <a href="" class="header__link">
+                            <i class="fa-solid fa-bell header__icon-link"></i>
+                            Thông báo
+                        </a>
+
+                        <!-- display notify -->
+                        <div class="header__notify">
+                            <header class="header__notify-title">
+                                <h3>Thông báo mới nhận</h3>
+                            </header>
+                            <ul class="header__notify-list">
+                                <li class="header__notify-item">
+                                    <a href="" class="header__notify-link header__notify-link--viewed">
+                                        <img src="../img/img1.png" alt="" class="header__notify-img">
+                                        <div class="header__notify-infor">
+                                            <span class="header__notify-name">Áo nam</span>
+                                            <span class="header__notify-desc">Áo sơ mi nam Basic chất Kaki</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="header__notify-item">
+                                    <a href="" class="header__notify-link">
+                                        <img src="../img/img1.png" alt="" class="header__notify-img">
+                                        <div class="header__notify-infor">
+                                            <span class="header__notify-name">Áo nam</span>
+                                            <span class="header__notify-desc">Áo sơ mi nam Basic chất Kaki</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="header__notify-item">
+                                    <a href="" class="header__notify-link">
+                                        <img src="../img/img1.png" alt="" class="header__notify-img">
+                                        <div class="header__notify-infor">
+                                            <span class="header__notify-name">Áo nam</span>
+                                            <span class="header__notify-desc">Áo sơ mi nam Basic chất Kaki</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <footer class="header__notify-footer">
+                                <a href="" class="header__notify-btn">Xem tất cả</a>
+                            </footer>
+                        </div>
+                    </li>
+                    <li class="header__item">
+                        <a href="" class="header__link">
+                            <i class="fa-regular fa-circle-question header__icon-link"></i>
+                            Trợ giúp
+                        </a>
+                    </li>
+
+                    <!-- display register and login -->
+                    <!-- <li class="header__item header__item--register">
+                        <a href="#modal" class="header__link header__link--bold header__link--separate"
+                        onclick="displayRegister();">
+                            Đăng ký
+                        </a>
+                    </li>
+                    <li class="header__item header__item--login">
+                        <a href="#modal" class="header__link header__link--bold"
+                        onclick="displayLogin();">
+                            Đăng nhập
+                        </a>
+                    </li> -->
+
+                    <!-- display user -->
+                    <li class="header__item header__item-user">
+                        <img src="../img/img_qr.png" alt="" class="header__item-user-img">
+                        <span class="header__item-user-name">Minh Đạt</span>
+
+                        <ul class="header__item-user-menu">
+                            <li class="header__item-user-item">
+                                <a href="../html/home.html">Trang chủ</a>
+                            </li>
+                            <li class="header__item-user-item">
+                                <a href="../html/myaccount.html">Tài khoản của tôi </a>
+                            </li>
+                            <li class="header__item-user-item">
+                                <a href="">Địa chỉ của tôi </a>
+                            </li>
+                            <li class="header__item-user-item">
+                                <a href="">Đơn mua</a>
+                            </li>
+                            <li class="header__item-user-item">
+                                <a href="../../index.html">Đăng xuất</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Search -->
+            <div class="header__with-search">
+                <label for="mobileSearch" class="header__mobile-search">
+                    <i class="header__mobile-search-icon fa-solid fa-magnifying-glass hide-on-mobile"></i>
+                </label>
+
+                <input type="checkbox" hidden id="mobileSearch">
+
+                <div class="header__logo hide-on-tablet">
+                    <img src="../img/Logo1_white.png" alt="" class="header__logo-img">
+                </div>
+
+                <div class="payment__header-title hide-on-mobile">
+                  <h3>THANH TOÁN SẢN PHẨM</h3>
+                  <h3>THANH TOÁN SẢN PHẨM</h3>
+                </div>
+
+                <div class="header__search d-none">
+                    <div class="header__search-input-wrap">
+                        <input type="text" class="header__search-input" placeholder="Tìm kiếm sản phẩm">
+                        <div class="header__search-history">
+                            <h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>
+                            <ul class="header__search-history-list">
+                                <li class="header__search-history-item">
+                                    <a href="" class="header__search-history-link">Quần dài</a>
+                                </li>
+                                <li class="header__search-history-item">
+                                    <a href="" class="header__search-history-link">Quần short</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="header__search-select">
+                        <span class="header__search-select-label">Trong shop</span>
+                        <i class="header__search-select-icon fa-solid fa-angle-down"></i>
+                        <ul class="header__search-option">
+                            <li class="header__search-item">
+                                <span class="header__search-text">Trong shop</span>
+                                <i class="header__search-icon fa-solid fa-check"></i>
+                            </li>
+                            <li class="header__search-item">
+                                <span class="header__search-text">Ngoài shop</span>
+                                <i class="header__search-icon fa-solid fa-check"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="header__search-btn">
+                        <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+
+                <!-- Display menu on mobile and tablet -->
+                <div class="header__menu-mobile payment-header__menu-mobile">
+                    <label for="header__menu-mobile-check">
+                        <i class="fa-solid fa-bars header__menu-mobile-icon"></i>
+                    </label>
+                    <input type="checkbox" hidden id="header__menu-mobile-check">
+
+                    <label for="header__menu-mobile-check" class="header__menu-mobile-over"></label>
+
+                    <div class="header__menu-mobile-list-wrapper">
+                        <label for="header__menu-mobile-check">
+                            <i class="fa-solid fa-xmark header__menu-close-icon"></i>
+                        </label>
+                        <ul class="header__menu-mobile-list">
+                            <li class="header__menu-mobile-item">
+                                <a href="../html/home.html" class="header__menu-mobile-link">Trang chủ</a>
+                            </li>
+                            <li class="header__menu-mobile-item">
+                                <a href="../html/myaccount.html" class="header__menu-mobile-link">Tài khoản của tôi</a>
+                            </li>
+                            <li class="header__menu-mobile-item">
+                                <a href="" class="header__menu-mobile-link">Địa chỉ của tôi</a>
+                            </li>
+                            <li class="header__menu-mobile-item">
+                                <a href="" class="header__menu-mobile-link">Đơn mua</a>
+                            </li>
+                            <li class="header__menu-mobile-item">
+                                <a href="../../index.html" class="header__menu-mobile-link">Đăng xuất</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Display sort bar mobile and tablet -->
+        <ul class="header__sort-bar">
+            <li class="header__sort-item">
+                <a href="" class="header__sort-link">Liên quan</a>
+            </li>
+            <li class="header__sort-item header__sort-item--active">
+                <a href="" class="header__sort-link">Mới nhất</a>
+            </li>
+            <li class="header__sort-item">
+                <a href="" class="header__sort-link">Bán chạy</a>
+            </li>
+            <li class="header__sort-item">
+                <a href="" class="header__sort-link">Giá</a>
+            </li>
+        </ul>
+      </header>
+
+      <div class="payment__container">
+        <div class="grid">
+          <div class="content__payment-product-wrapper">
+          </div>
+          <div class="row content__product__btn">
+            <div class="col content__product__col content__product__col-btn-text">
+                <span class="content__product__btn-text">Tổng thanh toán:
+                    <span class="content__product__btn-total">0đ</span>
+                </span>
+            </div>
+          </div>
+          <div class="content__payment">
+            <div class="container preload">
+              <div class="creditcard">
+                <div class="front">
+                  <div id="ccsingle"></div>
+                  <svg version="1.1" id="cardfront" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 750 471"
+                    style="enable-background: new 0 0 750 471"
+                    xml:space="preserve"
+                  >
+                    <g id="Front">
+                      <g id="CardBackground">
+                        <g id="Page-1_1_">
+                          <g id="amex_1_">
+                            <path
+                              id="Rectangle-1_1_"
+                              class="lightcolor grey"
+                              d="M40,0h670c22.1,0,40,17.9,40,40v391c0,22.1-17.9,40-40,40H40c-22.1,0-40-17.9-40-40V40
+                                          C0,17.9,17.9,0,40,0z"
+                            />
+                          </g>
+                        </g>
+                        <path
+                          class="darkcolor greydark"
+                          d="M750,431V193.2c-217.6-57.5-556.4-13.5-750,24.9V431c0,22.1,17.9,40,40,40h670C732.1,471,750,453.1,750,431z"
+                        />
+                      </g>
+                      <text
+                        transform="matrix(1 0 0 1 60.106 295.0121)"
+                        id="svgnumber"
+                        class="st2 st3 st4"
+                      >
+                        0123 4567 8910 1112
+                      </text>
+                      <text
+                        transform="matrix(1 0 0 1 54.1064 428.1723)"
+                        id="svgname"
+                        class="st2 st5 st6"
+                      >
+                        Minh Dat
+                      </text>
+                      <text
+                        transform="matrix(1 0 0 1 54.1074 389.8793)"
+                        class="st7 st5 st8"
+                      >
+                        tên chủ thẻ
+                      </text>
+                      <text
+                        transform="matrix(1 0 0 1 479.7754 388.8793)"
+                        class="st7 st5 st8"
+                      >
+                        hết hạn
+                      </text>
+                      <text
+                        transform="matrix(1 0 0 1 65.1054 241.5)"
+                        class="st7 st5 st8"
+                      >
+                        số thẻ
+                      </text>
+                      <g>
+                        <text
+                          transform="matrix(1 0 0 1 574.4219 433.8095)"
+                          id="svgexpire"
+                          class="st2 st5 st9"
+                        >
+                          01/23
+                        </text>
+                        <text
+                          transform="matrix(1 0 0 1 479.3848 417.0097)"
+                          class="st2 st10 st11"
+                        >
+                          VALID
+                        </text>
+                        <text
+                          transform="matrix(1 0 0 1 479.3848 435.6762)"
+                          class="st2 st10 st11"
+                        >
+                          THRU
+                        </text>
+                        <polygon
+                          class="st2"
+                          points="554.5,421 540.4,414.2 540.4,427.9 		"
+                        />
+                      </g>
+                      <g id="cchip">
+                        <g>
+                          <path
+                            class="st2"
+                            d="M168.1,143.6H82.9c-10.2,0-18.5-8.3-18.5-18.5V74.9c0-10.2,8.3-18.5,18.5-18.5h85.3
+                                      c10.2,0,18.5,8.3,18.5,18.5v50.2C186.6,135.3,178.3,143.6,168.1,143.6z"
+                          />
+                        </g>
+                        <g>
+                          <g>
+                            <rect x="82" y="70" class="st12" width="1.5" height="60" />
+                          </g>
+                          <g>
+                            <rect
+                              x="167.4"
+                              y="70"
+                              class="st12"
+                              width="1.5"
+                              height="60"
+                            />
+                          </g>
+                          <g>
+                            <path
+                              class="st12"
+                              d="M125.5,130.8c-10.2,0-18.5-8.3-18.5-18.5c0-4.6,1.7-8.9,4.7-12.3c-3-3.4-4.7-7.7-4.7-12.3
+                                          c0-10.2,8.3-18.5,18.5-18.5s18.5,8.3,18.5,18.5c0,4.6-1.7,8.9-4.7,12.3c3,3.4,4.7,7.7,4.7,12.3
+                                          C143.9,122.5,135.7,130.8,125.5,130.8z M125.5,70.8c-9.3,0-16.9,7.6-16.9,16.9c0,4.4,1.7,8.6,4.8,11.8l0.5,0.5l-0.5,0.5
+                                          c-3.1,3.2-4.8,7.4-4.8,11.8c0,9.3,7.6,16.9,16.9,16.9s16.9-7.6,16.9-16.9c0-4.4-1.7-8.6-4.8-11.8l-0.5-0.5l0.5-0.5
+                                          c3.1-3.2,4.8-7.4,4.8-11.8C142.4,78.4,134.8,70.8,125.5,70.8z"
+                            />
+                          </g>
+                          <g>
+                            <rect
+                              x="82.8"
+                              y="82.1"
+                              class="st12"
+                              width="25.8"
+                              height="1.5"
+                            />
+                          </g>
+                          <g>
+                            <rect
+                              x="82.8"
+                              y="117.9"
+                              class="st12"
+                              width="26.1"
+                              height="1.5"
+                            />
+                          </g>
+                          <g>
+                            <rect
+                              x="142.4"
+                              y="82.1"
+                              class="st12"
+                              width="25.8"
+                              height="1.5"
+                            />
+                          </g>
+                          <g>
+                            <rect
+                              x="142"
+                              y="117.9"
+                              class="st12"
+                              width="26.2"
+                              height="1.5"
+                            />
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                    <g id="Back"></g>
+                  </svg>
+                </div>
+                <div class="back">
+                  <svg
+                    version="1.1"
+                    id="cardback"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 750 471"
+                    style="enable-background: new 0 0 750 471"
+                    xml:space="preserve"
+                  >
+                    <g id="Front">
+                      <line class="st0" x1="35.3" y1="10.4" x2="36.7" y2="11" />
+                    </g>
+                    <g id="Back">
+                      <g id="Page-1_2_">
+                        <g id="amex_2_">
+                          <path
+                            id="Rectangle-1_2_"
+                            class="darkcolor greydark"
+                            d="M40,0h670c22.1,0,40,17.9,40,40v391c0,22.1-17.9,40-40,40H40c-22.1,0-40-17.9-40-40V40
+                                      C0,17.9,17.9,0,40,0z"
+                          />
+                        </g>
+                      </g>
+                      <rect y="61.6" class="st2" width="750" height="78" />
+                      <g>
+                        <path
+                          class="st3"
+                          d="M701.1,249.1H48.9c-3.3,0-6-2.7-6-6v-52.5c0-3.3,2.7-6,6-6h652.1c3.3,0,6,2.7,6,6v52.5
+                                  C707.1,246.4,704.4,249.1,701.1,249.1z"
+                        />
+                        <rect
+                          x="42.9"
+                          y="198.6"
+                          class="st4"
+                          width="664.1"
+                          height="10.5"
+                        />
+                        <rect
+                          x="42.9"
+                          y="224.5"
+                          class="st4"
+                          width="664.1"
+                          height="10.5"
+                        />
+                        <path
+                          class="st5"
+                          d="M701.1,184.6H618h-8h-10v64.5h10h8h83.1c3.3,0,6-2.7,6-6v-52.5C707.1,187.3,704.4,184.6,701.1,184.6z"
+                        />
+                      </g>
+                      <text
+                        transform="matrix(1 0 0 1 621.999 227.2734)"
+                        id="svgsecurity"
+                        class="st6 st7"
+                      >
+                        131
+                      </text>
+                      <g class="st8">
+                        <text
+                          transform="matrix(1 0 0 1 518.083 280.0879)"
+                          class="st9 st6 st10"
+                        >
+                          CVV
+                        </text>
+                      </g>
+                      <rect
+                        x="58.1"
+                        y="378.6"
+                        class="st11"
+                        width="375.5"
+                        height="13.5"
+                      />
+                      <rect
+                        x="58.1"
+                        y="405.6"
+                        class="st11"
+                        width="421.7"
+                        height="13.5"
+                      />
+                      <text
+                        transform="matrix(1 0 0 1 59.5073 228.6099)"
+                        id="svgnameback"
+                        class="st12 st13"
+                      >
+                        Minh Dat
+                      </text>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="form-container">
+              <div class="field-container">
+                <label for="name">Tên chủ thẻ</label>
+                <input id="name" maxlength="20" type="text" />
+              </div>
+              <div class="field-container">
+                <label for="cardnumber">Số thẻ</label>
+                <span id="generatecard">ngẫu nhiên</span>
+                <input id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric"/>
+                <svg
+                  id="ccicon"
+                  class="ccicon"
+                  width="750"
+                  height="471"
+                  viewBox="0 0 750 471"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                ></svg>
+              </div>
+              <div class="field-container">
+                <label for="expirationdate">Hết hạn (mm/yy)</label>
+                <input id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric"/>
+              </div>
+              <div class="field-container">
+                <label for="securitycode">Mã xác nhận</label>
+                <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric"/>
+              </div>
+              <div class="field-container">
+                  <button class="btn btn--primary fs-2">Xác nhận</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="grid">
+            <div class="row footer__top">
+                <div class="col-lg-3 d-lg-flex justify-content-lg-center col-sm-6 d-sm-flex justify-content-sm-start col-6 d-flex justify-content-start ">
+                    <div>
+                        <h3 class="footer__heading">Chăm sóc khách hàng</h3>
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Trung tâm trợ giúp</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">TickID Mall</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Hướng dẫn mua hàng</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 d-lg-flex justify-content-lg-center col-sm-6 d-sm-flex justify-content-sm-start col-6 d-flex justify-content-start ">
+                    <div>
+                        <h3 class="footer__heading">Về TickID</h3>
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Giới thiệu về TickID Việt Nam</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Tuyển dụng</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Điều khoản TickID</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 d-lg-flex justify-content-lg-center col-sm-6 d-sm-flex justify-content-sm-start col-6 d-flex justify-content-start ">
+                    <div>
+                        <h3 class="footer__heading">Theo dõi chúng tôi</h3>
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a href="" class="footer__link">
+                                    <i class="footer__icon fa-brands fa-facebook"></i>
+                                    Facebook
+                                </a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">
+                                    <i class="footer__icon fa-brands fa-square-instagram"></i>
+                                    Instagram
+                                </a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">
+                                    <i class="footer__icon fa-brands fa-linkedin"></i>
+                                    LinkedIn
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 d-lg-flex justify-content-lg-center col-sm-6 d-sm-flex justify-content-sm-start col-6 d-flex justify-content-start ">
+                    <div>
+                        <h3 class="footer__heading">Ứng dụng</h3>
+                        <img src="../img/img_qr.png" alt="" class="footer__img">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="grid">
+                <div class="row">
+                    <p class="footer__text">© 2024-Bản quyền thuộc về Nguyễn Thắng Minh Đạt</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+  </body>
+  <script src="../js/payment.js"></script>
+</html>

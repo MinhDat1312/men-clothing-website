@@ -267,7 +267,7 @@
                         </span>
                     </div>
                     <div class="col-lg-3 col-sm-4 col content__product__col content__product__col-btn">
-                        <button class="btn btn--primary btn__product">Thanh Toán</button>
+                        <button class="btn btn--primary btn__product" onclick="payment();">Thanh Toán</button>
                     </div>
                 </div>
             </div>
@@ -413,6 +413,23 @@
         for (var i = 0; i < num.length; i++) {
             plus[i].addEventListener("click", createPlusCallback(i));
             minus[i].addEventListener("click", createMinusCallback(i));
+        }
+        // Lưu sản phẩm xác nhận thanh toán
+        function payment(){
+            var paymentProducts=new Array();
+            var inputs=document.getElementsByClassName("content__product__input");
+            for(var i=1;i<inputs.length;i++){
+                if(inputs[i].checked==true){
+                    paymentProducts.push(inputs[i].id);
+                }
+            }
+            localStorage.setItem("paymentProducts",JSON.stringify(paymentProducts));
+            if(paymentProducts.length<=0){
+                alert("Chọn sản phẩm để thanh toán");
+            }
+            else{
+                window.location.href="../html/payment.html";
+            }
         }
     </script>
 </html>
