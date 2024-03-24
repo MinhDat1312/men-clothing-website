@@ -115,7 +115,11 @@
     cursor: pointer;
 }
 
-.content__product__col-btn {
+.content__product__btn {
+    margin-top: 10px;
+}
+
+.content__product__col-btn{
     display: flex;
     justify-content: end;
 }
@@ -127,4 +131,19 @@
 
 .btn:hover {
     background-color: #2E8B57;
+}
+
+.content__product__col-btn-text {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.content__product__btn-text {
+    font-size: 1.8rem;
+    color: var(--text-color);
+}
+
+.content__product__btn-total {
+    color: var(--primary-color);
 }

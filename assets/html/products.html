@@ -246,8 +246,8 @@
             <div class="grid content__products">
                 <div class="row content__product__row">
                     <div class="col content__product__col content__product__col-check">
-                        <input type="checkbox" class="content__product__input">
-                        <span class="content__product__title">Sản Phẩm</span>
+                        <input type="checkbox" class="content__product__input" onclick="checkAll();">
+                        <span class="content__product__title">Chọn Tất Cả</span>
                     </div>
                     <div class="col content__product__col content__product__col-desc d-lg-flex d-sm-flex d-none">
                         <span class="content__product__text">Đơn Giá</span>
@@ -257,31 +257,17 @@
                     </div>
                 </div>
 
-                <div class="row content__product__item">
-                    <div class="col content__product__col content__product__col-check">
-                        <input type="checkbox" class="content__product__input">
-                        <a href="" class="content__product__link">
-                            <img src="../img/img2.png" alt="" class="content__product__img">
-                            <div class="content__product__name-product">
-                                Quần tây nam Akuba cao cấp vải co giãn dày dặn, quần âu nam công sở 
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col content__product__col content__product__col-desc content__product__col-desc--active  justify-content-lg-between justify-content-sm-between justify-content-end">
-                        <span class="content__product__price">1.000.000</span>
-                        <div class="detail-product-item__qty-btn content-product-item__qty-btn">
-                            <button class="detail-product-item__qty-minus content-product-item__qty-minus">-</button>
-                            <span class="detail-product-item__qty-num content-product-item__qty-num">1</span>
-                            <button class="detail-product-item__qty-plus content-product-item__qty-plus">+</button>
-                        </div>
-                        <span class="content__product__total">5.000.000</span>
-                        <span class="content__product__active">Xóa</span>
-                    </div>
+                <div class="content__product-wrapper">
                 </div>
 
                 <div class="row content__product__btn">
-                    <div class="col content__product__col content__product__col-btn">
-                        <button class="btn btn--primary">Thanh Toán</button>
+                    <div class="col-lg-9 col-sm-8 col content__product__col content__product__col-btn-text">
+                        <span class="content__product__btn-text">Tổng thanh toán:
+                            <span class="content__product__btn-total">0đ</span>
+                        </span>
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col content__product__col content__product__col-btn">
+                        <button class="btn btn--primary btn__product">Thanh Toán</button>
                     </div>
                 </div>
             </div>
@@ -365,26 +351,68 @@
         </footer>
     </div>
 </body>
-<script>
+    <script src="../js/products.js"></script>
+    <script>
         // Tăng giảm số lượng sản phẩm
-         var plus=document.querySelector(".detail-product-item__qty-plus");
-        var minus=document.querySelector(".detail-product-item__qty-minus");
-        var num=document.querySelector(".detail-product-item__qty-num");
+        var plus=document.getElementsByClassName("detail-product-item__qty-plus");
+        var minus=document.getElementsByClassName("detail-product-item__qty-minus");
+        var num=document.getElementsByClassName("detail-product-item__qty-num");
 
-        let a=1;
-        plus.addEventListener("click",function (){
-            a++;
-            num.innerText=a;
-        });
-        
-        minus.addEventListener("click",function (){
-            if(a<=1){
-                num.innerText=1;    
+        var totalPrice=document.getElementsByClassName("content__product__total");
+        var currentPrice=document.getElementsByClassName("content__product__price");
+        var nameProduct=document.getElementsByClassName("content__product__name-product");
+
+        var json=localStorage.getItem("listProductCart");
+        var data=JSON.parse(json);
+
+
+        function createPlusCallback(i) {
+            return function() {
+                var a = parseInt(num[i].innerText);
+                a++;
+                num[i].innerText = a;
+
+                newTotalPrice= Number(currentPrice[i].innerText.replace(/\D/g,"")) * Number(num[i].innerText);
+                totalPrice[i].innerText=newTotalPrice.toLocaleString("vi-VN")+"đ";
+
+                for(var j=0;j<data.length;j++){
+                    if(data[j].nameProduct==nameProduct[i].innerText){
+                        data[j].qty=num[i].innerText;
+                    }
+                }
+
+                var newJson=JSON.stringify(data);
+                localStorage.setItem("listProductCart",newJson);
             }
-            else{
-                a--;
-                num.innerText=a;
+        }
+
+        function createMinusCallback(i) {
+            return function() {
+                var a = parseInt(num[i].innerText);
+                if (a <= 1) {
+                    num[i].innerText = 1;
+                } else {
+                    a--;
+                    num[i].innerText = a;
+                }
+
+                newTotalPrice= Number(currentPrice[i].innerText.replace(/\D/g,"")) * Number(num[i].innerText);
+                totalPrice[i].innerText=newTotalPrice.toLocaleString("vi-VN")+"đ";
+
+                for(var j=0;j<data.length;j++){
+                    if(data[j].nameProduct==nameProduct[i].innerText){
+                        data[j].qty=num[i].innerText;
+                    }
+                }
+
+                var newJson=JSON.stringify(data);
+                localStorage.setItem("listProductCart",newJson);
             }
-        });
-</script>
+        }
+
+        for (var i = 0; i < num.length; i++) {
+            plus[i].addEventListener("click", createPlusCallback(i));
+            minus[i].addEventListener("click", createMinusCallback(i));
+        }
+    </script>
 </html>

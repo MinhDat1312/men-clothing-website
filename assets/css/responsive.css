@@ -293,6 +293,15 @@
         line-height: 28px;
     }
 
+    .btn__product{
+        min-width: 150px;
+        height: 40px;
+    }
+
+    .content__product__btn-text {
+        font-size: 1.4rem;
+    }
+
     @keyframes mobileSearchFade {
         from {
             top: calc(var(--header-height)/2);
