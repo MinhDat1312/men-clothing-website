@@ -990,7 +990,6 @@
 
 .category__item::before {
     content: "";
-    border-top: 1px solid #E1E1E1;
     position: absolute;
     top: 0;
     left: 20px;
