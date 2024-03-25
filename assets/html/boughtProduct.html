@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../font/fontawesome-free-6.5.1-web/css/all.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/products.css">
+    <link rel="stylesheet" href="../css/payment.css" />
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="grid">
+
+            <!-- navigation -->
+            <nav class="header__navbar hide-on-mobile-tablet">
+
+                <!-- nav top-left -->
+                <ul class="header__list">
+                    <li class="header__item header__item--separate header__item--qr">
+                        Vào cửa hàng trên ứng dụng
+                        <div class="header__qr">
+                            <img src="../img/img_qr.png" alt="QR" class="header__qr-img">
+                        </div>
+                    </li>
+                    <li class="header__item">
+                        <span class="header__item--nopacity">Kết nối</span>
+                        <a href="https://www.facebook.com/" class="header__navbar-icon">
+                            <i class="fa-brands fa-facebook header__icon-link"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" class="header__navbar-icon">
+                            <i class="fa-brands fa-instagram header__icon-link"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- nav top-right -->
+                <ul class="header__list">
+                    <li class="header__item header__item--notify">
+                        <a href="" class="header__link">
+                            <i class="fa-solid fa-bell header__icon-link"></i>
+                            Thông báo
+                        </a>
+
+                        <!-- display notify -->
+                        <div class="header__notify">
+                            <header class="header__notify-title">
+                                <h3>Thông báo mới nhận</h3>
+                            </header>
+                            <ul class="header__notify-list">
+                                <li class="header__notify-item">
+                                    <a href="" class="header__notify-link header__notify-link--viewed">
+                                        <img src="../img/img1.png" alt="" class="header__notify-img">
+                                        <div class="header__notify-infor">
+                                            <span class="header__notify-name">Áo nam</span>
+                                            <span class="header__notify-desc">Áo sơ mi nam Basic chất Kaki</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="header__notify-item">
+                                    <a href="" class="header__notify-link">
+                                        <img src="../img/img1.png" alt="" class="header__notify-img">
+                                        <div class="header__notify-infor">
+                                            <span class="header__notify-name">Áo nam</span>
+                                            <span class="header__notify-desc">Áo sơ mi nam Basic chất Kaki</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="header__notify-item">
+                                    <a href="" class="header__notify-link">
+                                        <img src="../img/img1.png" alt="" class="header__notify-img">
+                                        <div class="header__notify-infor">
+                                            <span class="header__notify-name">Áo nam</span>
+                                            <span class="header__notify-desc">Áo sơ mi nam Basic chất Kaki</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <footer class="header__notify-footer">
+                                <a href="" class="header__notify-btn">Xem tất cả</a>
+                            </footer>
+                        </div>
+                    </li>
+                    <li class="header__item">
+                        <a href="" class="header__link">
+                            <i class="fa-regular fa-circle-question header__icon-link"></i>
+                            Trợ giúp
+                        </a>
+                    </li>
+
+                    <!-- display register and login -->
+                    <!-- <li class="header__item header__item--register">
+                        <a href="#modal" class="header__link header__link--bold header__link--separate"
+                        onclick="displayRegister();">
+                            Đăng ký
+                        </a>
+                    </li>
+                    <li class="header__item header__item--login">
+                        <a href="#modal" class="header__link header__link--bold"
+                        onclick="displayLogin();">
+                            Đăng nhập
+                        </a>
+                    </li> -->
+
+                    <!-- display user -->
+                    <li class="header__item header__item-user">
+                        <img src="../img/img_qr.png" alt="" class="header__item-user-img">
+                        <span class="header__item-user-name">Minh Đạt</span>
+
+                        <ul class="header__item-user-menu">
+                            <li class="header__item-user-item">
+                                <a href="../html/home.html">Trang chủ</a>
+                            </li>
+                            <li class="header__item-user-item">
+                                <a href="../html/myaccount.html">Tài khoản của tôi </a>
+                            </li>
+                            <li class="header__item-user-item">
+                                <a href="">Địa chỉ của tôi </a>
+                            </li>
+                            <li class="header__item-user-item">
+                                <a href="../../index.html">Đăng xuất</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Search -->
+            <div class="header__with-search">
+                <label for="mobileSearch" class="header__mobile-search">
+                    <i class="header__mobile-search-icon fa-solid fa-magnifying-glass hide-on-mobile"></i>
+                </label>
+
+                <input type="checkbox" hidden id="mobileSearch">
+
+                <div class="header__logo hide-on-tablet">
+                    <a href="../html/home.html">
+                        <img src="../img/Logo1_white.png" alt="" class="header__logo-img">
+                    </a>
+                </div>
+
+                <div class="payment__header-title hide-on-mobile">
+                  <h3>ĐƠN HÀNG ĐÃ THANH TOÁN</h3>
+                  <h3>ĐƠN HÀNG ĐÃ THANH TOÁN</h3>
+                </div>
+
+                <div class="header__search d-none">
+                    <div class="header__search-input-wrap">
+                        <input type="text" class="header__search-input" placeholder="Tìm kiếm sản phẩm">
+                        <div class="header__search-history">
+                            <h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>
+                            <ul class="header__search-history-list">
+                                <li class="header__search-history-item">
+                                    <a href="" class="header__search-history-link">Quần dài</a>
+                                </li>
+                                <li class="header__search-history-item">
+                                    <a href="" class="header__search-history-link">Quần short</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="header__search-select">
+                        <span class="header__search-select-label">Trong shop</span>
+                        <i class="header__search-select-icon fa-solid fa-angle-down"></i>
+                        <ul class="header__search-option">
+                            <li class="header__search-item">
+                                <span class="header__search-text">Trong shop</span>
+                                <i class="header__search-icon fa-solid fa-check"></i>
+                            </li>
+                            <li class="header__search-item">
+                                <span class="header__search-text">Ngoài shop</span>
+                                <i class="header__search-icon fa-solid fa-check"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="header__search-btn">
+                        <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+
+                <!-- Display menu on mobile and tablet -->
+                <div class="header__menu-mobile payment-header__menu-mobile">
+                    <label for="header__menu-mobile-check">
+                        <i class="fa-solid fa-bars header__menu-mobile-icon"></i>
+                    </label>
+                    <input type="checkbox" hidden id="header__menu-mobile-check">
+
+                    <label for="header__menu-mobile-check" class="header__menu-mobile-over"></label>
+
+                    <div class="header__menu-mobile-list-wrapper">
+                        <label for="header__menu-mobile-check">
+                            <i class="fa-solid fa-xmark header__menu-close-icon"></i>
+                        </label>
+                        <ul class="header__menu-mobile-list">
+                            <li class="header__menu-mobile-item">
+                                <a href="../html/home.html" class="header__menu-mobile-link">Trang chủ</a>
+                            </li>
+                            <li class="header__menu-mobile-item">
+                                <a href="../html/myaccount.html" class="header__menu-mobile-link">Tài khoản của tôi</a>
+                            </li>
+                            <li class="header__menu-mobile-item">
+                                <a href="" class="header__menu-mobile-link">Địa chỉ của tôi</a>
+                            </li>
+                            <li class="header__menu-mobile-item">
+                                <a href="" class="header__menu-mobile-link">Đơn mua</a>
+                            </li>
+                            <li class="header__menu-mobile-item">
+                                <a href="../../index.html" class="header__menu-mobile-link">Đăng xuất</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Display sort bar mobile and tablet -->
+        <ul class="header__sort-bar">
+            <li class="header__sort-item">
+                <a href="" class="header__sort-link">Liên quan</a>
+            </li>
+            <li class="header__sort-item header__sort-item--active">
+                <a href="" class="header__sort-link">Mới nhất</a>
+            </li>
+            <li class="header__sort-item">
+                <a href="" class="header__sort-link">Bán chạy</a>
+            </li>
+            <li class="header__sort-item">
+                <a href="" class="header__sort-link">Giá</a>
+            </li>
+        </ul>
+    </header>
+
+    <div class="payment__container">
+        <div class="grid">
+            <div class="row content__product__row mt-3">
+                <div class="col content__product__col content__product__col-check ms-lg-5">
+                  <span class="content__product__text">Sản Phẩm</span>
+                </div>
+                <div class="col content__product__col content__product__col-desc d-lg-flex d-sm-flex d-none">
+                    <span class="content__product__text">Đơn Giá</span>
+                    <span class="content__product__text">Số Lượng</span>
+                    <span class="content__product__text">Số Tiền</span>
+                </div>
+            </div>
+            <div class="content__payment-product-wrapper">
+            </div>
+            <div class="row content__product__btn">
+                <div class="col content__product__col content__product__col-btn-text">
+                    <span class="content__product__btn-text">Tổng thanh toán:
+                        <span class="content__product__btn-total">0đ</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-3">
+        <div class="grid">
+            <div class="row footer__top">
+                <div class="col-lg-3 d-lg-flex justify-content-lg-center col-sm-6 d-sm-flex justify-content-sm-start col-6 d-flex justify-content-start ">
+                    <div>
+                        <h3 class="footer__heading">Chăm sóc khách hàng</h3>
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Trung tâm trợ giúp</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">TickID Mall</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Hướng dẫn mua hàng</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 d-lg-flex justify-content-lg-center col-sm-6 d-sm-flex justify-content-sm-start col-6 d-flex justify-content-start ">
+                    <div>
+                        <h3 class="footer__heading">Về TickID</h3>
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Giới thiệu về TickID Việt Nam</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Tuyển dụng</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Điều khoản TickID</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 d-lg-flex justify-content-lg-center col-sm-6 d-sm-flex justify-content-sm-start col-6 d-flex justify-content-start ">
+                    <div>
+                        <h3 class="footer__heading">Theo dõi chúng tôi</h3>
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a href="" class="footer__link">
+                                    <i class="footer__icon fa-brands fa-facebook"></i>
+                                    Facebook
+                                </a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">
+                                    <i class="footer__icon fa-brands fa-square-instagram"></i>
+                                    Instagram
+                                </a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">
+                                    <i class="footer__icon fa-brands fa-linkedin"></i>
+                                    LinkedIn
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 d-lg-flex justify-content-lg-center col-sm-6 d-sm-flex justify-content-sm-start col-6 d-flex justify-content-start ">
+                    <div>
+                        <h3 class="footer__heading">Ứng dụng</h3>
+                        <img src="../img/img_qr.png" alt="" class="footer__img">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="grid">
+                <div class="row">
+                    <p class="footer__text">© 2024-Bản quyền thuộc về Nguyễn Thắng Minh Đạt</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    // Hiển thị sản phẩm đã thanh toán
+    var jsonList=localStorage.getItem("listBoughtProduct");
+    if(jsonList!=null){
+        var dataList=JSON.parse(jsonList);
+        var rowProduct=document.querySelector(".content__payment-product-wrapper").innerHTML;
+        var totalPrices=Number(document.querySelector(".content__product__btn-total").innerText.replace(/\D/g,""));
+
+        for(var j=0;j<dataList.length;j++){
+            var imgProduct=dataList[j].imgProduct;
+            var imgReplace=imgProduct.replace(/url/gi,"");
+            var imgSplitfirst=imgReplace.split("(")[1];
+            var imgResult=imgSplitfirst.split(")")[0];
+
+            var totalPrice= Number(dataList[j].currentPrice.replace(/\D/g,"")) * Number(dataList[j].qty);
+            totalPrices+=totalPrice;
+            var formatTotalPrice=totalPrice.toLocaleString("vi-VN");
+
+            rowProduct+=
+            `
+            <div class="row content__product__item">
+                <div class="col content__product__col content__product__col-check">
+                    <a href="../html/detailProduct.html" class="content__product__link" onclick="setCurrentProduct(${dataList[j].idProduct});">
+                        <img src=${imgResult} alt="" class="content__product__img">
+                        <div class="content__product__name-product">
+                            ${dataList[j].nameProduct}
+                        </div>
+                    </a>
+                </div>
+                <div class="col content__product__col content__product__col-desc content__product__col-desc--active  justify-content-lg-between justify-content-sm-between justify-content-end">
+                    <span class="content__product__price">${dataList[j].currentPrice}</span>
+                    <div class="detail-product-item__qty-btn content-product-item__qty-btn">
+                        <span class="detail-product-item__qty-num content-product-item__qty-num">${dataList[j].qty}</span>
+                    </div>
+                    <span class="content__product__total">${formatTotalPrice}đ</span>
+                </div>
+            </div>
+
+            `
+
+            document.querySelector(".content__payment-product-wrapper").innerHTML=rowProduct;
+        }
+        document.querySelector(".content__product__btn-total").innerText=totalPrices.toLocaleString("vi-VN")+"đ";
+    }
+
+    // Thiết lập currentProduct khi nhấp vào sản phẩm trong Cart để xem thông tin sản phẩm
+    function setCurrentProduct(idProduct){
+        var json=JSON.stringify(idProduct);
+        localStorage.setItem("currentProduct",json);
+    }
+</script>
+</html>

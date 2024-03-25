@@ -127,7 +127,7 @@
                                 <a href="">Địa chỉ của tôi </a>
                             </li>
                             <li class="header__item-user-item">
-                                <a href="">Đơn mua</a>
+                                <a href="../html/boughtProduct.html">Đơn mua</a>
                             </li>
                             <li class="header__item-user-item">
                                 <a href="../../index.html">Đăng xuất</a>
@@ -146,7 +146,9 @@
                 <input type="checkbox" hidden id="mobileSearch">
 
                 <div class="header__logo hide-on-tablet">
-                    <img src="../img/Logo1_white.png" alt="" class="header__logo-img">
+                    <a href="../html/home.html">
+                      <img src="../img/Logo1_white.png" alt="" class="header__logo-img">
+                    </a>
                 </div>
 
                 <div class="payment__header-title hide-on-mobile">
@@ -242,6 +244,16 @@
 
       <div class="payment__container">
         <div class="grid">
+          <div class="row content__product__row mt-3">
+            <div class="col content__product__col content__product__col-check ms-lg-5">
+              <span class="content__product__text">Sản Phẩm</span>
+            </div>
+            <div class="col content__product__col content__product__col-desc d-lg-flex d-sm-flex d-none">
+                <span class="content__product__text">Đơn Giá</span>
+                <span class="content__product__text">Số Lượng</span>
+                <span class="content__product__text">Số Tiền</span>
+            </div>
+          </div>
           <div class="content__payment-product-wrapper">
           </div>
           <div class="row content__product__btn">
@@ -642,19 +654,43 @@
         }
       }
       var start=setTimeout(function (){
-            document.querySelector(".modal-notify").style.display="flex";
-          },200);
+        document.querySelector(".modal-notify").style.display="flex";
+      },200);
       var stop=setTimeout(function (){
-            clearTimeout(start);
-            document.querySelector(".modal-notify").style.display="none";
-          },2000);
+        clearTimeout(start);
+        document.querySelector(".modal-notify").style.display="none";
+      },2000);
       if(check==1){
         var startHome=setTimeout(function (){
           window.location.href="../html/home.html";
         },1000);
+
+        var listBoughtProduct=null;
+        if(JSON.parse(localStorage.getItem("listBoughtProduct"))==null){
+          listBoughtProduct=new Array();        
+        }
+        else{
+          listBoughtProduct=JSON.parse(localStorage.getItem("listBoughtProduct"));
+        }
+        var paymentProducts=JSON.parse(localStorage.getItem("paymentProducts"));
+        var listProductCart=JSON.parse(localStorage.getItem("listProductCart"));
+        var currentListProductCart=new Array();
+        var qtyCart=Number(JSON.parse(localStorage.getItem("QtyCart")));
+        for(var i=0;i<paymentProducts.length;i++){
+          listProductCart=listProductCart.find(function(value){
+             if(value.idProduct!=paymentProducts[i]){
+              currentListProductCart.push(value);
+            }
+            else{
+               listBoughtProduct.push(value);
+             }
+          });
+          qtyCart--;
+        }
+        localStorage.setItem("listBoughtProduct",JSON.stringify(listBoughtProduct));
+        localStorage.setItem("listProductCart",JSON.stringify(currentListProductCart));
+        localStorage.setItem("QtyCart",JSON.stringify(qtyCart));
         localStorage.setItem("paymentProducts", JSON.stringify(new Array()));
-        localStorage.setItem("listProductCart", JSON.stringify(new Array()));
-        localStorage.setItem("QtyCart", 0);
       }
     }
   </script>
