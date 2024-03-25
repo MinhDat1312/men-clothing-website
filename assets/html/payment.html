@@ -530,7 +530,7 @@
                 <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric"/>
               </div>
               <div class="field-container">
-                  <button class="btn btn--primary fs-2">Xác nhận</button>
+                  <button class="btn btn--primary fs-2" onclick="verifyPayment();">Xác nhận</button>
               </div>
             </div>
           </div>
@@ -612,8 +612,48 @@
                 </div>
             </div>
         </div>
-    </footer>
+      </footer>
+
+      <div class="modal-notify">
+        <i class="fa-solid fa-circle-check" class="modal-notify__text"></i>
+        <span class="modal-notify__text"></span>
+      </div>
     </div>
   </body>
   <script src="../js/payment.js"></script>
+  <script>
+    function verifyPayment(){
+      var inputForms=document.querySelectorAll(".form-container input");
+      var check=0;
+      for(var i=0;i<inputForms.length;i++){
+        if(inputForms[i].value==""){
+          document.querySelector(".modal-notify i").classList.remove("fa-circle-check");
+          document.querySelector(".modal-notify i").classList.add("fa-circle-exclamation");
+          document.querySelector(".modal-notify i").style.color="rgb(239, 33, 33)";
+          document.querySelector(".modal-notify__text").innerText="Vui lòng nhập thông tin thẻ";
+          break;
+        }
+        else{
+          document.querySelector(".modal-notify i").classList.add("fa-circle-check");
+          document.querySelector(".modal-notify i").classList.remove("fa-circle-exclamation");
+          document.querySelector(".modal-notify i").style.color="#00bfa5";
+          document.querySelector(".modal-notify__text").innerText="Thanh toán thành công";
+          check=1;
+        }
+      }
+      var start=setTimeout(function (){
+            document.querySelector(".modal-notify").style.display="flex";
+          },200);
+      var stop=setTimeout(function (){
+            clearTimeout(start);
+            document.querySelector(".modal-notify").style.display="none";
+          },2000);
+      
+      if(check==1){
+        var startHome=setTimeout(function (){
+          window.location.href="../html/home.html";
+        },1000);
+      }
+    }
+  </script>
 </html>

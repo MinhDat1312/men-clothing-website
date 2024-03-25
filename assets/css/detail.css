@@ -142,30 +142,3 @@
     color: var(--primary-color);
     font-size: 1.8rem;
 }
-
-.modal-notify {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 340px;
-    height: 180px;
-    background-color: rgba(0,0,0,0.5);
-    color: #00bfa5;
-    font-size: 6rem;
-    border-radius: 4px;
-    display: none;
-    animation: fade linear 0.2s;
-}
-
-.modal-notify__text {
-    margin-top: 16px;
-    font-size: 2rem;
-    color: var(--white-color);
-}

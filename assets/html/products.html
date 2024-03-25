@@ -267,7 +267,7 @@
                         </span>
                     </div>
                     <div class="col-lg-3 col-sm-4 col content__product__col content__product__col-btn">
-                        <button class="btn btn--primary btn__product" onclick="payment();">Thanh Toán</button>
+                        <button class="btn btn--primary btn__product" onclick="payment(); notifySuccess();">Thanh Toán</button>
                     </div>
                 </div>
             </div>
@@ -349,6 +349,11 @@
                 </div>
             </div>
         </footer>
+
+        <div class="modal-notify">
+            <i class="fa-solid fa-circle-exclamation" class="modal-notify__text" style="color: rgb(239, 33, 33);"></i>
+            <span class="modal-notify__text"></span>
+        </div>
     </div>
 </body>
     <script src="../js/products.js"></script>
@@ -425,11 +430,22 @@
             }
             localStorage.setItem("paymentProducts",JSON.stringify(paymentProducts));
             if(paymentProducts.length<=0){
-                alert("Chọn sản phẩm để thanh toán");
+                document.querySelector(".modal-notify__text").innerText="Chọn sản phẩm để thanh toán";
             }
             else{
                 window.location.href="../html/payment.html";
             }
+        }
+
+        // Hiển thị thông báo khi thêm thành công
+        function notifySuccess(){
+            var start=setTimeout(function (){
+                document.querySelector(".modal-notify").style.display="flex";
+            },200);
+            var stop=setTimeout(function (){
+                clearTimeout(start);
+                document.querySelector(".modal-notify").style.display="none";
+            },2000);
         }
     </script>
 </html>

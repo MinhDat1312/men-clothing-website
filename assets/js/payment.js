@@ -142,7 +142,6 @@ window.onload = function () {
     
     //pop in the appropriate card icon when detected
     cardnumber_mask.on("accept", function () {
-        console.log(cardnumber_mask.masked.currentMask.cardtype);
         switch (cardnumber_mask.masked.currentMask.cardtype) {
             case 'american express':
                 ccicon.innerHTML = amex;
@@ -229,8 +228,8 @@ window.onload = function () {
     //On Input Change Events
     name.addEventListener('input', function () {
         if (name.value.length == 0) {
-            document.getElementById('svgname').innerHTML = 'John Doe';
-            document.getElementById('svgnameback').innerHTML = 'John Doe';
+            document.getElementById('svgname').innerHTML = 'Minh Dat';
+            document.getElementById('svgnameback').innerHTML = 'Minh Dat';
         } else {
             document.getElementById('svgname').innerHTML = this.value;
             document.getElementById('svgnameback').innerHTML = this.value;
