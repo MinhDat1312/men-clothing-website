@@ -648,11 +648,13 @@
             clearTimeout(start);
             document.querySelector(".modal-notify").style.display="none";
           },2000);
-      
       if(check==1){
         var startHome=setTimeout(function (){
           window.location.href="../html/home.html";
         },1000);
+        localStorage.setItem("paymentProducts", JSON.stringify(new Array()));
+        localStorage.setItem("listProductCart", JSON.stringify(new Array()));
+        localStorage.setItem("QtyCart", 0);
       }
     }
   </script>
