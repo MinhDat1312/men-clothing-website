@@ -411,15 +411,17 @@
         var product=localStorage.getItem("currentProduct");
         var data=JSON.parse(product);
 
+
         // Tìm sản phẩm hiện tại trong danh sách sản phẩm
         var json=localStorage.getItem("listProduct");
         var list=JSON.parse(json);
         var res=null;
         for(var i=0;i<list.length;i++){
-            if(list[i].idProduct==product){
+            if(list[i].idProduct==data){
                 res=list[i];
             }
         }
+       
 
         document.getElementsByClassName("detail-product__img")[0].style.backgroundImage=res.imgProduct;
         document.getElementsByClassName("detail-product__name")[0].innerText=res.nameProduct;
