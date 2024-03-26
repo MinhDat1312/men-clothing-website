@@ -674,21 +674,19 @@
         }
         var paymentProducts=JSON.parse(localStorage.getItem("paymentProducts"));
         var listProductCart=JSON.parse(localStorage.getItem("listProductCart"));
-        var currentListProductCart=new Array();
         var qtyCart=Number(JSON.parse(localStorage.getItem("QtyCart")));
         for(var i=0;i<paymentProducts.length;i++){
-          listProductCart=listProductCart.find(function(value){
-             if(value.idProduct!=paymentProducts[i]){
-              currentListProductCart.push(value);
+          for(var j=0;j<listProductCart.length;j++){
+            if(paymentProducts[i]==listProductCart[j].idProduct){
+              listBoughtProduct.push(listProductCart[j]);
+              listProductCart.splice(j,1);
+              break;
             }
-            else{
-               listBoughtProduct.push(value);
-             }
-          });
+          }
           qtyCart--;
         }
         localStorage.setItem("listBoughtProduct",JSON.stringify(listBoughtProduct));
-        localStorage.setItem("listProductCart",JSON.stringify(currentListProductCart));
+        localStorage.setItem("listProductCart",JSON.stringify(listProductCart));
         localStorage.setItem("QtyCart",JSON.stringify(qtyCart));
         localStorage.setItem("paymentProducts", JSON.stringify(new Array()));
       }
