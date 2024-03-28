@@ -80,7 +80,7 @@
 
 /* Mobile */
 @media (max-width: 739px) {
-    /* index.html */
+    /* home.html */
     .hide-on-mobile {
         display: none;
     }
@@ -175,7 +175,11 @@
         line-height: 1.2rem;
     }
 
-    /* login.html */
+    .home-product-item__new {
+        font-size: 1.4rem;
+    }
+
+    /* index.html */
     .header__nav-login {
         padding: 0 10px;
     }
@@ -366,10 +370,6 @@
 
     .auth-form__socials-text {
         line-height: 1.2rem;
-    }
-
-    .home-product-item__new {
-        font-size: 1.4rem;
     }
 }
 
