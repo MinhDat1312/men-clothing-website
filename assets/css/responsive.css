@@ -367,6 +367,10 @@
     .auth-form__socials-text {
         line-height: 1.2rem;
     }
+
+    .home-product-item__new {
+        font-size: 1.4rem;
+    }
 }
 
 /* Tablet */
