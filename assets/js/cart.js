@@ -232,3 +232,64 @@ function deleteProductCart(x, idProduct){
     }
 }
 
+//Lưu sản phẩm yêu thích
+var favouriteProduct=null;
+if(localStorage.getItem("favouriteProduct")!=null){
+    favouriteProduct=JSON.parse(localStorage.getItem("favouriteProduct"));
+}
+else{
+    favouriteProduct=new Array();
+}
+var listProduct= JSON.parse(localStorage.getItem("listProduct"));
+
+//Thay đổi màu trái tim
+var listHeart=document.getElementsByClassName("home-product-item__heart");
+function changeHeart(i){
+    return function(){
+        if(listHeart[i].classList.contains("home-product-item__heart--liked")){
+            listHeart[i].classList.remove("home-product-item__heart--liked");
+            var idProduct=listHeart[i].parentElement.parentElement.id;
+            listHeart[i].parentElement.parentElement.parentElement.href="#idProduct";
+            document.getElementsByClassName("home-product-item__favourite")[i].style.display="none";
+
+            if(localStorage.getItem("favouriteProduct")!=null){
+                var list=JSON.parse(localStorage.getItem("favouriteProduct"))
+                for(var j=0;j<list.length;j++){
+                    if(list[j].idProduct==idProduct){
+                        list.splice(j,1);
+                    }
+                }
+                localStorage.setItem("favouriteProduct",JSON.stringify(list));
+            }
+        }
+        else{
+            listHeart[i].classList.add("home-product-item__heart--liked");
+            var idProduct=listHeart[i].parentElement.parentElement.id;
+            listHeart[i].parentElement.parentElement.parentElement.href="#idProduct";
+            document.getElementsByClassName("home-product-item__favourite")[i].style.display="block";
+
+            for(var j=0;j<listProduct.length;j++){
+                if(listProduct[j].idProduct==idProduct){
+                    favouriteProduct.push(listProduct[j]);
+                }
+            }
+
+            localStorage.setItem("favouriteProduct",JSON.stringify(favouriteProduct));
+        }
+    } 
+}
+for(var i=0;i<listHeart.length;i++){
+    listHeart[i].addEventListener("click",changeHeart(i));
+}
+
+//Set lại link cho tag a sau khi nhấn trái tim
+var listLink=document.getElementsByClassName("home-product-link");
+var listImage=document.getElementsByClassName("home-product-item__img");
+function changeLink(j){
+    return function(){
+        listLink[j].href="../html/detailProduct.html";
+    }
+}
+for(var j=0;j<listImage.length;j++){
+    listImage[j].addEventListener("click",changeLink(j));
+}

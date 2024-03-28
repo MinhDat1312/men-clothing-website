@@ -1192,6 +1192,11 @@
 
 .home-product-link {
     text-decoration: none;
+    color: var(--primary-color);
+}
+
+.home-product-link:hover {
+    color: var(--primary-color);
 }
 
 .home-product-item {
@@ -1269,7 +1274,9 @@
     color: #F63D30;
     display: none;
 }
+
 .home-product-item__heart--liked .home-product-item__heart-icon {
+    color: var(--white-color);
     display: none;
 }
 
@@ -1316,6 +1323,7 @@
     padding-right: 4px;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
+    display: none;
 }
 
 .home-product-item__favourite i {
