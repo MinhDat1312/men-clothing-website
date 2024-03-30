@@ -76,6 +76,11 @@
     .payment__container {
         margin-top: calc(var(--header-height) + var( --header-sort-bar-height));
     }
+
+    /* favourite.html */
+    .container__products--mod {
+        margin-top: var(--header-height);
+    }
 }
 
 /* Mobile */
@@ -320,6 +325,12 @@
         border: none;
     }
 
+    /* favourite.html */
+    .header__no-cart-msg--mod {
+        margin-top: 0;
+        font-size: 2rem;
+    }
+
     @keyframes mobileSearchFade {
         from {
             top: calc(var(--header-height)/2);
@@ -416,11 +427,14 @@
     }
 
     /* payment.html */
-    .payment__main .header__with-search{
+    .payment__main .header__with-search,
+    .main__products .header__with-search,
+    .boughtProduct_main .header__with-search{
         justify-content: space-between;
     }
 
-    .payment__header-title h3 {
+    .payment__header-title h3,
+    .favourite__header-title h3 {
         margin-left: 70px;
         font-size: 3rem;
     }

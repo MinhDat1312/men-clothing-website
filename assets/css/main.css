@@ -197,7 +197,7 @@
     position: absolute;
     top: 130%;
     right: 0;
-    width: 504px;
+    width: 504px;   
     background-color: var(--white-color);
     border: 1px solid #D3D3D3;
     border-radius: 2px;
@@ -656,6 +656,7 @@
     font-size: 1.6rem;
     margin-top: 12px;
     color: var(--text-color);
+    text-align: center;
 }
 
 .header__cart-list--no-cart .header__no-cart-img,

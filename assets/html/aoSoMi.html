@@ -47,46 +47,25 @@
                     <ul class="header__list">
                         <li class="header__item header__item--notify">
                             <a href="" class="header__link">
-                                <i class="fa-solid fa-bell header__icon-link"></i>
-                                Thông báo
+                                <i class="fa-solid fa-heart header__icon-link"></i>
+                                Yêu thích
                             </a>
 
                             <!-- display notify -->
+                             <!-- header__cart-list--no-cart 
+                                thêm class trên thì sẽ hiển thị giỏ hàng trống
+                            -->
                             <div class="header__notify">
+                                <img src="../img/no_cart.png" alt="" class="header__no-cart-img">
+                                <p class="header__no-cart-msg">Chưa có sản phẩm</p>
+
                                 <header class="header__notify-title">
-                                    <h3>Thông báo mới nhận</h3>
+                                    <h3>Sản phẩm yêu thích</h3>
                                 </header>
                                 <ul class="header__notify-list">
-                                    <li class="header__notify-item">
-                                        <a href="" class="header__notify-link header__notify-link--viewed">
-                                            <img src="../img/img1.png" alt="" class="header__notify-img">
-                                            <div class="header__notify-infor">
-                                                <span class="header__notify-name">Áo nam</span>
-                                                <span class="header__notify-desc">Áo sơ mi nam Basic chất Kaki</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="header__notify-item">
-                                        <a href="" class="header__notify-link">
-                                            <img src="../img/img1.png" alt="" class="header__notify-img">
-                                            <div class="header__notify-infor">
-                                                <span class="header__notify-name">Áo nam</span>
-                                                <span class="header__notify-desc">Áo sơ mi nam Basic chất Kaki</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="header__notify-item">
-                                        <a href="" class="header__notify-link">
-                                            <img src="../img/img1.png" alt="" class="header__notify-img">
-                                            <div class="header__notify-infor">
-                                                <span class="header__notify-name">Áo nam</span>
-                                                <span class="header__notify-desc">Áo sơ mi nam Basic chất Kaki</span>
-                                            </div>
-                                        </a>
-                                    </li>
                                 </ul>
                                 <footer class="header__notify-footer">
-                                    <a href="" class="header__notify-btn">Xem tất cả</a>
+                                    <a href="../html/favourite.html" class="header__notify-btn">Xem tất cả</a>
                                 </footer>
                             </div>
                         </li>
@@ -96,20 +75,6 @@
                                 Trợ giúp
                             </a>
                         </li>
-
-                        <!-- display register and login -->
-                        <!-- <li class="header__item header__item--register">
-                            <a href="#modal" class="header__link header__link--bold header__link--separate"
-                            onclick="displayRegister();">
-                                Đăng ký
-                            </a>
-                        </li>
-                        <li class="header__item header__item--login">
-                            <a href="#modal" class="header__link header__link--bold"
-                            onclick="displayLogin();">
-                                Đăng nhập
-                            </a>
-                        </li> -->
 
                         <!-- display user -->
                         <li class="header__item header__item-user">
@@ -226,6 +191,9 @@
                                 </li>
                                 <li class="header__menu-mobile-item">
                                     <a href="../html/boughtProduct.html" class="header__menu-mobile-link">Đơn mua</a>
+                                </li>
+                                <li class="header__menu-mobile-item">
+                                    <a href="../html/favourite.html" class="header__menu-mobile-link">Yêu thích</a>
                                 </li>
                                 <li class="header__menu-mobile-item">
                                     <a href="../../index.html" class="header__menu-mobile-link">Đăng xuất</a>
@@ -1503,6 +1471,19 @@
                 }
             }
         }
+    }
+
+    if(localStorage.getItem("favouriteProduct")==null || JSON.parse(localStorage.getItem("favouriteProduct")).length<=0){
+        document.querySelector(".header__notify").classList.add("header__cart-list--no-cart");
+        document.querySelector(".header__notify-title").style.display="none";
+        document.querySelector(".header__notify-list").style.display="none";
+        document.querySelector(".header__notify-footer").style.display="none";
+    }
+    else{
+        document.querySelector(".header__notify").classList.remove("header__cart-list--no-cart");
+        document.querySelector(".header__notify-title").style.display="block";
+        document.querySelector(".header__notify-list").style.display="block";
+        document.querySelector(".header__notify-footer").style.display="flex";
     }
 </script>    
 <!-- Hiển thị số lượng và thông tin sản phẩm khi thêm -->

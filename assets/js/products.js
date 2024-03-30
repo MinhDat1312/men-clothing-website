@@ -67,6 +67,17 @@ function deleteProductCart(x, idProduct){
     var data=JSON.parse(json);
 
     localStorage.setItem("QtyCart",data.length);
+
+    if(localStorage.getItem("listProductCart")==null || JSON.parse(localStorage.getItem("listProductCart")).length<=0){
+        document.querySelector(".content__products").classList.add("header__cart-list--no-cart");
+        document.querySelector(".content__product__row").style.display="none";
+        document.querySelector(".content__product__btn").style.display="none";
+    }
+    else{
+        document.querySelector(".content__products").classList.remove("header__cart-list--no-cart");
+        document.querySelector(".content__product__row").style.display="flex";
+        document.querySelector(".content__product__btn").style.display="flex";
+    }
 }
 
 //Checked tất cả sản phẩm
@@ -135,4 +146,30 @@ function setCurrentProduct(idProduct){
 }
 
 
-
+//Hiển thị sản phẩm yêu thích trong thông báo
+var items=document.querySelector(".header__notify-list").innerHTML;
+if(localStorage.getItem("favouriteProduct")!=null){
+    var favouriteProduct=JSON.parse(localStorage.getItem("favouriteProduct"));
+    for(var i=0;i<3;i++){
+        if(favouriteProduct[i]!=null){
+            var imgProduct=favouriteProduct[i].imgProduct;
+            var imgReplace=imgProduct.replace(/url/gi,"");
+            var imgSplitfirst=imgReplace.split("(")[1];
+            var imgResult=imgSplitfirst.split(")")[0];  
+        
+            items+=
+            `
+            <li class="header__notify-item">
+                <a href="../html/detailProduct.html" class="header__notify-link" onclick="setCurrentProduct(${favouriteProduct[i].idProduct});">
+                    <img src=${imgResult} alt="" class="header__notify-img">
+                    <div class="header__notify-infor">
+                        <span class="header__notify-name">${favouriteProduct[i].nameProduct}</span>
+                        <span class="header__notify-desc">${favouriteProduct[i].currentPrice}</span>
+                    </div>
+                </a>
+            </li>
+            `
+            document.querySelector(".header__notify-list").innerHTML=items;
+        }
+    }
+}

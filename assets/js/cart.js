@@ -256,10 +256,17 @@ function changeHeart(i){
                 var list=JSON.parse(localStorage.getItem("favouriteProduct"))
                 for(var j=0;j<list.length;j++){
                     if(list[j].idProduct==idProduct){
+                        var itemInNotify=document.querySelectorAll(".header__notify-name");
+                        for(var n=0;n<itemInNotify.length;n++){
+                            if(itemInNotify[n].innerText==list[j].nameProduct){
+                                itemInNotify[n].parentElement.parentElement.parentElement.remove();
+                            }
+                        }
                         list.splice(j,1);
                     }
                 }
                 localStorage.setItem("favouriteProduct",JSON.stringify(list));
+                
             }
         }
         else{
@@ -270,11 +277,46 @@ function changeHeart(i){
 
             for(var j=0;j<listProduct.length;j++){
                 if(listProduct[j].idProduct==idProduct){
-                    favouriteProduct.push(listProduct[j]);
+                    if(favouriteProduct.includes(listProduct[j])==false){
+                        favouriteProduct.push(listProduct[j]);
+                        var items=document.querySelector(".header__notify-list").innerHTML;
+                        if(listProduct[j]!=null){
+                            var imgProduct=listProduct[j].imgProduct;
+                            var imgReplace=imgProduct.replace(/url/gi,"");
+                            var imgSplitfirst=imgReplace.split("(")[1];
+                            var imgResult=imgSplitfirst.split(")")[0];  
+                        
+                            items+=
+                            `
+                            <li class="header__notify-item">
+                                <a href="../html/detailProduct.html" class="header__notify-link" onclick="setCurrentProduct(${listProduct[j].idProduct});">
+                                    <img src=${imgResult} alt="" class="header__notify-img">
+                                    <div class="header__notify-infor">
+                                        <span class="header__notify-name">${listProduct[j].nameProduct}</span>
+                                        <span class="header__notify-desc">${listProduct[j].currentPrice}</span>
+                                    </div>
+                                </a>
+                            </li>
+                            `
+                            document.querySelector(".header__notify-list").innerHTML=items;
+                        }
+                    }
                 }
             }
-
             localStorage.setItem("favouriteProduct",JSON.stringify(favouriteProduct));
+        }
+
+        if(localStorage.getItem("favouriteProduct")==null || JSON.parse(localStorage.getItem("favouriteProduct")).length<=0){
+            document.querySelector(".header__notify").classList.add("header__cart-list--no-cart");
+            document.querySelector(".header__notify-title").style.display="none";
+            document.querySelector(".header__notify-list").style.display="none";
+            document.querySelector(".header__notify-footer").style.display="none";
+        }
+        else{
+            document.querySelector(".header__notify").classList.remove("header__cart-list--no-cart");
+            document.querySelector(".header__notify-title").style.display="block";
+            document.querySelector(".header__notify-list").style.display="block";
+            document.querySelector(".header__notify-footer").style.display="flex";
         }
     } 
 }
@@ -292,4 +334,32 @@ function changeLink(j){
 }
 for(var j=0;j<listImage.length;j++){
     listImage[j].addEventListener("click",changeLink(j));
+}
+
+//Hiển thị sản phẩm yêu thích trong thông báo
+var items=document.querySelector(".header__notify-list").innerHTML;
+if(localStorage.getItem("favouriteProduct")!=null){
+    var favouriteProduct=JSON.parse(localStorage.getItem("favouriteProduct"));
+    for(var i=0;i<3;i++){
+        if(favouriteProduct[i]!=null){
+            var imgProduct=favouriteProduct[i].imgProduct;
+            var imgReplace=imgProduct.replace(/url/gi,"");
+            var imgSplitfirst=imgReplace.split("(")[1];
+            var imgResult=imgSplitfirst.split(")")[0];  
+        
+            items+=
+            `
+            <li class="header__notify-item">
+                <a href="../html/detailProduct.html" class="header__notify-link" onclick="setCurrentProduct(${favouriteProduct[i].idProduct});">
+                    <img src=${imgResult} alt="" class="header__notify-img">
+                    <div class="header__notify-infor">
+                        <span class="header__notify-name">${favouriteProduct[i].nameProduct}</span>
+                        <span class="header__notify-desc">${favouriteProduct[i].currentPrice}</span>
+                    </div>
+                </a>
+            </li>
+            `
+            document.querySelector(".header__notify-list").innerHTML=items;
+        }
+    }
 }

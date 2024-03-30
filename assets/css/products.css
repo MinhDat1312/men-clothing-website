@@ -147,3 +147,12 @@
 .content__product__btn-total {
     color: var(--primary-color);
 }
+
+.header__no-cart-img--mod {
+    transform: translateY(-10%);
+}
+
+.header__no-cart-msg--mod{
+    font-size: 3rem;
+    margin-top: -40px;
+}
