@@ -1,4 +1,4 @@
-.content__payment {
+    .content__payment {
     margin: 16px 0;
     padding: 0;
     background-color: #f9f9f9;
@@ -31,7 +31,7 @@
 
 
 .payment__header-title {
-    margin-left: 100px;
+    margin-left: 100px; 
 }
 
 .payment__header-title h3 {
@@ -41,12 +41,14 @@
     transform: translateY(-50%);
 }
 
-.payment__header-title h3:nth-child(1) {
+.payment__header-title h3:nth-child(1),
+.payment__header-title h3:nth-child(3) {
     color: transparent;
     -webkit-text-stroke: 1px var(--white-color);
 }
 
-.payment__header-title h3:nth-child(2) {
+.payment__header-title h3:nth-child(2),
+.payment__header-title h3:nth-child(4) {
     color: rgb(9, 237, 123);
     animation: animate 4s ease-in-out infinite;
 }
