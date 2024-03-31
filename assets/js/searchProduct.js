@@ -1,8 +1,31 @@
 // Hiển thị danh sách sản phẩm tìm kiếm
 function searchProduct(){
+    var msgProducts=null;
     var msgProduct=document.querySelector(".header__search-input").value;
-    localStorage.setItem("msgSearchProduct",JSON.stringify(msgProduct));
+    if(localStorage.getItem("msgSearchProduct")!=null){
+        msgProducts=JSON.parse(localStorage.getItem("msgSearchProduct"));
+    }
+    else{
+        msgProducts=new Array();
+    }
+
+    if(msgProduct!=""){
+        if(msgProducts.length==3){
+            var tmp=msgProducts[0];
+            msgProducts[0]=msgProducts[1];
+            msgProducts[1]=msgProducts[2];
+            msgProducts[2]=tmp;
+    
+            msgProducts.pop();
+        }
+    
+        msgProducts.push(msgProduct);
+    }
+
+    
+    localStorage.setItem("msgSearchProduct",JSON.stringify(msgProducts));
     document.querySelector(".header__search-input").value="";
+
     var listProduct=JSON.parse(localStorage.getItem("listProduct"));
 
     var productsSearch=listProduct.filter(value => {
@@ -75,5 +98,20 @@ function searchProduct(){
     });
     products+=`</div>`
     document.querySelector(".home-product").innerHTML=products;
-    console.log(document.querySelector(".home-product").innerHTML);
+
+    //Cập nhật lịch sử tìm kiếm
+    var msgSearchProductsReverse=JSON.parse(localStorage.getItem("msgSearchProduct")).reverse();
+    document.querySelector(".header__search-history-list").innerHTML="";
+    var msg="";
+    for(var i=0;i<msgSearchProductsReverse.length;i++){
+        if(msgSearchProductsReverse[i]!=""){
+            msg+=
+            `
+            <li class="header__search-history-item">
+                <a href="" class="header__search-history-link">${msgSearchProductsReverse[i]}</a>
+            </li>
+            `
+        }
+    }
+    document.querySelector(".header__search-history-list").innerHTML=msg;
 }

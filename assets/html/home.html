@@ -115,12 +115,6 @@
                             <div class="header__search-history">
                                 <h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>
                                 <ul class="header__search-history-list">
-                                    <li class="header__search-history-item">
-                                        <a href="" class="header__search-history-link">Quần dài</a>
-                                    </li>
-                                    <li class="header__search-history-item">
-                                        <a href="" class="header__search-history-link">Quần short</a>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -1493,8 +1487,55 @@
         // Chuyển sang trang tìm kiếm
         function pageSearchProduct(){
             var msgProduct=document.querySelector(".header__search-input").value;
-            localStorage.setItem("msgSearchProduct",JSON.stringify(msgProduct));
-            window.location.href="../html/searchProduct.html";
+            if(msgProduct!=""){
+                var msgProducts=null;
+                if(localStorage.getItem("msgSearchProduct")==null){
+                    msgProducts=new Array();
+                }
+                else{
+                    msgProducts=JSON.parse(localStorage.getItem("msgSearchProduct"));
+                }
+    
+                if(msgProduct!=""){
+                    if(msgProducts.length==3){
+                        var tmp=msgProducts[0];
+                        msgProducts[0]=msgProducts[1];
+                        msgProducts[1]=msgProducts[2];
+                        msgProducts[2]=tmp;
+        
+                        msgProducts.pop();
+                    }
+        
+                    msgProducts.push(msgProduct);
+                }
+    
+                
+                localStorage.setItem("msgSearchProduct",JSON.stringify(msgProducts));
+                window.location.href="../html/searchProduct.html";
+            }
+            else{
+                alert("Nhaap")
+            }
+        }
+
+        //Hiển thị lịch sử tìm kiếm
+        if(localStorage.getItem("msgSearchProduct")!=null){
+            var msgSearchProductsReverse=JSON.parse(localStorage.getItem("msgSearchProduct")).reverse();
+            var msg=document.querySelector(".header__search-history-list").innerHTML;
+            for(var i=0;i<msgSearchProductsReverse.length;i++){
+                if(msgSearchProductsReverse[i]!=""){
+                    msg+=
+                    `
+                    <li class="header__search-history-item">
+                        <a href="" class="header__search-history-link">${msgSearchProductsReverse[i]}</a>
+                    </li>
+                    `
+                }
+            }
+            document.querySelector(".header__search-history-list").innerHTML=msg;
+        }
+        else{
+            document.querySelector(".header__search-history").style.display="none";
         }
     
     </script>    
