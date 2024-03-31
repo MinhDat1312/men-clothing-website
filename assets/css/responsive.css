@@ -372,6 +372,11 @@
         left: 126px;
     }
 
+    /* searchProduct.html */
+    .noResult img {
+        width: 200px;
+    }
+
     @keyframes mobileSearchFade {
         from {
             top: calc(var(--header-height)/2);

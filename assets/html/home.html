@@ -138,7 +138,7 @@
                                 </li>
                             </ul>
                         </div> -->
-                        <button class="header__search-btn">
+                        <button class="header__search-btn" onclick="pageSearchProduct();">
                             <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
                         </button>
                     </div>
@@ -1488,6 +1488,13 @@
             document.querySelector(".header__notify-title").style.display="block";
             document.querySelector(".header__notify-list").style.display="block";
             document.querySelector(".header__notify-footer").style.display="flex";
+        }
+
+        // Chuyển sang trang tìm kiếm
+        function pageSearchProduct(){
+            var msgProduct=document.querySelector(".header__search-input").value;
+            localStorage.setItem("msgSearchProduct",JSON.stringify(msgProduct));
+            window.location.href="../html/searchProduct.html";
         }
     
     </script>    
