@@ -306,6 +306,10 @@ function pageSearchProduct(){
             clearTimeout(start);
             document.querySelector(".modal-notify--mod").style.display="none";
         },2000);
+
+        setTimeout(function (){
+            window.location.href="../html/products.html";
+        },2000);
     }
     document.querySelector(".header__search-history").style.display="none";
     document.querySelector(".header__search-input").value="";
