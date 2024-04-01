@@ -33,6 +33,7 @@ function Register(e){
             var json=JSON.stringify(user);
             localStorage.setItem("username",json);
             alert("Đăng ký thành công");
+            displayLogininRegister();
         }
         else{
             alert("Mật khẩu không giống");
