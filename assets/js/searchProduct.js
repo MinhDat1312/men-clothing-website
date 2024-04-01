@@ -114,4 +114,6 @@ function searchProduct(){
         }
     }
     document.querySelector(".header__search-history-list").innerHTML=msg;
+
+    window.location.href="../html/searchProduct.html";
 }

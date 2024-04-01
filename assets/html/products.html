@@ -118,16 +118,10 @@
 
                     <div class="header__search">
                         <div class="header__search-input-wrap">
-                            <input type="text" class="header__search-input" placeholder="Tìm kiếm sản phẩm">
+                            <input type="text" class="header__search-input" placeholder="Tìm kiếm sản phẩm" onclick="displaySearchHistory();">
                             <div class="header__search-history">
                                 <h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>
                                 <ul class="header__search-history-list">
-                                    <li class="header__search-history-item">
-                                        <a href="" class="header__search-history-link">Quần dài</a>
-                                    </li>
-                                    <li class="header__search-history-item">
-                                        <a href="" class="header__search-history-link">Quần short</a>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -145,7 +139,7 @@
                                 </li>
                             </ul>
                         </div> -->
-                        <button class="header__search-btn">
+                        <button class="header__search-btn" onclick="pageSearchProduct();">
                             <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
                         </button>
                     </div>
@@ -320,6 +314,18 @@
             <span class="modal-notify__text"></span>
         </div>
     </div>
+
+    <!-- Hiển thị thông báo khi value search rỗng -->
+    <div class="modal-notify modal-notify--mod">
+        <i class="fa-solid fa-circle-exclamation" class="modal-notify__text"></i>
+        <span class="modal-notify__text">Nhập tên sản phẩm để tìm kiếm</span>
+    </div>
+
+    <!-- Hiển thị thông báo khi value search không tìm thấy-->
+    <div class="modal-notify modal-notify--noresult">
+        <i class="fa-solid fa-circle-exclamation" class="modal-notify__text"></i>
+        <span class="modal-notify__text">Không tìm thấy sản phẩm</span>
+    </div>
 </body>
     <script src="../js/products.js"></script>
     <script>
@@ -384,6 +390,7 @@
             plus[i].addEventListener("click", createPlusCallback(i));
             minus[i].addEventListener("click", createMinusCallback(i));
         }
+
         // Lưu sản phẩm xác nhận thanh toán
         function payment(){
             var paymentProducts=new Array();
@@ -438,5 +445,37 @@
             document.querySelector(".content__product__row").style.display="flex";
             document.querySelector(".content__product__btn").style.display="flex";
         }
+
+        //Hiển thị lịch sử tìm kiếm
+        if(localStorage.getItem("msgSearchProduct")!=null){
+            var msgSearchProductsReverse=JSON.parse(localStorage.getItem("msgSearchProduct")).reverse();
+            var msg=document.querySelector(".header__search-history-list").innerHTML;
+            for(var i=0;i<msgSearchProductsReverse.length;i++){
+                if(msgSearchProductsReverse[i]!=""){
+                    msg+=
+                    `
+                    <li class="header__search-history-item" onclick="valueToSearch('${msgSearchProductsReverse[i]}');">
+                        <a href="#" class="header__search-history-link">
+                            ${msgSearchProductsReverse[i]}
+                        </a>
+                    </li>
+                    `
+                }
+            }
+            document.querySelector(".header__search-history-list").innerHTML=msg;
+        }
+        else{
+            document.querySelector(".header__search-history").style.display="none";
+        }
+        
+        function displaySearchHistory(){
+            document.querySelector(".header__search-history").style.display="block";
+        }
+
+        function valueToSearch(msg){
+           document.querySelector(".header__search-input").value=msg;
+            document.querySelector(".header__search-history").style.display="none";
+        }
+
     </script>
 </html>

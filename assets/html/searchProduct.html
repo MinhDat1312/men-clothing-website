@@ -113,7 +113,7 @@
 
                     <div class="header__search">
                         <div class="header__search-input-wrap">
-                            <input type="text" class="header__search-input" placeholder="Tìm kiếm sản phẩm">
+                            <input type="text" class="header__search-input" placeholder="Tìm kiếm sản phẩm" onclick="displaySearchHistory();">
                             <div class="header__search-history">
                                 <h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>
                                 <ul class="header__search-history-list">
@@ -517,7 +517,7 @@
             if(msgSearchProductsReverse[i]!=""){
                 msg+=
                 `
-                <li class="header__search-history-item">
+                <li class="header__search-history-item" onclick="valueToSearch('${msgSearchProductsReverse[i]}');">
                     <a href="" class="header__search-history-link">${msgSearchProductsReverse[i]}</a>
                 </li>
                 `
@@ -526,6 +526,15 @@
         document.querySelector(".header__search-history-list").innerHTML=msg;
     }
     else{
+        document.querySelector(".header__search-history").style.display="none";
+    }
+
+    function displaySearchHistory(){
+        document.querySelector(".header__search-history").style.display="block";
+    }
+
+    function valueToSearch(msg){
+        document.querySelector(".header__search-input").value=msg;
         document.querySelector(".header__search-history").style.display="none";
     }
 

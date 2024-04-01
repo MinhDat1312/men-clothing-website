@@ -111,7 +111,7 @@
 
                     <div class="header__search">
                         <div class="header__search-input-wrap">
-                            <input type="text" class="header__search-input" placeholder="Tìm kiếm sản phẩm">
+                            <input type="text" class="header__search-input" placeholder="Tìm kiếm sản phẩm" onclick="displaySearchHistory();">
                             <div class="header__search-history">
                                 <h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>
                                 <ul class="header__search-history-list">
@@ -1367,6 +1367,12 @@
         </div>
     </div>
 
+    <!-- Hiển thị thông báo khi value search rỗng -->
+    <div class="modal-notify">
+        <i class="fa-solid fa-circle-exclamation" class="modal-notify__text"></i>
+        <span class="modal-notify__text">Nhập tên sản phẩm để tìm kiếm</span>
+    </div>
+
 </body>
     <script>
         var items=document.querySelectorAll(".home-product-item__brand");
@@ -1514,8 +1520,16 @@
                 window.location.href="../html/searchProduct.html";
             }
             else{
-                alert("Nhaap")
+                document.querySelector(".modal-notify i").style.color="rgb(239, 33, 33)";
+                var start=setTimeout(function (){
+                    document.querySelector(".modal-notify").style.display="flex";
+                },200);
+                var stop=setTimeout(function (){
+                    clearTimeout(start);
+                    document.querySelector(".modal-notify").style.display="none";
+                },2000);
             }
+            document.querySelector(".header__search-history").style.display="none";
         }
 
         //Hiển thị lịch sử tìm kiếm
@@ -1526,8 +1540,10 @@
                 if(msgSearchProductsReverse[i]!=""){
                     msg+=
                     `
-                    <li class="header__search-history-item">
-                        <a href="" class="header__search-history-link">${msgSearchProductsReverse[i]}</a>
+                    <li class="header__search-history-item" onclick="valueToSearch('${msgSearchProductsReverse[i]}');">
+                        <a href="#" class="header__search-history-link">
+                            ${msgSearchProductsReverse[i]}
+                        </a>
                     </li>
                     `
                 }
@@ -1537,7 +1553,17 @@
         else{
             document.querySelector(".header__search-history").style.display="none";
         }
-    
+        
+        function displaySearchHistory(){
+            document.querySelector(".header__search-history").style.display="block";
+        }
+
+        function valueToSearch(msg){
+           document.querySelector(".header__search-input").value=msg;
+            document.querySelector(".header__search-history").style.display="none";
+        }
+
+
     </script>    
     <!-- Hiển thị số lượng và thông tin sản phẩm khi thêm -->
     <script src="../js/cart.js"></script>

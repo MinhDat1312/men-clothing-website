@@ -115,16 +115,10 @@
 
                     <div class="header__search">
                         <div class="header__search-input-wrap">
-                            <input type="text" class="header__search-input" placeholder="Tìm kiếm sản phẩm">
+                            <input type="text" class="header__search-input" placeholder="Tìm kiếm sản phẩm" onclick="displaySearchHistory();">
                             <div class="header__search-history">
                                 <h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>
                                 <ul class="header__search-history-list">
-                                    <li class="header__search-history-item">
-                                        <a href="" class="header__search-history-link">Quần dài</a>
-                                    </li>
-                                    <li class="header__search-history-item">
-                                        <a href="" class="header__search-history-link">Quần short</a>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -142,7 +136,7 @@
                                 </li>
                             </ul>
                         </div> -->
-                        <button class="header__search-btn">
+                        <button class="header__search-btn" onclick="pageSearchProduct();">
                             <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
                         </button>
                     </div>
@@ -1376,6 +1370,12 @@
             </div>
         </div>
     </div>
+
+    <!-- Hiển thị thông báo khi value search rỗng -->
+    <div class="modal-notify">
+        <i class="fa-solid fa-circle-exclamation" class="modal-notify__text"></i>
+        <span class="modal-notify__text">Nhập tên sản phẩm để tìm kiếm</span>
+    </div>
 </body>
 <script>
     var items=document.querySelectorAll(".home-product-item__brand");
@@ -1485,6 +1485,80 @@
         document.querySelector(".header__notify-list").style.display="block";
         document.querySelector(".header__notify-footer").style.display="flex";
     }
+
+    // Chuyển sang trang tìm kiếm
+    function pageSearchProduct(){
+        var msgProduct=document.querySelector(".header__search-input").value;
+        if(msgProduct!=""){
+            var msgProducts=null;
+            if(localStorage.getItem("msgSearchProduct")==null){
+                msgProducts=new Array();
+            }
+            else{
+                msgProducts=JSON.parse(localStorage.getItem("msgSearchProduct"));
+            }
+
+            if(msgProduct!=""){
+                if(msgProducts.length==3){
+                    var tmp=msgProducts[0];
+                    msgProducts[0]=msgProducts[1];
+                    msgProducts[1]=msgProducts[2];
+                    msgProducts[2]=tmp;
+    
+                    msgProducts.pop();
+                }
+    
+                msgProducts.push(msgProduct);
+            }
+
+            
+            localStorage.setItem("msgSearchProduct",JSON.stringify(msgProducts));
+            window.location.href="../html/searchProduct.html";
+        }
+        else{
+            document.querySelector(".modal-notify i").style.color="rgb(239, 33, 33)";
+            var start=setTimeout(function (){
+                document.querySelector(".modal-notify").style.display="flex";
+            },200);
+            var stop=setTimeout(function (){
+                clearTimeout(start);
+                document.querySelector(".modal-notify").style.display="none";
+            },2000);
+        }
+        document.querySelector(".header__search-history").style.display="none";
+    }
+
+    //Hiển thị lịch sử tìm kiếm
+    if(localStorage.getItem("msgSearchProduct")!=null){
+        var msgSearchProductsReverse=JSON.parse(localStorage.getItem("msgSearchProduct")).reverse();
+        var msg=document.querySelector(".header__search-history-list").innerHTML;
+        for(var i=0;i<msgSearchProductsReverse.length;i++){
+            if(msgSearchProductsReverse[i]!=""){
+                msg+=
+                `
+                <li class="header__search-history-item" onclick="valueToSearch('${msgSearchProductsReverse[i]}');">
+                    <a href="#" class="header__search-history-link">
+                        ${msgSearchProductsReverse[i]}
+                    </a>
+                </li>
+                `
+            }
+        }
+        document.querySelector(".header__search-history-list").innerHTML=msg;
+    }
+    else{
+        document.querySelector(".header__search-history").style.display="none";
+    }
+    
+    function displaySearchHistory(){
+        document.querySelector(".header__search-history").style.display="block";
+    }
+
+    function valueToSearch(msg){
+        document.querySelector(".header__search-input").value=msg;
+        document.querySelector(".header__search-history").style.display="none";
+    }
+
 </script>    
 <!-- Hiển thị số lượng và thông tin sản phẩm khi thêm -->
 <script src="../js/cart.js"></script>

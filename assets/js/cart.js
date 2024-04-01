@@ -363,3 +363,4 @@ if(localStorage.getItem("favouriteProduct")!=null){
         }
     }
 }
+
