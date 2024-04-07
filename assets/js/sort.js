@@ -25,6 +25,7 @@ btnASC.addEventListener("click",()=>{
     setLink();
     displayFavouriteProduct();
     resetButton(-1);
+    star();
 });
 
 btnDESC.addEventListener("click",()=>{
@@ -46,6 +47,7 @@ btnDESC.addEventListener("click",()=>{
     setLink();
     displayFavouriteProduct();
     resetButton(-1);
+    star();
 });
 
 btnSoldMax.addEventListener("click",()=>{
@@ -68,6 +70,7 @@ btnSoldMax.addEventListener("click",()=>{
     setLink();
     displayFavouriteProduct();
     resetButton(2);
+    star();
 });
 
 btnPopular.addEventListener("click",()=>{
@@ -76,8 +79,10 @@ btnPopular.addEventListener("click",()=>{
     var list=new Array();
     for(var i=0; i<20;i++){
         var productRandom=currentList[Math.floor(Math.random()*currentList.length)];
-        while(list.includes(productRandom)){
+        var index=1;
+        while(list.includes(productRandom) && index <= 20){
             productRandom=currentList[Math.floor(Math.random()*currentList.length)];
+            index++;
         }
         list.push(productRandom);
     }
@@ -86,6 +91,7 @@ btnPopular.addEventListener("click",()=>{
     setLink();
     displayFavouriteProduct();
     resetButton(0);
+    star();
 })
 
 btnDiscount.addEventListener("click",()=>{
@@ -105,6 +111,7 @@ btnDiscount.addEventListener("click",()=>{
     setLink();
     displayFavouriteProduct();
     resetButton(1);
+    star();
 })
 
 function getInforProduct(){
@@ -347,6 +354,136 @@ function resetButton(flag){
             if(buttons[i].classList.contains("btn--primary")){
                 buttons[i].classList.remove("btn--primary");
             }
+        }
+    }
+}
+
+//Sort with Mobile and Tablet
+var item=document.querySelectorAll(".header__sort-item");
+item[0].addEventListener("click",()=>{
+    item[0].classList.add("header__sort-item--active");
+    var currentList=getInforProduct();
+    var list=new Array();
+    for(var i=0; i<20;i++){
+        var productRandom=currentList[Math.floor(Math.random()*currentList.length)];
+        var index=1;
+        while(list.includes(productRandom) && index<=20){
+            productRandom=currentList[Math.floor(Math.random()*currentList.length)];
+            index++;
+        }
+        list.push(productRandom);
+    }
+    displayInforProduct(list);
+    setHeart();
+    setLink();
+    displayFavouriteProduct();
+    resetButtonM(0);
+    star();
+})
+
+item[1].addEventListener("click",()=>{
+    item[1].classList.add("header__sort-item--active");
+    var list=getInforProduct();
+    list.sort((a,b)=>{
+        if(Number(a.discount) > Number(b.discount)){
+            return -1;
+        }
+        else if(Number(a.discount) < Number(b.discount)){
+            return 1;
+        }
+        else return 0;
+    })
+    displayInforProduct(list);
+    setHeart();
+    setLink();
+    displayFavouriteProduct();
+    resetButtonM(1);
+    star();
+})
+
+item[2].addEventListener("click",()=>{
+    item[2].classList.add("header__sort-item--active");
+    var list=getInforProduct();
+    list.sort((a,b)=>{
+        var a=a.qtySold;
+        var b=b.qtySold;
+
+        if(Number(a) > Number(b)){
+            return -1;
+        }
+        else if(Number(a) < Number(b)){
+            return 1;
+        }
+        else return 0;
+    });
+    displayInforProduct(list);
+    setHeart();
+    setLink();
+    displayFavouriteProduct();
+    resetButtonM(2);
+    star();
+})
+
+item[3].addEventListener("click",()=>{
+    item[3].classList.add("header__sort-item--active");
+    var list=getInforProduct();
+    list.sort((a,b)=>{
+        var priceA=Number(a.currentPrice.replace(/\D/gi,""));
+        var priceB=Number(b.currentPrice.replace(/\D/gi,""));
+
+        if(priceA < priceB){
+            return -1;
+        }
+        else if(priceA > priceB){
+            return 1;
+        }
+        else return 0;
+    });
+    displayInforProduct(list);
+    setHeart();
+    setLink();
+    displayFavouriteProduct();
+    resetButtonM(3);
+    star();
+})
+
+// Reset button with mobile and tablet
+function resetButtonM(flag){
+    var buttons=document.querySelectorAll(".header__sort-item");
+    for(var i=0;i<buttons.length;i++){
+        if(i==flag){
+            continue;
+        }
+        else{
+            if(buttons[i].classList.contains("header__sort-item--active")){
+                buttons[i].classList.remove("header__sort-item--active");
+            }
+        }
+    }
+}
+
+//Star
+function star(){
+    var itemStars=document.querySelectorAll(".home-product-item__star");
+    for(var i=0;i<itemStars.length;i++){
+        itemStars[i].innerHTML="";
+        var qtyStar=Math.floor(Math.random()*5)+1;
+        if(qtyStar==5){
+            var star="";
+            for(var j=0;j<qtyStar;j++){
+                star+=` <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>`;
+            }
+            itemStars[i].innerHTML=star;
+        }
+        else{
+            var star="";
+            for(var j=0;j<qtyStar;j++){
+                star+=` <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>`;
+            }
+            for(var k=0;k<5-qtyStar;k++){
+                star+=`<i class="fa-solid fa-star home-product-item__star-icon"></i>`;
+            }
+            itemStars[i].innerHTML=star;
         }
     }
 }

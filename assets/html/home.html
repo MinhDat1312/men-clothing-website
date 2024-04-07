@@ -197,16 +197,16 @@
             <!-- Display sort bar mobile and tablet -->
             <ul class="header__sort-bar">
                 <li class="header__sort-item">
-                    <a href="" class="header__sort-link">Phổ biến</a>
-                </li>
-                <li class="header__sort-item header__sort-item--active">
-                    <a href="" class="header__sort-link">Mới nhất</a>
+                    <a href="#" class="header__sort-link">Phổ biến</a>
                 </li>
                 <li class="header__sort-item">
-                    <a href="" class="header__sort-link">Bán chạy</a>
+                    <a href="#" class="header__sort-link">Khuyến mãi</a>
                 </li>
                 <li class="header__sort-item">
-                    <a href="" class="header__sort-link">Giá</a>
+                    <a href="#" class="header__sort-link">Bán chạy</a>
+                </li>
+                <li class="header__sort-item">
+                    <a href="#" class="header__sort-link">Giá</a>
                 </li>
             </ul>
         </header>
@@ -1151,36 +1151,30 @@
                         </div>
 
                         <ul class="pagination home-product__pagination">
-                            <li class="pagination-item">
-                                <a href="" class="pagination-item__link">
+                            <li class="pagination-item" onclick="backPage(0);">
+                                <a href="#" class="pagination-item__link">
                                     <i class="pagination-item__icon fas fa-angle-left"></i>
                                 </a>
                             </li>
     
-                            <li class="pagination-item pagination-item--active">
-                                <a href="" class="pagination-item__link">1</a>
+                            <li class="pagination-item pagination-item--active" value="1" onclick="setPage(0);">
+                                <a href="#" class="pagination-item__link">1</a>
                             </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-item__link">2</a>
+                            <li class="pagination-item" value="2" onclick="setPage(0);">
+                                <a href="#" class="pagination-item__link">2</a>
                             </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-item__link">3</a>
+                            <li class="pagination-item" value="3" onclick="setPage(0);">
+                                <a href="#" class="pagination-item__link">3</a>
                             </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-item__link">4</a>
+                            <li class="pagination-item" value="4" onclick="setPage(0);">
+                                <a href="#" class="pagination-item__link">4</a>
                             </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-item__link">5</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-item__link">...</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-item__link">14</a>
+                            <li class="pagination-item" value="5" onclick="setPage(0);">
+                                <a href="#" class="pagination-item__link">5</a>
                             </li>
     
-                            <li class="pagination-item">
-                                <a href="" class="pagination-item__link">
+                            <li class="pagination-item" onclick="nextPage(0);">
+                                <a href="#" class="pagination-item__link">
                                     <i class="pagination-item__icon fas fa-angle-right"></i>
                                 </a>
                             </li>
@@ -1383,6 +1377,30 @@
         var origins=document.querySelectorAll(".home-product-item__country");
         for(var i=0;i<origins.length;i++){
             origins[i].innerText="Việt Nam";
+        }
+
+        // Random sao đánh giá
+        var itemStars=document.querySelectorAll(".home-product-item__star");
+        for(var i=0;i<itemStars.length;i++){
+            itemStars[i].innerHTML="";
+            var qtyStar=Math.floor(Math.random()*5)+1;
+            if(qtyStar==5){
+                var star="";
+                for(var j=0;j<qtyStar;j++){
+                    star+=` <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>`;
+                }
+                itemStars[i].innerHTML=star;
+            }
+            else{
+                var star="";
+                for(var j=0;j<qtyStar;j++){
+                    star+=` <i class="fa-solid fa-star home-product-item__star-icon home-product-item__star-gold"></i>`;
+                }
+                for(var k=0;k<5-qtyStar;k++){
+                    star+=`<i class="fa-solid fa-star home-product-item__star-icon"></i>`;
+                }
+                itemStars[i].innerHTML=star;
+            }
         }
 
         // Random số lượng bán của mỗi sản phẩm
