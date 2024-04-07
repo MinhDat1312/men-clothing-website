@@ -2,6 +2,7 @@ var btnASC=document.querySelectorAll(".home__select-item")[0];
 var btnDESC=document.querySelectorAll(".home__select-item")[1];
 
 var btnPopular=document.querySelectorAll(".home-filter__btn")[0];
+var btnDiscount=document.querySelectorAll(".home-filter__btn")[1];
 var btnSoldMax=document.querySelectorAll(".home-filter__btn")[2];
 
 
@@ -85,6 +86,25 @@ btnPopular.addEventListener("click",()=>{
     setLink();
     displayFavouriteProduct();
     resetButton(0);
+})
+
+btnDiscount.addEventListener("click",()=>{
+    document.querySelectorAll(".home-filter__btn")[1].classList.add("btn--primary");
+    var list=getInforProduct();
+    list.sort((a,b)=>{
+        if(Number(a.discount) > Number(b.discount)){
+            return -1;
+        }
+        else if(Number(a.discount) < Number(b.discount)){
+            return 1;
+        }
+        else return 0;
+    })
+    displayInforProduct(list);
+    setHeart();
+    setLink();
+    displayFavouriteProduct();
+    resetButton(1);
 })
 
 function getInforProduct(){
