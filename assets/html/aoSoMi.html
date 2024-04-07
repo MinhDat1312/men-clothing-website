@@ -1378,6 +1378,7 @@
     </div>
 </body>
 <script>
+    // Set tên brand và origin
     var items=document.querySelectorAll(".home-product-item__brand");
     for(var i=0;i<items.length;i++){
         items[i].innerText="Goat";
@@ -1386,6 +1387,21 @@
     for(var i=0;i<origins.length;i++){
         origins[i].innerText="Việt Nam";
     }
+
+     // Random số lượng bán của mỗi sản phẩm
+     var listQtySold=document.querySelectorAll(".home-product-item__sold");
+    for(var i=0;i<listQtySold.length;i++){
+        var number=Math.floor(Math.random()*500)+1;
+        listQtySold[i].innerText=number +" đã bán";
+    }
+
+    // Random phần trăm giảm giá của mỗi sản phẩm
+    var listQtyDiscount=document.querySelectorAll(".home-product-item__percent");
+    for(var i=0;i<listQtyDiscount.length;i++){
+        var number=Math.floor(Math.random()*100);
+        listQtyDiscount[i].innerText=number+"%";
+    }
+
     // Hiển thị số lượng trong giỏ hàng
     if(localStorage.getItem("QtyCart")!=null){
         var json=localStorage.getItem("QtyCart");
@@ -1434,17 +1450,26 @@
         var oldPrice=res.children[2].children[0].innerText;
         var currentPrice=res.children[2].children[1].innerText
         var brand=res.children[4].children[0].innerText;
-        var origin=res.children[4].children[1].innerText
+        var origin=res.children[4].children[1].innerText;
+        var qtySold=res.children[3].children[2].innerText.replace(/\D/gi,"");
+        var discount=res.children[6].children[0].innerText.replace(/\D/gi,"");
 
-        var product=createProduct(idProduct, img, name, oldPrice, currentPrice, brand, origin);
+        var product=createProduct(idProduct, img, name, oldPrice, currentPrice, brand, origin, qtySold, discount);
         var check=0;
+        var index=-1;
         for(var j=0;j<listProduct.length;j++){
             if(listProduct[j].idProduct==product.idProduct){
                 check=1;
+                index=j;
             }
         }
         if(check==0){
             listProduct.push(product);
+        }
+        else{
+            listProduct[index].qtySold=product.qtySold;
+            listProduct[index].discount=product.discount;
+            index=-1;
         }
     }
 

@@ -233,15 +233,7 @@ function deleteProductCart(x, idProduct){
 }
 
 //Lưu sản phẩm yêu thích
-var favouriteProduct=null;
-if(localStorage.getItem("favouriteProduct")!=null){
-    favouriteProduct=JSON.parse(localStorage.getItem("favouriteProduct"));
-}
-else{
-    favouriteProduct=new Array();
-}
 var listProduct= JSON.parse(localStorage.getItem("listProduct"));
-
 //Thay đổi màu trái tim
 var listHeart=document.getElementsByClassName("home-product-item__heart");
 function changeHeart(i){
@@ -270,14 +262,52 @@ function changeHeart(i){
             }
         }
         else{
-            listHeart[i].classList.add("home-product-item__heart--liked");
-            var idProduct=listHeart[i].parentElement.parentElement.id;
-            listHeart[i].parentElement.parentElement.parentElement.href="#idProduct";
-            document.getElementsByClassName("home-product-item__favourite")[i].style.display="block";
+            if(localStorage.getItem("favouriteProduct")!=null){
+                var favouriteProduct=JSON.parse(localStorage.getItem("favouriteProduct"));
+                listHeart[i].classList.add("home-product-item__heart--liked");
+                var idProduct=listHeart[i].parentElement.parentElement.id;
+                listHeart[i].parentElement.parentElement.parentElement.href="#idProduct";
+                document.getElementsByClassName("home-product-item__favourite")[i].style.display="block";
 
-            for(var j=0;j<listProduct.length;j++){
-                if(listProduct[j].idProduct==idProduct){
-                    if(favouriteProduct.includes(listProduct[j])==false){
+                for(var j=0;j<listProduct.length;j++){
+                    if(listProduct[j].idProduct==idProduct){
+                        if(favouriteProduct.includes(listProduct[j])==false){
+                            favouriteProduct.push(listProduct[j]);
+                            var items=document.querySelector(".header__notify-list").innerHTML;
+                            if(listProduct[j]!=null){
+                                var imgProduct=listProduct[j].imgProduct;
+                                var imgReplace=imgProduct.replace(/url/gi,"");
+                                var imgSplitfirst=imgReplace.split("(")[1];
+                                var imgResult=imgSplitfirst.split(")")[0];  
+                        
+                                items+=
+                                `
+                                <li class="header__notify-item">
+                                    <a href="../html/detailProduct.html" class="header__notify-link" onclick="setCurrentProduct(${listProduct[j].idProduct});">
+                                        <img src=${imgResult} alt="" class="header__notify-img">
+                                        <div class="header__notify-infor">
+                                            <span class="header__notify-name">${listProduct[j].nameProduct}</span>
+                                            <span class="header__notify-desc">${listProduct[j].currentPrice}</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                `
+                                document.querySelector(".header__notify-list").innerHTML=items;
+                            }
+                        }
+                    }   
+                }
+                localStorage.setItem("favouriteProduct",JSON.stringify(favouriteProduct));
+            }
+            else{
+                var favouriteProduct=new Array();
+                listHeart[i].classList.add("home-product-item__heart--liked");
+                var idProduct=listHeart[i].parentElement.parentElement.id;
+                listHeart[i].parentElement.parentElement.parentElement.href="#idProduct";
+                document.getElementsByClassName("home-product-item__favourite")[i].style.display="block";
+    
+                for(var j=0;j<listProduct.length;j++){
+                    if(listProduct[j].idProduct==idProduct){
                         favouriteProduct.push(listProduct[j]);
                         var items=document.querySelector(".header__notify-list").innerHTML;
                         if(listProduct[j]!=null){
@@ -302,8 +332,8 @@ function changeHeart(i){
                         }
                     }
                 }
+                localStorage.setItem("favouriteProduct",JSON.stringify(favouriteProduct));
             }
-            localStorage.setItem("favouriteProduct",JSON.stringify(favouriteProduct));
         }
 
         if(localStorage.getItem("favouriteProduct")==null || JSON.parse(localStorage.getItem("favouriteProduct")).length<=0){

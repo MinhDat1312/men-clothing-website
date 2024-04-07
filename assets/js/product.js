@@ -1,4 +1,5 @@
-function createProduct(idProduct, imgProduct, nameProduct, oldPrice, currentPrice, brand, origin) {
+function createProduct(idProduct, imgProduct, nameProduct, oldPrice, currentPrice, brand, origin,
+    qtySold, discount) {
     var product = new Object();
 
     product.idProduct=idProduct;
@@ -8,6 +9,8 @@ function createProduct(idProduct, imgProduct, nameProduct, oldPrice, currentPric
     product.currentPrice=currentPrice;
     product.brand=brand;
     product.origin=origin;
+    product.qtySold=qtySold;
+    product.discount=discount;
 
     return product;
 }
