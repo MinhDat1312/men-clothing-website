@@ -1068,8 +1068,8 @@
     width: 110px;
     height: calc(var(--line-height)*2);
     text-decoration: none;
-    font-size: 1.4rem;
-    font-weight: 300;
+    font-size: 1.5rem;
+    font-weight: 500;
     line-height: var(--line-height);
     text-align: center;
     padding: 0 6px;
@@ -1213,6 +1213,7 @@
 .home-product-item:hover {
     transform: translateY(-4px);
     box-shadow: 0 1px 20px 0 rgba(0,0,0,0.05);
+    border: 2px solid var(--primary-color);
 }
 
 .home-product-item__img {
