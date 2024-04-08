@@ -77,14 +77,18 @@ btnPopular.addEventListener("click",()=>{
     document.querySelectorAll(".home-filter__btn")[0].classList.add("btn--primary");
     var currentList=getInforProduct();
     var list=new Array();
-    for(var i=0; i<20;i++){
-        var productRandom=currentList[Math.floor(Math.random()*currentList.length)];
-        var index=1;
-        while(list.includes(productRandom) && index <= 20){
-            productRandom=currentList[Math.floor(Math.random()*currentList.length)];
+    var checkProductRandom=new Array(101).fill(0);
+    var index=0;
+    
+    while(index<currentList.length){
+        var indexRandom=Math.floor(Math.random()*currentList.length);
+        var product=currentList[indexRandom];
+
+        if(checkProductRandom[product.idProduct]==0){
+            list.push(product);
+            checkProductRandom[product.idProduct]=1;
             index++;
         }
-        list.push(productRandom);
     }
     displayInforProduct(list);
     setHeart();
@@ -115,14 +119,14 @@ btnDiscount.addEventListener("click",()=>{
 })
 
 function getInforProduct(){
-    var currentListProduct=document.getElementsByClassName("home-product-item");
-    var lisProduct=JSON.parse(localStorage.getItem("listProduct"));
+    var currentListProduct=document.querySelectorAll(".home-product-item");
+    var listProduct=JSON.parse(localStorage.getItem("listProduct"));
     var newListProduct= new Array();
 
-    for(var i=0;i<lisProduct.length;i++){
+    for(var i=0;i<listProduct.length;i++){
         for(var j=0;j<currentListProduct.length;j++){
-            if(lisProduct[i].idProduct==currentListProduct[j].id){
-                newListProduct.push(lisProduct[i]);
+            if(listProduct[i].idProduct==currentListProduct[j].id){
+                newListProduct.push(listProduct[i]);
             }
         }
     }
@@ -359,19 +363,23 @@ function resetButton(flag){
 }
 
 //Sort with Mobile and Tablet
-var item=document.querySelectorAll(".header__sort-item");
-item[0].addEventListener("click",()=>{
-    item[0].classList.add("header__sort-item--active");
+var itemSort=document.querySelectorAll(".header__sort-item");
+itemSort[0].addEventListener("click",()=>{
+    itemSort[0].classList.add("header__sort-item--active");
     var currentList=getInforProduct();
     var list=new Array();
-    for(var i=0; i<20;i++){
-        var productRandom=currentList[Math.floor(Math.random()*currentList.length)];
-        var index=1;
-        while(list.includes(productRandom) && index<=20){
-            productRandom=currentList[Math.floor(Math.random()*currentList.length)];
+    var checkProductRandom=new Array(101).fill(0);
+    var index=0;
+    
+    while(index<currentList.length){
+        var indexRandom=Math.floor(Math.random()*currentList.length);
+        var product=currentList[indexRandom];
+
+        if(checkProductRandom[product.idProduct]==0){
+            list.push(product);
+            checkProductRandom[product.idProduct]=1;
             index++;
         }
-        list.push(productRandom);
     }
     displayInforProduct(list);
     setHeart();
@@ -381,8 +389,8 @@ item[0].addEventListener("click",()=>{
     star();
 })
 
-item[1].addEventListener("click",()=>{
-    item[1].classList.add("header__sort-item--active");
+itemSort[1].addEventListener("click",()=>{
+    itemSort[1].classList.add("header__sort-item--active");
     var list=getInforProduct();
     list.sort((a,b)=>{
         if(Number(a.discount) > Number(b.discount)){
@@ -401,8 +409,8 @@ item[1].addEventListener("click",()=>{
     star();
 })
 
-item[2].addEventListener("click",()=>{
-    item[2].classList.add("header__sort-item--active");
+itemSort[2].addEventListener("click",()=>{
+    itemSort[2].classList.add("header__sort-item--active");
     var list=getInforProduct();
     list.sort((a,b)=>{
         var a=a.qtySold;
@@ -424,8 +432,8 @@ item[2].addEventListener("click",()=>{
     star();
 })
 
-item[3].addEventListener("click",()=>{
-    item[3].classList.add("header__sort-item--active");
+itemSort[3].addEventListener("click",()=>{
+    itemSort[3].classList.add("header__sort-item--active");
     var list=getInforProduct();
     list.sort((a,b)=>{
         var priceA=Number(a.currentPrice.replace(/\D/gi,""));

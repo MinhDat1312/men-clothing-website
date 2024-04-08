@@ -443,45 +443,53 @@ function nextPage(flag){
     }
 }
 
+
 // Hiển thị sản phẩm ngẫu nhiên theo loại
 function randomProduct(){
     var listProduct=getCurrentProduct();
-    var listItemProduct=document.querySelectorAll('.home-product-item');
+    var listItemProduct=document.querySelectorAll(".home-product-item");
     var favouriteProduct=JSON.parse(localStorage.getItem("favouriteProduct"));
+    var checkProductRandom=new Array(101).fill(0);
+    var index=0;
 
-    var checkProduct=new Array();
+    while(index<listItemProduct.length){
+        var indexRandom=Math.floor(Math.random()*listProduct.length);
+        var product=listProduct[indexRandom];
 
-    for(var i=0;i<listItemProduct.length;i++){
-        var product=listProduct[Math.floor(Math.random()*20)];
-        
-        listItemProduct[i].id=product.idProduct;
-        listItemProduct[i].children[0].style.backgroundImage=product.imgProduct;
-        listItemProduct[i].children[1].innerText=product.nameProduct;
-        listItemProduct[i].children[2].children[0].innerText=product.oldPrice+'đ';
-        listItemProduct[i].children[2].children[1].innerText=product.currentPrice+'đ';
-        listItemProduct[i].children[3].children[2].innerText=product.qtySold+' đã bán';
-        listItemProduct[i].children[4].children[0].innerText=product.brand;
-        listItemProduct[i].children[4].children[1].innerText=product.origin;
-        listItemProduct[i].children[6].children[0].innerText=product.discount+'%';
-
-        for(item of favouriteProduct){
-            if(item.idProduct==product.idProduct){
-                listItemProduct[i].children[3].children[0].classList.add('home-product-item__heart--liked');
-                listItemProduct[i].children[5].style.display="block";
-                break;
-            }
-            else{
-                if(listItemProduct[i].children[3].children[0].classList.contains('home-product-item__heart--liked')){
-                    listItemProduct[i].children[3].children[0].classList.remove('home-product-item__heart--liked');
-                    listItemProduct[i].children[5].style.display="none";
+        if(checkProductRandom[product.idProduct]==0){
+            listItemProduct[index].id=product.idProduct;
+            listItemProduct[index].children[0].style.backgroundImage=product.imgProduct;
+            listItemProduct[index].children[1].innerText=product.nameProduct;
+            listItemProduct[index].children[2].children[0].innerText=product.oldPrice+'đ';
+            listItemProduct[index].children[2].children[1].innerText=product.currentPrice+'đ';
+            listItemProduct[index].children[3].children[2].innerText=product.qtySold+' đã bán';
+            listItemProduct[index].children[4].children[0].innerText=product.brand;
+            listItemProduct[index].children[4].children[1].innerText=product.origin;
+            listItemProduct[index].children[6].children[0].innerText=product.discount+'%';
+    
+            for(item of favouriteProduct){
+                if(item.idProduct==product.idProduct){
+                    listItemProduct[index].children[3].children[0].classList.add('home-product-item__heart--liked');
+                    listItemProduct[index].children[5].style.display="block";
+                    break;
+                }
+                else{
+                    if(listItemProduct[index].children[3].children[0].classList.contains('home-product-item__heart--liked')){
+                        listItemProduct[index].children[3].children[0].classList.remove('home-product-item__heart--liked');
+                        listItemProduct[index].children[5].style.display="none";
+                    }
                 }
             }
+           
+            checkProductRandom[product.idProduct]=1;
+            index++;
         }
+    
     }
 }
 
 function getCurrentProduct(){
-    var currentListProduct=document.getElementsByClassName("home-product-item");
+    var currentListProduct=document.querySelectorAll(".home-product-item");
     var lisProduct=JSON.parse(localStorage.getItem("listProduct"));
     var newListProduct= new Array();
 
@@ -498,35 +506,44 @@ function getCurrentProduct(){
 
 // Hiển thị sản phẩm ngẫu nhiên trong tab Sản phẩm
 function randomProductH(){
-    var listProduct=JSON.parse(localStorage.getItem('listProduct'));
-    var listItemProduct=document.querySelectorAll('.home-product-item');
+    var listProduct=JSON.parse(localStorage.getItem("listProduct"));
+    var listItemProduct=document.querySelectorAll(".home-product-item");
     var favouriteProduct=JSON.parse(localStorage.getItem("favouriteProduct"));
+    var checkProductRandom=new Array(101).fill(0);
+    var index=0;
 
-    for(var i=0;i<listItemProduct.length;i++){
-        var product=listProduct[Math.floor(Math.random()*100)];
+    while(index<listItemProduct.length){
+        var indexRandom=Math.floor(Math.random()*listProduct.length);
+        var product=listProduct[indexRandom];
 
-        listItemProduct[i].id=product.idProduct;
-        listItemProduct[i].children[0].style.backgroundImage=product.imgProduct;
-        listItemProduct[i].children[1].innerText=product.nameProduct;
-        listItemProduct[i].children[2].children[0].innerText=product.oldPrice+'đ';
-        listItemProduct[i].children[2].children[1].innerText=product.currentPrice+'đ';
-        listItemProduct[i].children[3].children[2].innerText=product.qtySold+' đã bán';
-        listItemProduct[i].children[4].children[0].innerText=product.brand;
-        listItemProduct[i].children[4].children[1].innerText=product.origin;
-        listItemProduct[i].children[6].children[0].innerText=product.discount+'%';
-
-        for(item of favouriteProduct){
-            if(item.idProduct==product.idProduct){
-                listItemProduct[i].children[3].children[0].classList.add('home-product-item__heart--liked');
-                listItemProduct[i].children[5].style.display="block";
-                break;
-            }
-            else{
-                if(listItemProduct[i].children[3].children[0].classList.contains('home-product-item__heart--liked')){
-                    listItemProduct[i].children[3].children[0].classList.remove('home-product-item__heart--liked');
-                    listItemProduct[i].children[5].style.display="none";
+        if(checkProductRandom[product.idProduct]==0){
+            listItemProduct[index].id=product.idProduct;
+            listItemProduct[index].children[0].style.backgroundImage=product.imgProduct;
+            listItemProduct[index].children[1].innerText=product.nameProduct;
+            listItemProduct[index].children[2].children[0].innerText=product.oldPrice+'đ';
+            listItemProduct[index].children[2].children[1].innerText=product.currentPrice+'đ';
+            listItemProduct[index].children[3].children[2].innerText=product.qtySold+' đã bán';
+            listItemProduct[index].children[4].children[0].innerText=product.brand;
+            listItemProduct[index].children[4].children[1].innerText=product.origin;
+            listItemProduct[index].children[6].children[0].innerText=product.discount+'%';
+    
+            for(item of favouriteProduct){
+                if(item.idProduct==product.idProduct){
+                    listItemProduct[index].children[3].children[0].classList.add('home-product-item__heart--liked');
+                    listItemProduct[index].children[5].style.display="block";
+                    break;
+                }
+                else{
+                    if(listItemProduct[index].children[3].children[0].classList.contains('home-product-item__heart--liked')){
+                        listItemProduct[index].children[3].children[0].classList.remove('home-product-item__heart--liked');
+                        listItemProduct[index].children[5].style.display="none";
+                    }
                 }
             }
+           
+            checkProductRandom[product.idProduct]=1;
+            index++;
         }
+    
     }
 }
