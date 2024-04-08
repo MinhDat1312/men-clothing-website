@@ -460,8 +460,8 @@ function randomProduct(){
             listItemProduct[index].id=product.idProduct;
             listItemProduct[index].children[0].style.backgroundImage=product.imgProduct;
             listItemProduct[index].children[1].innerText=product.nameProduct;
-            listItemProduct[index].children[2].children[0].innerText=product.oldPrice+'đ';
-            listItemProduct[index].children[2].children[1].innerText=product.currentPrice+'đ';
+            listItemProduct[index].children[2].children[0].innerText=product.oldPrice;
+            listItemProduct[index].children[2].children[1].innerText=product.currentPrice;
             listItemProduct[index].children[3].children[2].innerText=product.qtySold+' đã bán';
             listItemProduct[index].children[4].children[0].innerText=product.brand;
             listItemProduct[index].children[4].children[1].innerText=product.origin;
@@ -520,8 +520,8 @@ function randomProductH(){
             listItemProduct[index].id=product.idProduct;
             listItemProduct[index].children[0].style.backgroundImage=product.imgProduct;
             listItemProduct[index].children[1].innerText=product.nameProduct;
-            listItemProduct[index].children[2].children[0].innerText=product.oldPrice+'đ';
-            listItemProduct[index].children[2].children[1].innerText=product.currentPrice+'đ';
+            listItemProduct[index].children[2].children[0].innerText=product.oldPrice;
+            listItemProduct[index].children[2].children[1].innerText=product.currentPrice;
             listItemProduct[index].children[3].children[2].innerText=product.qtySold+' đã bán';
             listItemProduct[index].children[4].children[0].innerText=product.brand;
             listItemProduct[index].children[4].children[1].innerText=product.origin;
