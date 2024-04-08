@@ -503,7 +503,12 @@ function nextPage(flag){
 function randomProduct(){
     var listProduct=getCurrentProduct();
     var listItemProduct=document.querySelectorAll(".home-product-item");
-    var favouriteProduct=JSON.parse(localStorage.getItem("favouriteProduct"));
+
+    var favouriteProduct=null;
+    if(localStorage.getItem("favouriteProduct")!=null){
+        favouriteProduct=JSON.parse(localStorage.getItem("favouriteProduct"));
+    }
+
     var checkProductRandom=new Array(101).fill(0);
     var index=0;
 
@@ -521,17 +526,19 @@ function randomProduct(){
             listItemProduct[index].children[4].children[0].innerText=product.brand;
             listItemProduct[index].children[4].children[1].innerText=product.origin;
             listItemProduct[index].children[6].children[0].innerText=product.discount+'%';
-    
-            for(item of favouriteProduct){
-                if(item.idProduct==product.idProduct){
-                    listItemProduct[index].children[3].children[0].classList.add('home-product-item__heart--liked');
-                    listItemProduct[index].children[5].style.display="block";
-                    break;
-                }
-                else{
-                    if(listItemProduct[index].children[3].children[0].classList.contains('home-product-item__heart--liked')){
-                        listItemProduct[index].children[3].children[0].classList.remove('home-product-item__heart--liked');
-                        listItemProduct[index].children[5].style.display="none";
+            
+            if(favouriteProduct.length > 0 && favouriteProduct!=null){
+                for(item of favouriteProduct){
+                    if(item.idProduct==product.idProduct){
+                        listItemProduct[index].children[3].children[0].classList.add('home-product-item__heart--liked');
+                        listItemProduct[index].children[5].style.display="block";
+                        break;
+                    }
+                    else{
+                        if(listItemProduct[index].children[3].children[0].classList.contains('home-product-item__heart--liked')){
+                            listItemProduct[index].children[3].children[0].classList.remove('home-product-item__heart--liked');
+                            listItemProduct[index].children[5].style.display="none";
+                        }
                     }
                 }
             }
