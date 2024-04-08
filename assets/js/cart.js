@@ -527,17 +527,19 @@ function randomProduct(){
             listItemProduct[index].children[4].children[1].innerText=product.origin;
             listItemProduct[index].children[6].children[0].innerText=product.discount+'%';
             
-            if(favouriteProduct.length > 0 && favouriteProduct!=null){
-                for(item of favouriteProduct){
-                    if(item.idProduct==product.idProduct){
-                        listItemProduct[index].children[3].children[0].classList.add('home-product-item__heart--liked');
-                        listItemProduct[index].children[5].style.display="block";
-                        break;
-                    }
-                    else{
-                        if(listItemProduct[index].children[3].children[0].classList.contains('home-product-item__heart--liked')){
-                            listItemProduct[index].children[3].children[0].classList.remove('home-product-item__heart--liked');
-                            listItemProduct[index].children[5].style.display="none";
+            if(favouriteProduct!=null){
+                if(favouriteProduct.length > 0){
+                    for(item of favouriteProduct){
+                        if(item.idProduct==product.idProduct){
+                            listItemProduct[index].children[3].children[0].classList.add('home-product-item__heart--liked');
+                            listItemProduct[index].children[5].style.display="block";
+                            break;
+                        }
+                        else{
+                            if(listItemProduct[index].children[3].children[0].classList.contains('home-product-item__heart--liked')){
+                                listItemProduct[index].children[3].children[0].classList.remove('home-product-item__heart--liked');
+                                listItemProduct[index].children[5].style.display="none";
+                            }
                         }
                     }
                 }
