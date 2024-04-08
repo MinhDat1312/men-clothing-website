@@ -171,10 +171,6 @@ html, body{
     color: var(--white-color);
 }
 
-.pagination-item--active .pagination-item__link:hover {
-    background-color: #ED5C3F;
-}
-
 a:active {
     color: var(--text-color);
 }

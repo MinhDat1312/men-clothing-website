@@ -403,6 +403,27 @@ function setPage(flag){
     }
     event.target.parentElement.classList.add('pagination-item--active');
     currentValue=event.target.parentElement.value;
+    document.querySelector(".home-filter__pages-current").innerText=currentValue;
+    if(currentValue>1 && currentValue <5){
+        if(backPageTop.classList.contains('home-filter__control-btn--disable')){
+            backPageTop.classList.remove('home-filter__control-btn--disable');
+        }
+        if(nextPageTop.classList.contains('home-filter__control-btn--disable')){
+            nextPageTop.classList.remove('home-filter__control-btn--disable');
+        }
+    }
+    else if(currentValue==1){
+        backPageTop.classList.add('home-filter__control-btn--disable');
+        if(nextPageTop.classList.contains('home-filter__control-btn--disable')){
+            nextPageTop.classList.remove('home-filter__control-btn--disable');
+        }
+    }
+    else if(currentValue==5){
+        nextPageTop.classList.add('home-filter__control-btn--disable');
+        if(backPageTop.classList.contains('home-filter__control-btn--disable')){
+            backPageTop.classList.remove('home-filter__control-btn--disable');
+        }
+    }
     if(flag==1){
         randomProduct();
     }
@@ -418,6 +439,23 @@ function backPage(flag){
         }
         currentValue--;
         pages[currentValue].classList.add('pagination-item--active');
+        document.querySelector(".home-filter__pages-current").innerText=currentValue;
+        if(nextPageTop.classList.contains('home-filter__control-btn--disable')){
+            nextPageTop.classList.remove('home-filter__control-btn--disable');
+        }
+    }
+    else if(currentValue==1){
+        for(page of pages){
+            page.classList.remove('pagination-item--active');
+        }
+        currentValue=5;
+        pages[currentValue].classList.add('pagination-item--active');
+        document.querySelector(".home-filter__pages-current").innerText=currentValue;
+        nextPageTop.classList.add('home-filter__control-btn--disable');
+        backPageTop.classList.remove('home-filter__control-btn--disable');
+    }
+    if(currentValue==1){
+        backPageTop.classList.add('home-filter__control-btn--disable');
     }
     if(flag==1){
         randomProduct();
@@ -434,6 +472,23 @@ function nextPage(flag){
         }
         currentValue++;
         pages[currentValue].classList.add('pagination-item--active');
+        document.querySelector(".home-filter__pages-current").innerText=currentValue;
+        if(backPageTop.classList.contains('home-filter__control-btn--disable')){
+            backPageTop.classList.remove('home-filter__control-btn--disable');
+        }
+    }
+    else if(currentValue==5){
+        for(page of pages){
+            page.classList.remove('pagination-item--active');
+        }
+        currentValue=1;
+        pages[currentValue].classList.add('pagination-item--active');
+        document.querySelector(".home-filter__pages-current").innerText=currentValue;
+        nextPageTop.classList.remove('home-filter__control-btn--disable');
+        backPageTop.classList.add('home-filter__control-btn--disable');
+    }
+    if(currentValue==5){
+        nextPageTop.classList.add('home-filter__control-btn--disable');
     }
     if(flag==1){
         randomProduct();
@@ -545,5 +600,59 @@ function randomProductH(){
             index++;
         }
     
+    }
+}
+
+//Pagination on top
+var backPageTop=document.querySelectorAll(".home-filter__control-btn")[0];
+var nextPageTop=document.querySelectorAll(".home-filter__control-btn")[1];
+
+function nextPageOnTop(flag){
+    var value=Number(document.querySelector(".home-filter__pages-current").innerText);
+    value++;
+    if(value<=5){
+        currentValue=value;
+        document.querySelector(".home-filter__pages-current").innerText=value;
+        if(backPageTop.classList.contains('home-filter__control-btn--disable')){
+            backPageTop.classList.remove('home-filter__control-btn--disable');
+        }
+        for(page of pages){
+            page.classList.remove('pagination-item--active');
+        }
+        pages[value].classList.add('pagination-item--active');
+        if(flag==1){
+            randomProduct();
+        }
+        else{
+            randomProductH();
+        }
+    }
+    if(value==5){
+        nextPageTop.classList.add('home-filter__control-btn--disable');
+    }
+}
+
+function backPageOnTop(flag){
+    var value=Number(document.querySelector(".home-filter__pages-current").innerText);
+    value--;
+    if(value > 0){
+        currentValue=value
+        document.querySelector(".home-filter__pages-current").innerText=value;
+        if(nextPageTop.classList.contains('home-filter__control-btn--disable')){
+            nextPageTop.classList.remove('home-filter__control-btn--disable');
+        }
+        for(page of pages){
+            page.classList.remove('pagination-item--active');
+        }
+        pages[value].classList.add('pagination-item--active');
+        if(flag==1){
+            randomProduct();
+        }
+        else{
+            randomProductH();
+        }
+    }
+    if(value==1){
+        backPageTop.classList.add('home-filter__control-btn--disable');
     }
 }
