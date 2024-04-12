@@ -1372,6 +1372,9 @@
     </div>
 </body>
 <script>
+    // Thiết lập tên đăng nhập
+    var userName=JSON.parse(localStorage.getItem("username")).name;
+    document.querySelector('.header__item-user-name').innerText=userName;
     // Set tên brand và origin
     var items=document.querySelectorAll(".home-product-item__brand");
     for(var i=0;i<items.length;i++){

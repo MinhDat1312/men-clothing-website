@@ -255,6 +255,10 @@
     </div>
 </body>
 <script>
+    // Thiết lập tên đăng nhập
+    var userName=JSON.parse(localStorage.getItem("username")).name;
+    document.querySelector('.header__item-user-name').innerText=userName;
+
     var json=localStorage.getItem("favouriteProduct");
     var data=JSON.parse(json);
 

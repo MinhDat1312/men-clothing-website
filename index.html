@@ -254,10 +254,13 @@
             $("#liveToast").css("background-color","#dc3545");
             $("#liveToast").css("animation","slideInLeft ease 0.5s");
             $("#liveToast").css("display","block");
+            $("#emailR").css("border-color","#dc3545");
             setTimeout(()=>{
                 $("#liveToast").css("animation","fadeOut linear 1s 2s forwards");
             },600);
-            $("#emailR").focus();
+        }
+        else {
+            $("#emailR").css("border-color","#00A86B");
         }
     })
 
@@ -269,10 +272,13 @@
             $("#liveToast").css("background-color","#dc3545");
             $("#liveToast").css("animation","slideInLeft ease 0.5s");
             $("#liveToast").css("display","block");
+            $("#nameR").css("border-color","#dc3545");
             setTimeout(()=>{
                 $("#liveToast").css("animation","fadeOut linear 1s 2s forwards");
             },600);
-            $("#nameR").focus();
+        }
+        else{
+            $("#nameR").css("border-color","#00A86B");
         }
     })
 
@@ -284,10 +290,13 @@
             $("#liveToast").css("background-color","#dc3545");
             $("#liveToast").css("animation","slideInLeft ease 0.5s");
             $("#liveToast").css("display","block");
+            $("#passR").css("border-color","#dc3545");
             setTimeout(()=>{
                 $("#liveToast").css("animation","fadeOut linear 1s 2s forwards");
             },600);
-            $("#passR").focus();
+        }
+        else{
+            $("#passR").css("border-color","#00A86B");
         }
     })
 
@@ -299,25 +308,29 @@
             $("#liveToast").css("background-color","#dc3545");
             $("#liveToast").css("animation","slideInLeft ease 0.5s");
             $("#liveToast").css("display","block");
+            $("#repassR").css("border-color","#dc3545");
             setTimeout(()=>{
                 $("#liveToast").css("animation","fadeOut linear 1s 2s forwards");
             },600);
-            $("#repassR").focus();
         }
-        else if(pass==""){
+        else if(pass=="" || repass==""){
             $("#toastText").text("Vui lòng nhập mật khẩu");
             $("#liveToast").css("background-color","#dc3545");
             $("#liveToast").css("animation","slideInLeft ease 0.5s");
             $("#liveToast").css("display","block");
+            $("#repassR").css("border-color","#dc3545");
             setTimeout(()=>{
                 $("#liveToast").css("animation","fadeOut linear 1s 2s forwards");
             },600);
-            $("#passR").focus();
+        }
+        else{
+            $("#repassR").css("border-color","#00A86B");
         }
     })
 
     $(".btnRegister").click(()=>{
-        if( $("#emailR").val()!="" &&  $("#nameR").val()!="" &&  $("#passR").val()!="" &&  $("#repassR").val()!=""){
+        if( $("#emailR").val()!="" &&  $("#nameR").val()!="" &&  
+        $("#passR").val()!="" &&  $("#repassR").val()!="" && $("#passR").val()==$("#repassR").val()){
             var user={
                 email: $("#emailR").val(),
                 name: $("#nameR").val(),
@@ -337,6 +350,11 @@
 
             $("#emailR").val(""); $("#nameR").val("");
             $("#passR").val(""); $("#repassR").val("");
+
+            $("#nameR").css("border-color","#dbdbdb");
+            $("#emailR").css("border-color","#dbdbdb");
+            $("#passR").css("border-color","#dbdbdb");
+            $("#repassR").css("border-color","#dbdbdb");
         }
         else{
             $("#toastText").text("Nhập đầy đủ thông tin");
@@ -361,7 +379,7 @@
                     window.location.href="./assets/html/home.html";
                 }
                 else{
-                    $("#toastText").text("Vui lòng đăng ký tài khoản");
+                    $("#toastText").text("Tài khoản không tồn tại");
                     $("#liveToast").css("background-color","#dc3545");
                     $("#liveToast").css("animation","slideInLeft ease 0.5s");
                     $("#liveToast").css("display","block");
@@ -371,7 +389,7 @@
                 }
             }
             else{
-                $("#toastText").text("Vui lòng đăng ký tài khoản");
+                $("#toastText").text("Tài khoản không tồn tại");
                 $("#liveToast").css("background-color","#dc3545");
                 $("#liveToast").css("animation","slideInLeft ease 0.5s");
                 $("#liveToast").css("display","block");

@@ -430,6 +430,9 @@
     </div>
 </body>
 <script>
+    // Thiết lập tên đăng nhập
+    var userName=JSON.parse(localStorage.getItem("username")).name;
+    document.querySelector('.header__item-user-name').innerText=userName;
     // Hiển thị sản phẩm lên trang tìm kiếm khi từ home.html sang searchProduct.html
     var msgProduct="";
     if(localStorage.getItem("msgSearchProduct")!=null){

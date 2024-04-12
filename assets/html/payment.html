@@ -603,6 +603,10 @@
   </body>
   <script src="../js/payment.js"></script>
   <script>
+    // Thiết lập tên đăng nhập
+    var userName=JSON.parse(localStorage.getItem("username")).name;
+    document.querySelector('.header__item-user-name').innerText=userName;
+    
     function verifyPayment(){
       var inputForms=document.querySelectorAll(".form-container input");
       var check=0;

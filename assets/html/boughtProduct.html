@@ -312,6 +312,9 @@
     </div>
 </body>
 <script>
+    // Thiết lập tên đăng nhập
+    var userName=JSON.parse(localStorage.getItem("username")).name;
+    document.querySelector('.header__item-user-name').innerText=userName;
     // Hiển thị sản phẩm đã thanh toán
     var jsonList=localStorage.getItem("listBoughtProduct");
     if(jsonList!=null){

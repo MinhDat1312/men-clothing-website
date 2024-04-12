@@ -16,6 +16,7 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/login.js"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <div class="main__account">
@@ -275,15 +276,15 @@
                                 </div>
                                 <div class="col-9 gender__wrapper">
                                     <div class="radio__gender">
-                                        <input type="radio" id="male" name="gender" class="radio__active">
+                                        <input type="radio" id="male" name="gender" class="radio__active" value="Nam">
                                         <label for="male" class="form__radio" name="gender">Nam</label>
                                     </div>
                                     <div class="radio__gender">
-                                        <input type="radio" id="female" name="gender" class="radio__active">
+                                        <input type="radio" id="female" name="gender" class="radio__active" value="Nữ">
                                         <label for="female" class="form__radio" name="gender">Nữ</label>
                                     </div>
                                     <div class="radio__gender">
-                                        <input type="radio" id="other" name="gender" class="radio__active">
+                                        <input type="radio" id="other" name="gender" class="radio__active" value="Khác">
                                         <label for="other" class="form__radio" name="gender">Khác</label>
                                     </div>
                                 </div>
@@ -488,28 +489,155 @@
         <span class="modal-notify__text">Nhập tên sản phẩm để tìm kiếm</span>
     </div>
 
+     <!-- Toast Message -->
+    <div id="liveToast">
+        <div class="d-flex">
+            <div class="toast-body" id="toastText">
+                Test Toast Message
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" aria-label="Close"></button>
+        </div>
+    </div>
 </body>
     <script>
-        var nameSign=document.querySelector(".header__item-user-name");
-        var signin=document.getElementById('signin');
-        var nameUser=document.getElementById('name');
-        var mail=document.getElementById('email__account');
+        $('#signin').blur(function(){
+            var regex=/^[a-zA-Z0-9]+$/;
+            var sigin=$('#signin').val();
+            if(regex.test(sigin)){
+                $("#signin").css("border-color","#00A86B");
+            }
+            else{
+                $("#toastText").text("Tên đăng nhập không hợp lệ");
+                $("#liveToast").css("background-color","#dc3545");
+                $("#liveToast").css("animation","slideInLeft ease 0.5s");
+                $("#liveToast").css("display","block");
+                $("#signin").css("border-color","#dc3545");
+                setTimeout(()=>{
+                    $("#liveToast").css("animation","fadeOut linear 1s 2s forwards");
+                },600);
+            }
+        });
+
+        $('#name').blur(function(){
+            var regex=/^[A-Z]{1}[a-zA-Z\s]+$/;
+            var name=$("#name").val();
+            if(regex.test(name)){
+                $("#name").css("border-color","#00A86B");
+            }
+            else{
+                $("#toastText").text("Tên bắt đầu ký tự in hoa");
+                $("#liveToast").css("background-color","#dc3545");
+                $("#liveToast").css("animation","slideInLeft ease 0.5s");
+                $("#liveToast").css("display","block");
+                $("#name").css("border-color","#dc3545");
+                setTimeout(()=>{
+                    $("#liveToast").css("animation","fadeOut linear 1s 2s forwards");
+                },600);
+            }
+        });
+        $('#email__account').blur(function(){
+            var regex=/^[a-zA-Z0-9]+@gmail.com$/;
+            var email= $('#email__account').val();
+            if(regex.test(email)){
+                $("#email__account").css("border-color","#00A86B");
+            }
+            else{
+                $("#toastText").text("Email không hợp lệ");
+                $("#liveToast").css("background-color","#dc3545");
+                $("#liveToast").css("animation","slideInLeft ease 0.5s");
+                $("#liveToast").css("display","block");
+                $("#email__account").css("border-color","#dc3545");
+                setTimeout(()=>{
+                    $("#liveToast").css("animation","fadeOut linear 1s 2s forwards");
+                },600);
+            }
+        });
+        $('#phone').blur(function(){
+            var regex=/^[0-9]{10}$/
+            var phone= $('#phone').val();
+            if(regex.test(phone)){
+                $("#phone").css("border-color","#00A86B");
+            }
+            else{
+                $("#toastText").text("SĐT không hợp lệ (10 chữ số)");
+                $("#liveToast").css("background-color","#dc3545");
+                $("#liveToast").css("animation","slideInLeft ease 0.5s");
+                $("#liveToast").css("display","block");
+                $("#phone").css("border-color","#dc3545");
+                setTimeout(()=>{
+                    $("#liveToast").css("animation","fadeOut linear 1s 2s forwards");
+                },600);
+            }
+        });
 
         var user=localStorage.getItem("username");
         var data=JSON.parse(user);
 
-        nameSign.innerHTML=data.name;
-        signin.value=data.name;
-        nameUser.value=data.name;
-        mail.value=data.email;
+        $(".header__item-user-name").text(data.name);
+        $('#signin').val(data.name);
+        if(data.nameUser!=null){
+            $("#name").val(data.nameUser);
+        }
+        $('#email__account').val(data.email);
+        if(data.phone!=null){
+            $("#phone").val(data.phone);
+        }
+        if(data.gender!=null){
+            var radios=$(".radio__active");
+            for(var i=0;i<radios.length;i++){
+               if(radios[i].value==data.gender){
+                radios[i].checked=true;
+                break;
+               }
+            }
+        }
+        if(data.date!=null){
+            $("#date").val(data.date);
+        }
+
+        var gender="";
+        $(".radio__active").change(function(){
+            gender+=$(this).val();
+        })
 
         function saveData(){
-            var nameUser=document.getElementById('signin');
-            var nameSign=document.querySelector(".header__item-user-name");
+            var signin=$('#signin').val();
+            var name=$("#name").val();
+            var email=$("#email__account").val();
+            var phone=$("#phone").val();
+            var date=$("#date").val();
 
-            nameSign.innerHTML=nameUser.value;
-
-            alert("Lưu thông tin thành công");
+            if(signin!="" && name!="" && email!="" && phone!=""){
+                var user=
+                    {
+                        email: $("#email__account").val(),
+                        name: $('#signin').val(),
+                        nameUser:$("#name").val(),
+                        password: data.password,
+                        re_password : data.re_password,
+                        phone: $("#phone").val(),
+                        gender: gender,
+                        date: $("#date").val()
+                    };
+                localStorage.setItem("username",JSON.stringify(user));
+                $(".header__item-user-name").text(signin);
+                $("#toastText").text("Lưu thành công");
+                $("#liveToast").css("background-color","#00A86B");
+                $("#liveToast").css("animation","slideInLeft ease 0.5s");
+                $("#liveToast").css("display","block");
+                setTimeout(()=>{
+                    $("#liveToast").css("animation","fadeOut linear 1s 2s forwards");
+                },600);
+            }
+            else{
+                $("#toastText").text("Nhập đủ thông tin");
+                $("#liveToast").css("background-color","#dc3545");
+                $("#liveToast").css("animation","slideInLeft ease 0.5s");
+                $("#liveToast").css("display","block");
+                setTimeout(()=>{
+                    $("#liveToast").css("animation","fadeOut linear 1s 2s forwards");
+                },600);
+            }
         }
 
          // Hiển thị số lượng trong giỏ hàng

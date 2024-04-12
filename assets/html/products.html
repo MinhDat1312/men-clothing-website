@@ -329,6 +329,9 @@
 </body>
     <script src="../js/products.js"></script>
     <script>
+        // Thiết lập tên đăng nhập
+        var userName=JSON.parse(localStorage.getItem("username")).name;
+        document.querySelector('.header__item-user-name').innerText=userName;
         // Tăng giảm số lượng sản phẩm
         var plus=document.getElementsByClassName("detail-product-item__qty-plus");
         var minus=document.getElementsByClassName("detail-product-item__qty-minus");
@@ -344,6 +347,16 @@
 
         function createPlusCallback(i) {
             return function() {
+                // Reset lại các checkbox
+                var inputs=document.getElementsByClassName('content__product__input');
+                for(var j=0;j<inputs.length;j++){
+                    if(inputs[j].checked){
+                        inputs[j].checked=false;
+                    }
+                }
+                // Reset lại tổng tiền
+                document.querySelector(".content__product__btn-total").innerText="0đ";
+
                 var a = parseInt(num[i].innerText);
                 a++;
                 num[i].innerText = a;
@@ -364,6 +377,16 @@
 
         function createMinusCallback(i) {
             return function() {
+                // Reset lại các checkbox
+                var inputs=document.getElementsByClassName('content__product__input');
+                for(var j=0;j<inputs.length;j++){
+                    if(inputs[j].checked){
+                        inputs[j].checked=false;
+                    }
+                }
+                // Reset lại tổng tiền
+                document.querySelector(".content__product__btn-total").innerText="0đ";
+
                 var a = parseInt(num[i].innerText);
                 if (a <= 1) {
                     num[i].innerText = 1;
