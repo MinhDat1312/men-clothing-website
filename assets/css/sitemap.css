@@ -1,0 +1,139 @@
+/* Header */
+.header {
+    height: 62px;
+    background-image: linear-gradient(0,#ffff,#ffff) ;
+    border-bottom: 4px solid var(--primary-color);
+}
+
+.header__img {
+    width: 90px;
+}
+
+.nav-item {
+    padding: 10px 12px;
+}
+
+.nav-link {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.header__item-user-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.header__item-user-name {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--primary-color);    
+}
+
+/* Container */
+.container {
+    margin-top: 72px;
+}
+
+.row {
+    margin-bottom: 70px;
+}
+
+.title {
+    font-size: 3.6rem;
+    color: rgb(51,51,51);
+    font-weight: bold;
+}
+
+.desc {
+    margin-top: 36px;
+    color: rgb(81,77,71);
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+}
+
+.row--mod {
+    margin-bottom: 0;
+}
+
+.desc__text {
+    color: rgb(81,77,71);
+    font-size: 1.6rem;
+    line-height: 3rem;
+}
+
+.member__img {
+    width: 300px;
+    box-shadow: 0 1px 3.125rem 0 rgba(0,0,0,0.2);
+}
+
+.document__img {
+    width: 600px;
+    box-shadow: 0 1px 3.125rem 0 rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+    .document__img {
+        width: 100%;
+    }
+
+    .header__sort-bar {
+        display: none;
+    }
+}
+
+/* Mobile */
+@media (max-width: 739px) {
+    .header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+    }
+
+    .header__sort-bar {
+        display: flex;
+        top: 62px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .carousel {
+        margin-top: calc(62px + var(--header-sort-bar-height));
+    }
+
+    .container {
+        margin-top: 50px;
+    }
+
+    .document__img {
+        width: 100%;
+    }
+
+    .member__img {
+        width: 100%;
+    }
+
+    .title {
+        font-size: 3rem;
+    }
+
+    .desc {
+        margin-top: 20px;
+    }
+    
+    .desc, .desc__text {
+        font-size: 1.2rem;
+    }
+
+    .header__sort-link:active,  .header__sort-link:hover{
+        color: var(--primary-color);
+    }
+}
