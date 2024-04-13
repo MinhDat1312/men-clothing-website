@@ -400,6 +400,8 @@
         document.getElementsByClassName("detail-product-item__new")[0].innerText=res.currentPrice;
         document.getElementsByClassName("detail-product-item__brand")[0].innerText=res.brand;
         document.getElementsByClassName("detail-product-item__country")[0].innerText=res.origin;
+        document.getElementsByClassName("detail-product-item__percent")[0].innerText=res.discount+"%";
+        document.getElementsByClassName("home-product-item__sold")[0].innerText=res.qtySold+" đã bán";
         
         // Tăng giảm số lượng sản phẩm
         var plus=document.querySelector(".detail-product-item__qty-plus");
