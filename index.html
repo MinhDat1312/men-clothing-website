@@ -329,6 +329,9 @@
     })
 
     $(".btnRegister").click(()=>{
+        $("#emailR").blur();
+        $("#nameR").blur();
+        $("#passR").blur();
         $("#repassR").blur();
         if( $("#emailR").val()!="" &&  $("#nameR").val()!="" &&  
         $("#passR").val()!="" &&  $("#repassR").val()!="" && $("#passR").val()==$("#repassR").val()){
