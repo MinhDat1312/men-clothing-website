@@ -425,7 +425,9 @@
             }
             localStorage.setItem("paymentProducts",JSON.stringify(paymentProducts));
             if(paymentProducts.length<=0){
-                document.querySelector(".modal-notify__text").innerText="Chọn sản phẩm để thanh toán";
+                if(inputs[0].checked==false){
+                    document.querySelector(".modal-notify__text").innerText="Chọn sản phẩm để thanh toán";
+                }
             }
             else{
                 window.location.href="../html/payment.html";
