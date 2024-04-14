@@ -226,7 +226,7 @@
                         </span>
                     </div>
                     <div class="col-lg-3 col-sm-4 col content__product__col content__product__col-btn">
-                        <button class="btn btn--primary btn__product" onclick="payment(); notifySuccess();">Thanh Toán</button>
+                        <button class="btn btn--primary btn__product" onclick="payment();">Thanh Toán</button>
                     </div>
                 </div>
             </div>
@@ -428,6 +428,7 @@
                 if(inputs[0].checked==false){
                     document.querySelector(".modal-notify__text").innerText="Chọn sản phẩm để thanh toán";
                 }
+                notifySuccess();
             }
             else{
                 window.location.href="../html/payment.html";
