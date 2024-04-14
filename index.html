@@ -329,6 +329,7 @@
     })
 
     $(".btnRegister").click(()=>{
+        $("#repassR").blur();
         if( $("#emailR").val()!="" &&  $("#nameR").val()!="" &&  
         $("#passR").val()!="" &&  $("#repassR").val()!="" && $("#passR").val()==$("#repassR").val()){
             var user={
@@ -343,11 +344,12 @@
             $("#liveToast").css("background-color","#00A86B");
             $("#liveToast").css("animation","slideInLeft ease 0.5s");
             $("#liveToast").css("display","block");
+            displayLogininRegister();
+
             setTimeout(()=>{
                 $("#liveToast").css("animation","fadeOut linear 1s 2s forwards");
             },600);
-            displayLogininRegister();
-
+        
             $("#emailR").val(""); $("#nameR").val("");
             $("#passR").val(""); $("#repassR").val("");
 
@@ -355,6 +357,16 @@
             $("#emailR").css("border-color","#dbdbdb");
             $("#passR").css("border-color","#dbdbdb");
             $("#repassR").css("border-color","#dbdbdb");
+        }
+        else if($("#passR").val()!=$("#repassR").val() && $("#passR").val()!="" &&  $("#repassR").val()!=""){
+            $("#toastText").text("Mật khẩu không đúng");
+            $("#liveToast").css("background-color","#dc3545");
+            $("#liveToast").css("animation","slideInLeft ease 0.5s");
+            $("#liveToast").css("display","block");
+            $("#repassR").css("border-color","#dc3545");
+            setTimeout(()=>{
+                $("#liveToast").css("animation","fadeOut linear 1s 2s forwards");
+            },600);
         }
         else{
             $("#toastText").text("Nhập đầy đủ thông tin");
