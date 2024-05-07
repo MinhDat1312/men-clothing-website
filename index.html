@@ -268,7 +268,7 @@
         var regex=/^[a-zA-Z0-9]+$/;
         var name=$("#nameR").val();
         if(!regex.test(name)){
-            $("#toastText").text("Tên không hợp lệ");
+            $("#toastText").text("Tên đăng nhập không có ký tự đặc biệt");
             $("#liveToast").css("background-color","#dc3545");
             $("#liveToast").css("animation","slideInLeft ease 0.5s");
             $("#liveToast").css("display","block");
