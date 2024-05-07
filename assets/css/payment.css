@@ -146,7 +146,7 @@ input {
     width: 60px;
 }
 
-/* CREDIT CARD IMAGE STYLING */
+/*Thay đổi image credit card */
 .preload * {
     -webkit-transition: none !important;
     -moz-transition: none !important;
@@ -194,7 +194,7 @@ input {
     user-select:none;
 }
 
-/* CHANGEABLE CARD ELEMENTS */
+/* Thay đổi màu cho credit card */
 .creditcard .lightcolor,
 .creditcard .darkcolor {
     -webkit-transition: fill .5s;
@@ -273,7 +273,7 @@ input {
     fill: #616161;
 }
 
-/* FRONT OF CARD */
+/* mặt trước của thẻ */
 #svgname {
     text-transform: uppercase;
 }
@@ -326,7 +326,7 @@ input {
     fill: #4C4C4C;
 }
 
-/* BACK OF CARD */
+/* mặt sau của thẻ */
 #cardback .st0 {
     fill: none;
     stroke: #0F0F0F;
@@ -382,7 +382,7 @@ input {
     font-size: 37.769px;
 }
 
-/* FLIP ANIMATION */
+/* animation lật */
 .container {
     perspective: 1000px;
 }
