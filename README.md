@@ -207,8 +207,11 @@ Dự án xây dựng một **website thương mại điện tử** bán thời t
 
 ## 📞 Liên hệ
 
-- 📧 Email: [nguyenthangdat84@gmail.com](mailto:nguyenthangdat84@gmail.com)
-- 🐙 GitHub: [github.com/MinhDat1312](https://github.com/MinhDat1312)
+- 📧 Email: [nguyenthangdat84@gmail.com](mailto:nguyenthangdat84@gmail.com)  
+- 🐙 GitHub: [github.com/MinhDat1312](https://github.com/MinhDat1312)  
+- 🌐 Facebook: [fb.com/MinhDat](https://www.facebook.com/minh.at.784106)  
+- 📸 Instagram: [instagram.com/MinhDat](https://www.instagram.com/ntmdat1312)  
+- 💼 LinkedIn: [linkedin.com/in/MinhDat](https://www.linkedin.com/in/minh-%C4%91%E1%BA%A1t-14b018263)
 
 ---
 
